@@ -40,6 +40,19 @@ def segtext(pd, ps, pe):
     return "\n".join(f"<!-- page {p} -->\n" + pd[p] for p in range(ps, pe + 1) if p in pd)
 
 
+def page_split(pd, ps, pe, seg_kb):
+    """把页码 ps..pe 按文本量切成多段(每段累计 <= seg_kb KB)。"""
+    segs, cur, acc = [], ps, 0
+    for p in range(ps, pe + 1):
+        pl = len(pd.get(p, ""))
+        if acc + pl > seg_kb * 1024 and p > cur:
+            segs.append((cur, p - 1)); cur, acc = p, 0
+        acc += pl
+    if cur <= pe:
+        segs.append((cur, pe))
+    return segs or [(ps, pe)]
+
+
 def img_page(fn):
     m = re.search(r"-p(\d+)-", fn)
     return int(m.group(1)) if m else 0
@@ -74,12 +87,25 @@ def main():
     def add_split(part, chapter, title, src, out, page_start, page_end, sections, all_imgs):
         src_path = os.path.join(ROOT, src)
         pd = page_dict(open(src_path, encoding="utf-8").read())
-        # 每个小节的页码范围
-        ranges = []
+        # 叶子单元:超大 L3 按 L4 细化;仍超大者按页码再切,避免单段过大
+        leaves = []
         for i, s in enumerate(sections):
             ps = s["page"]
             pe = sections[i + 1]["page"] - 1 if i + 1 < len(sections) else page_end
-            ranges.append((s["title"], ps, pe))
+            subs = s.get("subs") or []
+            if len(segtext(pd, ps, pe)) > SEG_KB * 1024 and subs:
+                for j, sub in enumerate(subs):
+                    leaves.append((sub["title"], sub["page"],
+                                   subs[j + 1]["page"] - 1 if j + 1 < len(subs) else pe))
+            else:
+                leaves.append((s["title"], ps, pe))
+        ranges = []
+        for (t, sps, spe) in leaves:
+            if len(segtext(pd, sps, spe)) > SEG_KB * 1024:
+                for (a, b) in page_split(pd, sps, spe, SEG_KB):
+                    ranges.append((t, a, b))
+            else:
+                ranges.append((t, sps, spe))
         # 贪心分组
         groups, g, acc = [], [], 0
         for (st, ps, pe) in ranges:
