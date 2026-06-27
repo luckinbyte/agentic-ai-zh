@@ -1,0 +1,4624 @@
+{
+  "page_count": 603,
+  "frontmatter": [
+    {
+      "slug": "disclaimer",
+      "title": "Disclaimer",
+      "page_start": 24,
+      "page_end": 24,
+      "file": "chapters/frontmatter/disclaimer.md"
+    },
+    {
+      "slug": "about-the-author",
+      "title": "About the Author",
+      "page_start": 25,
+      "page_end": 25,
+      "file": "chapters/frontmatter/about-the-author.md"
+    },
+    {
+      "slug": "preface",
+      "title": "Preface",
+      "page_start": 26,
+      "page_end": 29,
+      "file": "chapters/frontmatter/preface.md"
+    },
+    {
+      "slug": "introduction",
+      "title": "Introduction",
+      "page_start": 30,
+      "page_end": 33,
+      "file": "chapters/frontmatter/introduction.md"
+    }
+  ],
+  "parts": [
+    {
+      "roman": "I",
+      "name": "Foundations",
+      "slug": "part-i-foundations",
+      "page": 34,
+      "chapters": [
+        {
+          "index": 1,
+          "slug": "llm-architecture-and-optimization-methods",
+          "title": "LLM Architecture and Optimization Methods",
+          "part": "part-i-foundations",
+          "part_roman": "I",
+          "page_start": 35,
+          "page_end": 104,
+          "file": "chapters/part-i-foundations/llm-architecture-and-optimization-methods.md",
+          "sections": [
+            {
+              "title": "How LLMs Work: An Intuitive Overview",
+              "page": 35,
+              "subs": []
+            },
+            {
+              "title": "Tokenization",
+              "page": 35,
+              "subs": [
+                {
+                  "title": "Why Not Characters or Words?",
+                  "page": 36
+                },
+                {
+                  "title": "Byte-Pair Encoding (BPE)",
+                  "page": 36
+                },
+                {
+                  "title": "Other Tokenization Methods",
+                  "page": 37
+                },
+                {
+                  "title": "Tokenization Best Practices",
+                  "page": 37
+                },
+                {
+                  "title": "Tokenization in Practice: HuggingFace Example",
+                  "page": 37
+                },
+                {
+                  "title": "Special Tokens and Structured Prompts",
+                  "page": 38
+                }
+              ]
+            },
+            {
+              "title": "The Transformer Architecture",
+              "page": 39,
+              "subs": [
+                {
+                  "title": "High-Level Structure",
+                  "page": 39
+                },
+                {
+                  "title": "The Original Encoder-Decoder Transformer",
+                  "page": 39
+                },
+                {
+                  "title": "Decoder-Only vs Encoder-Decoder",
+                  "page": 42
+                },
+                {
+                  "title": "Embeddings: From Discrete Tokens to Continuous Space",
+                  "page": 42
+                },
+                {
+                  "title": "Self-Attention Mechanism",
+                  "page": 44
+                },
+                {
+                  "title": "Multi-Head Attention",
+                  "page": 46
+                },
+                {
+                  "title": "Positional Encodings",
+                  "page": 46
+                },
+                {
+                  "title": "Feed-Forward Network (MLP)",
+                  "page": 49
+                },
+                {
+                  "title": "Layer Normalization",
+                  "page": 49
+                },
+                {
+                  "title": "Model Size Reference",
+                  "page": 50
+                },
+                {
+                  "title": "Attention Pathologies",
+                  "page": 50
+                },
+                {
+                  "title": "Visualizing Attention for Explainability",
+                  "page": 52
+                }
+              ]
+            },
+            {
+              "title": "Prediction Heads: What Transformers Output",
+              "page": 54,
+              "subs": [
+                {
+                  "title": "Language Modeling Head (Pretraining)",
+                  "page": 54
+                },
+                {
+                  "title": "Conditional Generation Head (SFT / Instruction Following)",
+                  "page": 55
+                },
+                {
+                  "title": "Value Head (Regression for RL)",
+                  "page": 56
+                },
+                {
+                  "title": "Head Selection Summary",
+                  "page": 56
+                },
+                {
+                  "title": "HuggingFace Implementation",
+                  "page": 56
+                }
+              ]
+            },
+            {
+              "title": "Optimization Theory for LLM Training",
+              "page": 58,
+              "subs": [
+                {
+                  "title": "Gradient Descent: The Foundation",
+                  "page": 58
+                },
+                {
+                  "title": "Why Vanilla SGD Fails for LLMs",
+                  "page": 59
+                },
+                {
+                  "title": "Adam – Adaptive Moment Estimation",
+                  "page": 59
+                },
+                {
+                  "title": "AdamW – Decoupled Weight Decay",
+                  "page": 60
+                },
+                {
+                  "title": "Learning Rate – The Most Important Hyperparameter",
+                  "page": 61
+                },
+                {
+                  "title": "Learning Rate Warmup",
+                  "page": 61
+                },
+                {
+                  "title": "Learning Rate Schedules",
+                  "page": 61
+                },
+                {
+                  "title": "Gradient Clipping",
+                  "page": 62
+                },
+                {
+                  "title": "Mixed Precision Training",
+                  "page": 64
+                },
+                {
+                  "title": "Practical Optimizer Settings by Training Phase",
+                  "page": 66
+                }
+              ]
+            },
+            {
+              "title": "Flash Attention – Algorithm and Hardware Awareness",
+              "page": 67,
+              "subs": [
+                {
+                  "title": "The Standard Attention Memory Problem",
+                  "page": 67
+                },
+                {
+                  "title": "The Flash Attention Key Insight – Tiling and Online Softmax",
+                  "page": 68
+                },
+                {
+                  "title": "The Flash Attention Algorithm",
+                  "page": 68
+                },
+                {
+                  "title": "Flash Attention 2 – Better Parallelism",
+                  "page": 69
+                },
+                {
+                  "title": "Flash Attention 3 – Hopper Architecture",
+                  "page": 69
+                },
+                {
+                  "title": "Flash Attention 4 – Blackwell Architecture",
+                  "page": 69
+                }
+              ]
+            },
+            {
+              "title": "Pretraining: Best Practices",
+              "page": 70,
+              "subs": [
+                {
+                  "title": "Training Objective",
+                  "page": 70
+                },
+                {
+                  "title": "Data Pipeline",
+                  "page": 70
+                },
+                {
+                  "title": "Scaling Laws",
+                  "page": 71
+                },
+                {
+                  "title": "Key Hyperparameters",
+                  "page": 71
+                },
+                {
+                  "title": "Common Failure Modes",
+                  "page": 71
+                }
+              ]
+            },
+            {
+              "title": "Supervised Fine-Tuning (SFT)",
+              "page": 71,
+              "subs": [
+                {
+                  "title": "SFT Objective",
+                  "page": 71
+                },
+                {
+                  "title": "Data Quality: The LIMA Principle",
+                  "page": 71
+                },
+                {
+                  "title": "Training Configuration",
+                  "page": 72
+                },
+                {
+                  "title": "Efficient Training Solutions",
+                  "page": 72
+                },
+                {
+                  "title": "Best Practices",
+                  "page": 73
+                }
+              ]
+            },
+            {
+              "title": "LoRA and Parameter-Efficient Fine-Tuning",
+              "page": 73,
+              "subs": [
+                {
+                  "title": "The LoRA Insight",
+                  "page": 73
+                },
+                {
+                  "title": "LoRA Hyperparameters",
+                  "page": 75
+                },
+                {
+                  "title": "LoRA Variants",
+                  "page": 75
+                },
+                {
+                  "title": "Other PEFT Approaches",
+                  "page": 78
+                }
+              ]
+            },
+            {
+              "title": "Mixture of Experts (MoE)",
+              "page": 79,
+              "subs": [
+                {
+                  "title": "Architecture",
+                  "page": 79
+                },
+                {
+                  "title": "Load Balancing",
+                  "page": 79
+                },
+                {
+                  "title": "Noisy Top-K Gating: Making Discrete Routing Trainable",
+                  "page": 80
+                },
+                {
+                  "title": "Notable MoE Models",
+                  "page": 81
+                }
+              ]
+            },
+            {
+              "title": "Diversity in LLM Training",
+              "page": 81,
+              "subs": [
+                {
+                  "title": "Sampling Diversity",
+                  "page": 81
+                },
+                {
+                  "title": "Training Data Diversity",
+                  "page": 82
+                },
+                {
+                  "title": "Diversity-Promoting Methods",
+                  "page": 82
+                }
+              ]
+            },
+            {
+              "title": "Text Generation: Decoding Methods",
+              "page": 82,
+              "subs": [
+                {
+                  "title": "Greedy Decoding",
+                  "page": 82
+                },
+                {
+                  "title": "Beam Search",
+                  "page": 82
+                },
+                {
+                  "title": "Diverse Beam Search",
+                  "page": 83
+                },
+                {
+                  "title": "Top-k Sampling",
+                  "page": 83
+                },
+                {
+                  "title": "Top-p (Nucleus) Sampling",
+                  "page": 84
+                },
+                {
+                  "title": "Min-p Sampling",
+                  "page": 84
+                },
+                {
+                  "title": "Temperature Scaling",
+                  "page": 85
+                },
+                {
+                  "title": "Contrastive Decoding",
+                  "page": 85
+                },
+                {
+                  "title": "Repetition Penalties",
+                  "page": 85
+                },
+                {
+                  "title": "Practical Comparison",
+                  "page": 85
+                },
+                {
+                  "title": "Constrained Decoding (Structured Generation)",
+                  "page": 86
+                }
+              ]
+            },
+            {
+              "title": "Prompt Engineering",
+              "page": 87,
+              "subs": [
+                {
+                  "title": "In-Context Learning (ICL)",
+                  "page": 87
+                },
+                {
+                  "title": "Zero-Shot Prompting",
+                  "page": 88
+                },
+                {
+                  "title": "Few-Shot Prompting",
+                  "page": 88
+                },
+                {
+                  "title": "Instruction-Following Prompts",
+                  "page": 89
+                },
+                {
+                  "title": "Structured Output Prompts (JSON/XML)",
+                  "page": 89
+                },
+                {
+                  "title": "Chain-of-Thought (CoT) Prompting",
+                  "page": 91
+                },
+                {
+                  "title": "Advanced Prompting Techniques",
+                  "page": 92
+                },
+                {
+                  "title": "Best Practices: Crafting Effective Prompts",
+                  "page": 93
+                }
+              ]
+            },
+            {
+              "title": "Model Compression Methods",
+              "page": 94,
+              "subs": [
+                {
+                  "title": "Quantization",
+                  "page": 94
+                },
+                {
+                  "title": "Pruning",
+                  "page": 95
+                },
+                {
+                  "title": "Knowledge Distillation",
+                  "page": 96
+                }
+              ]
+            },
+            {
+              "title": "Speculative Decoding Methods",
+              "page": 98,
+              "subs": [
+                {
+                  "title": "Core Principle",
+                  "page": 98
+                },
+                {
+                  "title": "Methods Comparison",
+                  "page": 98
+                },
+                {
+                  "title": "Medusa: Multi-Head Speculative Decoding",
+                  "page": 98
+                },
+                {
+                  "title": "Eagle: Feature-Level Drafting",
+                  "page": 99
+                },
+                {
+                  "title": "N-gram Speculative Decoding",
+                  "page": 99
+                },
+                {
+                  "title": "Integration with vLLM",
+                  "page": 101
+                }
+              ]
+            },
+            {
+              "title": "Hallucination Detection",
+              "page": 102,
+              "subs": [
+                {
+                  "title": "Types of Hallucination",
+                  "page": 102
+                },
+                {
+                  "title": "Detection Methods (Model-Level)",
+                  "page": 102
+                }
+              ]
+            },
+            {
+              "title": "LLM Safety and Responsible AI",
+              "page": 103,
+              "subs": [
+                {
+                  "title": "Threat Taxonomy",
+                  "page": 103
+                },
+                {
+                  "title": "Safety Training Pipeline",
+                  "page": 103
+                },
+                {
+                  "title": "Key Safety Mechanisms",
+                  "page": 103
+                },
+                {
+                  "title": "The Helpfulness–Safety Tradeoff",
+                  "page": 104
+                },
+                {
+                  "title": "Evaluation",
+                  "page": 104
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "slug": "systems-foundations-for-llms",
+          "title": "Systems Foundations for LLMs",
+          "part": "part-i-foundations",
+          "part_roman": "I",
+          "page_start": 105,
+          "page_end": 118,
+          "file": "chapters/part-i-foundations/systems-foundations-for-llms.md",
+          "sections": [
+            {
+              "title": "GPU Architecture – From Silicon to LLM Training",
+              "page": 105,
+              "subs": [
+                {
+                  "title": "Why GPUs for Deep Learning?",
+                  "page": 105
+                },
+                {
+                  "title": "NVIDIA GPU Microarchitecture Generations",
+                  "page": 105
+                },
+                {
+                  "title": "Common GPUs for LLM Training and Inference",
+                  "page": 105
+                },
+                {
+                  "title": "GPU Internal Architecture – The Streaming Multiprocessor (SM)",
+                  "page": 106
+                },
+                {
+                  "title": "GPU Chip Scaling Across Generations",
+                  "page": 107
+                },
+                {
+                  "title": "GPU Memory Hierarchy and Bandwidth",
+                  "page": 107
+                },
+                {
+                  "title": "Arithmetic Intensity and the Roofline Model",
+                  "page": 108
+                },
+                {
+                  "title": "Attention is Memory-Bound; FFN is Compute-Bound",
+                  "page": 109
+                },
+                {
+                  "title": "Tensor Cores",
+                  "page": 110
+                },
+                {
+                  "title": "Communication Architecture – NVLink, InfiniBand, and PCIe",
+                  "page": 110
+                }
+              ]
+            },
+            {
+              "title": "vLLM – PagedAttention and High-Throughput Inference",
+              "page": 113,
+              "subs": [
+                {
+                  "title": "The KV Cache Fragmentation Problem",
+                  "page": 113
+                },
+                {
+                  "title": "PagedAttention – Virtual Memory for KV Caches",
+                  "page": 113
+                },
+                {
+                  "title": "Benefits of PagedAttention",
+                  "page": 114
+                },
+                {
+                  "title": "Continuous Batching",
+                  "page": 114
+                },
+                {
+                  "title": "Speculative Decoding in vLLM",
+                  "page": 115
+                },
+                {
+                  "title": "Concrete Memory Savings – 70B Model at Scale",
+                  "page": 115
+                },
+                {
+                  "title": "vLLM: End-to-End System",
+                  "page": 115
+                },
+                {
+                  "title": "Architecture Overview",
+                  "page": 115
+                },
+                {
+                  "title": "Core Components",
+                  "page": 115
+                },
+                {
+                  "title": "Request Lifecycle (End-to-End Flow)",
+                  "page": 116
+                },
+                {
+                  "title": "Prefix Caching (Automatic Prompt Caching)",
+                  "page": 117
+                },
+                {
+                  "title": "Guided (Constrained) Decoding in vLLM",
+                  "page": 117
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "slug": "introduction-to-reinforcement-learning",
+          "title": "Introduction to Reinforcement Learning",
+          "part": "part-i-foundations",
+          "part_roman": "I",
+          "page_start": 119,
+          "page_end": 131,
+          "file": "chapters/part-i-foundations/introduction-to-reinforcement-learning.md",
+          "sections": [
+            {
+              "title": "The Markov Decision Process (MDP)",
+              "page": 119,
+              "subs": []
+            },
+            {
+              "title": "Core Concepts and Definitions",
+              "page": 120,
+              "subs": []
+            },
+            {
+              "title": "Taxonomy of RL Methods",
+              "page": 121,
+              "subs": []
+            },
+            {
+              "title": "Temporal Difference (TD) Learning",
+              "page": 121,
+              "subs": [
+                {
+                  "title": "Understanding TD Error: ``Surprise'' as a Learning Signal",
+                  "page": 121
+                },
+                {
+                  "title": "The TD Error Formula",
+                  "page": 122
+                },
+                {
+                  "title": "How the Agent Uses TD Error",
+                  "page": 122
+                }
+              ]
+            },
+            {
+              "title": "Q-Learning",
+              "page": 123,
+              "subs": [
+                {
+                  "title": "Understanding Replay Buffers",
+                  "page": 124
+                }
+              ]
+            },
+            {
+              "title": "Policy Gradient Methods — REINFORCE",
+              "page": 125,
+              "subs": []
+            },
+            {
+              "title": "Actor-Critic Methods",
+              "page": 126,
+              "subs": []
+            },
+            {
+              "title": "Generalized Advantage Estimation (GAE)",
+              "page": 127,
+              "subs": [
+                {
+                  "title": "Intuitive Mapping of Bias and Variance in GAE",
+                  "page": 127
+                },
+                {
+                  "title": "The Architectural Spectrum: Boundary Analysis",
+                  "page": 128
+                },
+                {
+                  "title": "The Trade-off Matrix",
+                  "page": 129
+                },
+                {
+                  "title": "Diagnostics for Tuning",
+                  "page": 129
+                }
+              ]
+            },
+            {
+              "title": "On-Policy vs Off-Policy — Detailed Comparison",
+              "page": 129,
+              "subs": []
+            },
+            {
+              "title": "Model-Based vs Model-Free",
+              "page": 130,
+              "subs": []
+            },
+            {
+              "title": "Reward Shaping",
+              "page": 130,
+              "subs": [
+                {
+                  "title": "The Mathematical Framework",
+                  "page": 130
+                },
+                {
+                  "title": "Potential-Based Reward Shaping (PBRS)",
+                  "page": 130
+                },
+                {
+                  "title": "Theoretical Guarantees",
+                  "page": 131
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "roman": "II",
+      "name": "RL Methods for LLMs",
+      "slug": "part-ii-rl-methods-for-llms",
+      "page": 132,
+      "chapters": [
+        {
+          "index": 1,
+          "slug": "rl-foundations-for-language-models",
+          "title": "RL Foundations for Language Models",
+          "part": "part-ii-rl-methods-for-llms",
+          "part_roman": "II",
+          "page_start": 133,
+          "page_end": 135,
+          "file": "chapters/part-ii-rl-methods-for-llms/rl-foundations-for-language-models.md",
+          "sections": [
+            {
+              "title": "Two Paradigms for RL in LLMs",
+              "page": 133,
+              "subs": []
+            },
+            {
+              "title": "Text Generation as an MDP",
+              "page": 134,
+              "subs": []
+            },
+            {
+              "title": "The RLHF Pipeline",
+              "page": 134,
+              "subs": []
+            },
+            {
+              "title": "Roadmap of This Part",
+              "page": 135,
+              "subs": []
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "slug": "ppo-proximal-policy-optimization",
+          "title": "PPO — Proximal Policy Optimization",
+          "part": "part-ii-rl-methods-for-llms",
+          "part_roman": "II",
+          "page_start": 136,
+          "page_end": 144,
+          "file": "chapters/part-ii-rl-methods-for-llms/ppo-proximal-policy-optimization.md",
+          "sections": [
+            {
+              "title": "Motivation and History",
+              "page": 136,
+              "subs": []
+            },
+            {
+              "title": "The Clipped Objective",
+              "page": 136,
+              "subs": []
+            },
+            {
+              "title": "Full PPO Loss",
+              "page": 136,
+              "subs": []
+            },
+            {
+              "title": "Derivation of the PPO Gradient and Update Rule",
+              "page": 137,
+              "subs": [
+                {
+                  "title": "Step 1: The RL Objective",
+                  "page": 137
+                },
+                {
+                  "title": "Step 2: Policy Gradient Theorem",
+                  "page": 137
+                },
+                {
+                  "title": "Step 3: Importance Sampling for Off-Policy Data",
+                  "page": 137
+                },
+                {
+                  "title": "Step 4: The Problem with Unconstrained Surrogates",
+                  "page": 137
+                },
+                {
+                  "title": "Step 5: PPO’s Clipped Surrogate (First-Order Approximation)",
+                  "page": 138
+                },
+                {
+                  "title": "Step 6: The Complete PPO Update Rule",
+                  "page": 138
+                }
+              ]
+            },
+            {
+              "title": "Rollout Buffer and Rollouts",
+              "page": 138,
+              "subs": [
+                {
+                  "title": "What is a Rollout?",
+                  "page": 139
+                },
+                {
+                  "title": "The Rollout Buffer",
+                  "page": 139
+                },
+                {
+                  "title": "The Rollout Buffer Lifecycle",
+                  "page": 139
+                }
+              ]
+            },
+            {
+              "title": "PPO for RLHF: The Full Loop",
+              "page": 140,
+              "subs": []
+            },
+            {
+              "title": "Detailed Mechanics: Logits and Policy Updates",
+              "page": 140,
+              "subs": [
+                {
+                  "title": "Phase 1: Rollout (Data Collection)",
+                  "page": 141
+                },
+                {
+                  "title": "Phase 2: Optimization Loop (Mini-Batch Updates)",
+                  "page": 141
+                },
+                {
+                  "title": "From Logits to Probability Ratio",
+                  "page": 142
+                },
+                {
+                  "title": "The PPO Weight Lifecycle",
+                  "page": 142
+                },
+                {
+                  "title": "Continuous Action Spaces Extension",
+                  "page": 142
+                }
+              ]
+            },
+            {
+              "title": "TRL Implementation",
+              "page": 143,
+              "subs": []
+            },
+            {
+              "title": "Critical Hyperparameters",
+              "page": 144,
+              "subs": []
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "slug": "dpo-direct-preference-optimization",
+          "title": "DPO — Direct Preference Optimization",
+          "part": "part-ii-rl-methods-for-llms",
+          "part_roman": "II",
+          "page_start": 145,
+          "page_end": 157,
+          "file": "chapters/part-ii-rl-methods-for-llms/dpo-direct-preference-optimization.md",
+          "sections": [
+            {
+              "title": "Motivation",
+              "page": 145,
+              "subs": []
+            },
+            {
+              "title": "Mathematical Derivation",
+              "page": 145,
+              "subs": []
+            },
+            {
+              "title": "Gradient Analysis",
+              "page": 145,
+              "subs": []
+            },
+            {
+              "title": "TRL Implementation",
+              "page": 146,
+              "subs": []
+            },
+            {
+              "title": "How DPO Works: Full Mechanics",
+              "page": 147,
+              "subs": [
+                {
+                  "title": "Sequence-Level Log-Probabilities",
+                  "page": 147
+                },
+                {
+                  "title": "The DPO Loss Decomposed",
+                  "page": 147
+                },
+                {
+                  "title": "Forward Pass: Step by Step",
+                  "page": 147
+                },
+                {
+                  "title": "Token-Level Gradient Analysis",
+                  "page": 148
+                },
+                {
+                  "title": "Per-Token vs. Sequence-Level: Length Normalization",
+                  "page": 148
+                },
+                {
+                  "title": "Label Masking: What Gets Gradients",
+                  "page": 148
+                },
+                {
+                  "title": "Pseudocode: DPO Training Step",
+                  "page": 149
+                },
+                {
+                  "title": "Common Pitfalls",
+                  "page": 149
+                }
+              ]
+            },
+            {
+              "title": "DPO Variants and When Each Fails",
+              "page": 150,
+              "subs": []
+            },
+            {
+              "title": "Selection Guide",
+              "page": 150,
+              "subs": []
+            },
+            {
+              "title": "DPO Batch Size Configuration and Scaling",
+              "page": 150,
+              "subs": [
+                {
+                  "title": "Global Batch Size Target",
+                  "page": 150
+                },
+                {
+                  "title": "Mathematical Decomposition",
+                  "page": 151
+                },
+                {
+                  "title": "Distributed Scaling Configurations",
+                  "page": 151
+                },
+                {
+                  "title": "VRAM Optimization: Pre-computing Reference Log-Probabilities",
+                  "page": 151
+                }
+              ]
+            },
+            {
+              "title": "DPO Extensions and Variants",
+              "page": 152,
+              "subs": [
+                {
+                  "title": "f-DPO – Generalised f-Divergence DPO",
+                  "page": 152
+                },
+                {
+                  "title": "Robust DPO",
+                  "page": 153
+                },
+                {
+                  "title": "TR-DPO – Trust Region DPO",
+                  "page": 153
+                },
+                {
+                  "title": "EXO – Exact Optimisation",
+                  "page": 154
+                },
+                {
+                  "title": "NCA – Noise Contrastive Alignment",
+                  "page": 155
+                },
+                {
+                  "title": "SLiC-HF – Sequence Likelihood Calibration",
+                  "page": 155
+                },
+                {
+                  "title": "Iterative RPO – Reasoning Preference Optimisation",
+                  "page": 156
+                },
+                {
+                  "title": "SimPO – Simple Preference Optimisation",
+                  "page": 156
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "slug": "grpo-group-relative-policy-optimization",
+          "title": "GRPO — Group Relative Policy Optimization",
+          "part": "part-ii-rl-methods-for-llms",
+          "part_roman": "II",
+          "page_start": 158,
+          "page_end": 173,
+          "file": "chapters/part-ii-rl-methods-for-llms/grpo-group-relative-policy-optimization.md",
+          "sections": [
+            {
+              "title": "Motivation",
+              "page": 158,
+              "subs": []
+            },
+            {
+              "title": "Algorithm",
+              "page": 159,
+              "subs": []
+            },
+            {
+              "title": "TRL Implementation",
+              "page": 159,
+              "subs": []
+            },
+            {
+              "title": "Group Size Analysis",
+              "page": 160,
+              "subs": []
+            },
+            {
+              "title": "GRPO Variants and Extensions",
+              "page": 161,
+              "subs": [
+                {
+                  "title": "Diversity in GRPO Groups",
+                  "page": 161
+                },
+                {
+                  "title": "DAPO – Dynamic Adaptive Policy Optimization",
+                  "page": 163
+                },
+                {
+                  "title": "GSPO – Group Sequence Policy Optimization",
+                  "page": 165
+                },
+                {
+                  "title": "Dr. GRPO – Debiased Reward GRPO",
+                  "page": 166
+                },
+                {
+                  "title": "2-GRPO – Minimal Two-Rollout GRPO",
+                  "page": 166
+                },
+                {
+                  "title": "SAPO – Soft Adaptive Policy Optimization",
+                  "page": 167
+                },
+                {
+                  "title": "TIS and MIS – Truncated and Masked Importance Sampling",
+                  "page": 168
+                },
+                {
+                  "title": "VESPO – Variational Sequence-Level Soft Policy Optimization",
+                  "page": 169
+                },
+                {
+                  "title": "DPPO – Direct Policy Divergence Policy Optimization",
+                  "page": 170
+                },
+                {
+                  "title": "ScaleRL and CISPO",
+                  "page": 171
+                },
+                {
+                  "title": "GDPO – Group Reward-Decoupled Policy Optimization",
+                  "page": 172
+                },
+                {
+                  "title": "GOPO – Group Ordinal Policy Optimization",
+                  "page": 172
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "slug": "preference-optimization-variants",
+          "title": "Preference Optimization Variants",
+          "part": "part-ii-rl-methods-for-llms",
+          "part_roman": "II",
+          "page_start": 174,
+          "page_end": 181,
+          "file": "chapters/part-ii-rl-methods-for-llms/preference-optimization-variants.md",
+          "sections": [
+            {
+              "title": "Online DPO",
+              "page": 174,
+              "subs": [
+                {
+                  "title": "Motivation",
+                  "page": 174
+                },
+                {
+                  "title": "Algorithm",
+                  "page": 174
+                },
+                {
+                  "title": "TRL Implementation",
+                  "page": 174
+                },
+                {
+                  "title": "Online DPO vs Offline DPO vs PPO",
+                  "page": 175
+                }
+              ]
+            },
+            {
+              "title": "KTO — Kahneman-Tversky Optimization",
+              "page": 175,
+              "subs": [
+                {
+                  "title": "Motivation",
+                  "page": 175
+                },
+                {
+                  "title": "Loss Function",
+                  "page": 175
+                },
+                {
+                  "title": "TRL Implementation",
+                  "page": 176
+                },
+                {
+                  "title": "When to Choose KTO",
+                  "page": 176
+                }
+              ]
+            },
+            {
+              "title": "IPO — Identity Preference Optimization",
+              "page": 177,
+              "subs": [
+                {
+                  "title": "Motivation",
+                  "page": 177
+                },
+                {
+                  "title": "Loss Function",
+                  "page": 177
+                },
+                {
+                  "title": "TRL Implementation",
+                  "page": 177
+                },
+                {
+                  "title": "When to Choose IPO over DPO",
+                  "page": 177
+                }
+              ]
+            },
+            {
+              "title": "ORPO — Odds Ratio Preference Optimization",
+              "page": 178,
+              "subs": [
+                {
+                  "title": "Motivation",
+                  "page": 178
+                },
+                {
+                  "title": "Loss Function",
+                  "page": 178
+                },
+                {
+                  "title": "TRL Implementation",
+                  "page": 178
+                },
+                {
+                  "title": "When to Choose ORPO",
+                  "page": 178
+                }
+              ]
+            },
+            {
+              "title": "Best-of-N Sampling (Rejection Sampling)",
+              "page": 179,
+              "subs": [
+                {
+                  "title": "Motivation",
+                  "page": 179
+                },
+                {
+                  "title": "Algorithm",
+                  "page": 179
+                },
+                {
+                  "title": "TRL Implementation",
+                  "page": 180
+                },
+                {
+                  "title": "Scaling Laws for Best-of-N",
+                  "page": 180
+                }
+              ]
+            },
+            {
+              "title": "Summary: Choosing an Alignment Method",
+              "page": 180,
+              "subs": []
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "slug": "reward-model-training",
+          "title": "Reward Model Training",
+          "part": "part-ii-rl-methods-for-llms",
+          "part_roman": "II",
+          "page_start": 182,
+          "page_end": 189,
+          "file": "chapters/part-ii-rl-methods-for-llms/reward-model-training.md",
+          "sections": [
+            {
+              "title": "Bradley-Terry Model – Full Derivation",
+              "page": 182,
+              "subs": []
+            },
+            {
+              "title": "Reward Model Architectures",
+              "page": 183,
+              "subs": []
+            },
+            {
+              "title": "Reward Model Training Tricks",
+              "page": 183,
+              "subs": []
+            },
+            {
+              "title": "Process Reward Models vs Outcome Reward Models",
+              "page": 184,
+              "subs": []
+            },
+            {
+              "title": "Rule-Based Rewards for RLVR",
+              "page": 185,
+              "subs": []
+            },
+            {
+              "title": "Multi-Objective Rewards – Combination Strategies",
+              "page": 186,
+              "subs": []
+            },
+            {
+              "title": "Listwise Rank-Based Rewards",
+              "page": 187,
+              "subs": []
+            }
+          ]
+        },
+        {
+          "index": 7,
+          "slug": "sft-best-practices-and-techniques",
+          "title": "SFT Best Practices and Techniques",
+          "part": "part-ii-rl-methods-for-llms",
+          "part_roman": "II",
+          "page_start": 190,
+          "page_end": 198,
+          "file": "chapters/part-ii-rl-methods-for-llms/sft-best-practices-and-techniques.md",
+          "sections": [
+            {
+              "title": "Sequence Packing for Efficiency",
+              "page": 190,
+              "subs": []
+            },
+            {
+              "title": "Chat Templates and Formatting",
+              "page": 191,
+              "subs": []
+            },
+            {
+              "title": "Completion-Only Masking",
+              "page": 192,
+              "subs": []
+            },
+            {
+              "title": "Data Mixing Strategies for Multi-Task SFT",
+              "page": 193,
+              "subs": []
+            },
+            {
+              "title": "When SFT Hurts – Catastrophic Forgetting and Alignment Tax",
+              "page": 194,
+              "subs": [
+                {
+                  "title": "Catastrophic Forgetting (Structural Erasure)",
+                  "page": 194
+                },
+                {
+                  "title": "Alignment Tax (Behavioral Constraint)",
+                  "page": 194
+                },
+                {
+                  "title": "Comparative Taxonomy",
+                  "page": 195
+                },
+                {
+                  "title": "Mitigation Strategies",
+                  "page": 195
+                }
+              ]
+            },
+            {
+              "title": "Connection to RL – SFT Quality Determines RL Ceiling",
+              "page": 196,
+              "subs": []
+            }
+          ]
+        },
+        {
+          "index": 8,
+          "slug": "system-architecture-infrastructure-at-scale",
+          "title": "System Architecture & Infrastructure at Scale",
+          "part": "part-ii-rl-methods-for-llms",
+          "part_roman": "II",
+          "page_start": 199,
+          "page_end": 221,
+          "file": "chapters/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale.md",
+          "sections": [
+            {
+              "title": "The 4-Model Memory Challenge",
+              "page": 199,
+              "subs": []
+            },
+            {
+              "title": "Parallelism Strategies in Detail",
+              "page": 200,
+              "subs": [
+                {
+                  "title": "Data Parallelism (DP) and Distributed Data Parallelism (DDP)",
+                  "page": 200
+                },
+                {
+                  "title": "Tensor Parallelism (TP)",
+                  "page": 201
+                },
+                {
+                  "title": "Sequence Parallelism (SP)",
+                  "page": 203
+                },
+                {
+                  "title": "Pipeline Parallelism (PP)",
+                  "page": 204
+                },
+                {
+                  "title": "Fully Sharded Data Parallelism (FSDP / ZeRO-3)",
+                  "page": 205
+                },
+                {
+                  "title": "3D Parallelism: Combining Strategies",
+                  "page": 206
+                }
+              ]
+            },
+            {
+              "title": "The Generation Bottleneck: Quantitative Analysis",
+              "page": 207,
+              "subs": []
+            },
+            {
+              "title": "Decoupled Architecture: Production Design",
+              "page": 208,
+              "subs": []
+            },
+            {
+              "title": "Weight Synchronization Strategies",
+              "page": 209,
+              "subs": []
+            },
+            {
+              "title": "Memory Optimization Techniques",
+              "page": 209,
+              "subs": [
+                {
+                  "title": "Flash Attention’s Impact on RLHF",
+                  "page": 210
+                }
+              ]
+            },
+            {
+              "title": "Fault Tolerance at Scale",
+              "page": 211,
+              "subs": []
+            },
+            {
+              "title": "End-to-End Latency Breakdown",
+              "page": 211,
+              "subs": []
+            },
+            {
+              "title": "Monitoring and Observability",
+              "page": 212,
+              "subs": []
+            },
+            {
+              "title": "Network Topology and Communication Patterns",
+              "page": 212,
+              "subs": [
+                {
+                  "title": "Intra-Node: NVLink and NVSwitch",
+                  "page": 212
+                },
+                {
+                  "title": "Inter-Node: InfiniBand and RoCE",
+                  "page": 212
+                },
+                {
+                  "title": "Communication Primitives and Their Costs",
+                  "page": 213
+                },
+                {
+                  "title": "Network Topology Design",
+                  "page": 214
+                }
+              ]
+            },
+            {
+              "title": "Training Throughput and Model FLOPs Utilization",
+              "page": 214,
+              "subs": [
+                {
+                  "title": "Measuring Training Efficiency: MFU",
+                  "page": 214
+                },
+                {
+                  "title": "Compute-Optimal Batch Sizing",
+                  "page": 215
+                },
+                {
+                  "title": "Profiling and Bottleneck Diagnosis",
+                  "page": 215
+                }
+              ]
+            },
+            {
+              "title": "Cost Analysis and Cloud Deployment",
+              "page": 216,
+              "subs": [
+                {
+                  "title": "Hardware Cost Comparison",
+                  "page": 216
+                },
+                {
+                  "title": "RLHF Training Cost Estimation",
+                  "page": 216
+                },
+                {
+                  "title": "Cost Optimization Strategies",
+                  "page": 216
+                }
+              ]
+            },
+            {
+              "title": "Distributed Checkpointing",
+              "page": 217,
+              "subs": [
+                {
+                  "title": "Checkpointing Strategies",
+                  "page": 217
+                },
+                {
+                  "title": "Production Checkpointing with torch.distributed.checkpoint",
+                  "page": 217
+                }
+              ]
+            },
+            {
+              "title": "Hardware Selection Guide",
+              "page": 218,
+              "subs": []
+            },
+            {
+              "title": "Optimizer Configuration for RL Training",
+              "page": 218,
+              "subs": [
+                {
+                  "title": "Why RL Requires Different Optimizer Settings",
+                  "page": 218
+                },
+                {
+                  "title": "Recommended Hyperparameters by RL Method",
+                  "page": 219
+                },
+                {
+                  "title": "Beta-2 = 0.95 for RL: Faster Adaptation",
+                  "page": 219
+                },
+                {
+                  "title": "Mixed Precision for RL: FP32 Master Weights Are Critical",
+                  "page": 219
+                },
+                {
+                  "title": "Gradient Clipping is Critical for RL",
+                  "page": 219
+                },
+                {
+                  "title": "Diagnosing RL Training Instability",
+                  "page": 220
+                },
+                {
+                  "title": "HuggingFace TRL Configuration for RL",
+                  "page": 220
+                },
+                {
+                  "title": "MoE Considerations for RL Training",
+                  "page": 221
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "index": 9,
+          "slug": "llm-agentic-training",
+          "title": "LLM Agentic Training",
+          "part": "part-ii-rl-methods-for-llms",
+          "part_roman": "II",
+          "page_start": 222,
+          "page_end": 249,
+          "file": "chapters/part-ii-rl-methods-for-llms/llm-agentic-training.md",
+          "sections": [
+            {
+              "title": "Motivation: From Chatbots to Autonomous Agents",
+              "page": 222,
+              "subs": []
+            },
+            {
+              "title": "Trajectory Buffers for LLM Agents",
+              "page": 223,
+              "subs": [
+                {
+                  "title": "Mathematical Structure of an LLM Agent Buffer",
+                  "page": 223
+                }
+              ]
+            },
+            {
+              "title": "Operational Paradigms",
+              "page": 224,
+              "subs": [
+                {
+                  "title": "A. Self-Correction and Thought Refinement",
+                  "page": 224
+                },
+                {
+                  "title": "B. Off-Policy Exploration",
+                  "page": 224
+                },
+                {
+                  "title": "C. Non-Parametric In-Context Learning (RAG over Experiences)",
+                  "page": 225
+                }
+              ]
+            },
+            {
+              "title": "Paradigm Comparison",
+              "page": 225,
+              "subs": []
+            },
+            {
+              "title": "Major Techniques in Agentic RL",
+              "page": 225,
+              "subs": [
+                {
+                  "title": "STaR: Self-Taught Reasoner (Detailed)",
+                  "page": 226
+                },
+                {
+                  "title": "Reflexion: Verbal Reinforcement Learning (Detailed)",
+                  "page": 227
+                },
+                {
+                  "title": "ReAct: Reasoning + Acting (Detailed)",
+                  "page": 228
+                },
+                {
+                  "title": "LATS: Language Agent Tree Search (Detailed)",
+                  "page": 229
+                },
+                {
+                  "title": "AgentQ: DPO on Agent Trajectories (Detailed)",
+                  "page": 230
+                },
+                {
+                  "title": "Voyager: Lifelong Learning via Skill Libraries (Detailed)",
+                  "page": 231
+                },
+                {
+                  "title": "RLEF: RL from Execution Feedback (Detailed)",
+                  "page": 232
+                },
+                {
+                  "title": "OpenHands / SWE-Agent: GRPO for Software Engineering",
+                  "page": 232
+                }
+              ]
+            },
+            {
+              "title": "Use Case: Agentic RL for a Productivity Co-pilot",
+              "page": 234,
+              "subs": [
+                {
+                  "title": "Architecture Overview",
+                  "page": 234
+                },
+                {
+                  "title": "Formal MDP Definition for a Productivity Co-pilot",
+                  "page": 234
+                },
+                {
+                  "title": "Action Space Design",
+                  "page": 235
+                },
+                {
+                  "title": "State Representation",
+                  "page": 236
+                },
+                {
+                  "title": "Reward Design: Multi-Objective Signal",
+                  "page": 237
+                },
+                {
+                  "title": "Training Pipeline: End-to-End",
+                  "page": 237
+                },
+                {
+                  "title": "Simulation Environment Architecture",
+                  "page": 238
+                },
+                {
+                  "title": "Task Curriculum Design",
+                  "page": 238
+                },
+                {
+                  "title": "Safety and Guardrails",
+                  "page": 239
+                },
+                {
+                  "title": "Credit Assignment in Multi-App Workflows",
+                  "page": 240
+                },
+                {
+                  "title": "Scaling and Infrastructure",
+                  "page": 240
+                },
+                {
+                  "title": "Evaluation Framework",
+                  "page": 240
+                },
+                {
+                  "title": "Lessons from Production Deployments",
+                  "page": 241
+                },
+                {
+                  "title": "Complete Training Recipe",
+                  "page": 241
+                }
+              ]
+            },
+            {
+              "title": "Use Case: Building a Research Agent from Scratch",
+              "page": 242,
+              "subs": [
+                {
+                  "title": "Problem Definition",
+                  "page": 242
+                },
+                {
+                  "title": "MDP Formulation",
+                  "page": 242
+                },
+                {
+                  "title": "Action Space",
+                  "page": 243
+                },
+                {
+                  "title": "Architecture: Model and Infrastructure Choices",
+                  "page": 243
+                },
+                {
+                  "title": "Reward Design",
+                  "page": 243
+                },
+                {
+                  "title": "Training Pipeline",
+                  "page": 244
+                },
+                {
+                  "title": "Example Trajectory: Full MDP Trace",
+                  "page": 244
+                },
+                {
+                  "title": "Key Design Decisions and Tradeoffs",
+                  "page": 246
+                },
+                {
+                  "title": "Evaluation",
+                  "page": 246
+                },
+                {
+                  "title": "Lessons and Failure Modes",
+                  "page": 247
+                }
+              ]
+            },
+            {
+              "title": "State-of-the-Art RL for LLM Agents",
+              "page": 247,
+              "subs": [
+                {
+                  "title": "Dominant Baseline: GRPO for Agents",
+                  "page": 247
+                },
+                {
+                  "title": "PPO for Interactive Agents",
+                  "page": 248
+                },
+                {
+                  "title": "Fine-Grained Turn-Level Credit Assignment",
+                  "page": 248
+                },
+                {
+                  "title": "Alternative Paradigms",
+                  "page": 249
+                },
+                {
+                  "title": "Core Methodology Comparison",
+                  "page": 249
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "roman": "III",
+      "name": "Reasoning",
+      "slug": "part-iii-reasoning",
+      "page": 250,
+      "chapters": [
+        {
+          "index": 1,
+          "slug": "rl-for-large-reasoning-models",
+          "title": "RL for Large Reasoning Models",
+          "part": "part-iii-reasoning",
+          "part_roman": "III",
+          "page_start": 251,
+          "page_end": 272,
+          "file": "chapters/part-iii-reasoning/rl-for-large-reasoning-models.md",
+          "sections": [
+            {
+              "title": "Motivation and Background",
+              "page": 251,
+              "subs": [
+                {
+                  "title": "Why Reasoning Requires Different RL Approaches",
+                  "page": 251
+                },
+                {
+                  "title": "Chain-of-Thought: Emergent Behavior vs. Trained Capability",
+                  "page": 251
+                },
+                {
+                  "title": "Test-Time Compute Scaling Laws",
+                  "page": 252
+                }
+              ]
+            },
+            {
+              "title": "Test-Time Scaling Methods",
+              "page": 253,
+              "subs": [
+                {
+                  "title": "Chain-of-Thought (CoT)",
+                  "page": 253
+                },
+                {
+                  "title": "Self-Consistency (Majority Voting)",
+                  "page": 253
+                },
+                {
+                  "title": "Tree-of-Thoughts (ToT)",
+                  "page": 254
+                },
+                {
+                  "title": "Graph-of-Thoughts (GoT)",
+                  "page": 256
+                },
+                {
+                  "title": "Best-of-N with Reward Models",
+                  "page": 257
+                },
+                {
+                  "title": "Monte Carlo Tree Search (MCTS) for Reasoning",
+                  "page": 257
+                },
+                {
+                  "title": "Beam Search over Reasoning Steps",
+                  "page": 258
+                },
+                {
+                  "title": "Iterative Refinement and Self-Correction",
+                  "page": 259
+                },
+                {
+                  "title": "Method Comparison and Selection Guide",
+                  "page": 259
+                }
+              ]
+            },
+            {
+              "title": "DeepSeek-R1",
+              "page": 260,
+              "subs": [
+                {
+                  "title": "Two-Stage Training Pipeline",
+                  "page": 260
+                },
+                {
+                  "title": "Reward Design: Accuracy and Format Rewards",
+                  "page": 261
+                },
+                {
+                  "title": "GRPO Formulation for R1",
+                  "page": 261
+                },
+                {
+                  "title": "Distillation: The R1-Distill Series",
+                  "page": 263
+                }
+              ]
+            },
+            {
+              "title": "OpenAI o1/o3 Series",
+              "page": 263,
+              "subs": [
+                {
+                  "title": "Chain-of-Thought RL with Hidden Reasoning Tokens",
+                  "page": 263
+                },
+                {
+                  "title": "Process Reward Models vs. Outcome Reward Models",
+                  "page": 263
+                },
+                {
+                  "title": "Inference-Time Compute Scaling",
+                  "page": 264
+                },
+                {
+                  "title": "Training Compute vs. Test-Time Compute",
+                  "page": 264
+                },
+                {
+                  "title": "o3 and o4-mini Architecture Insights",
+                  "page": 265
+                }
+              ]
+            },
+            {
+              "title": "QwQ and Qwen Reasoning Models",
+              "page": 265,
+              "subs": [
+                {
+                  "title": "Multi-Stage RL Pipeline",
+                  "page": 265
+                },
+                {
+                  "title": "Rejection Sampling + RL Combination",
+                  "page": 265
+                },
+                {
+                  "title": "Tool-Integrated Reasoning",
+                  "page": 266
+                }
+              ]
+            },
+            {
+              "title": "Key Methods with Mathematical Foundations",
+              "page": 266,
+              "subs": [
+                {
+                  "title": "Monte Carlo Tree Search for Reasoning",
+                  "page": 266
+                },
+                {
+                  "title": "Process Reward Models",
+                  "page": 267
+                },
+                {
+                  "title": "Outcome Reward Models and Majority Voting",
+                  "page": 267
+                },
+                {
+                  "title": "Self-Play for Reasoning",
+                  "page": 268
+                },
+                {
+                  "title": "Reinforcement Learning from Verifiable Rewards (RLVR)",
+                  "page": 268
+                },
+                {
+                  "title": "Journey Learning",
+                  "page": 269
+                },
+                {
+                  "title": "Quiet-STaR: Reasoning at Every Token",
+                  "page": 269
+                }
+              ]
+            },
+            {
+              "title": "Scaling Laws for Reasoning",
+              "page": 270,
+              "subs": [
+                {
+                  "title": "Training Compute vs. Test-Time Compute Tradeoff",
+                  "page": 270
+                },
+                {
+                  "title": "When to Invest in Longer Chains vs. Better Base Models",
+                  "page": 270
+                },
+                {
+                  "title": "Optimal Token Budget Allocation",
+                  "page": 271
+                }
+              ]
+            },
+            {
+              "title": "Comparison of Reasoning Models",
+              "page": 271,
+              "subs": []
+            },
+            {
+              "title": "Summary and Open Problems",
+              "page": 271,
+              "subs": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "roman": "IV",
+      "name": "Evaluation",
+      "slug": "part-iv-evaluation",
+      "page": 273,
+      "chapters": [
+        {
+          "index": 1,
+          "slug": "llm-evaluation",
+          "title": "LLM Evaluation",
+          "part": "part-iv-evaluation",
+          "part_roman": "IV",
+          "page_start": 274,
+          "page_end": 290,
+          "file": "chapters/part-iv-evaluation/llm-evaluation.md",
+          "sections": [
+            {
+              "title": "Evaluation Scheme Design",
+              "page": 274,
+              "subs": [
+                {
+                  "title": "Taxonomy of Evaluation Types",
+                  "page": 274
+                },
+                {
+                  "title": "When to Use What",
+                  "page": 275
+                }
+              ]
+            },
+            {
+              "title": "Data Collection for Evaluation",
+              "page": 275,
+              "subs": [
+                {
+                  "title": "Human Annotation Pipelines",
+                  "page": 275
+                },
+                {
+                  "title": "Inter-Annotator Agreement",
+                  "page": 276
+                },
+                {
+                  "title": "Annotation Guideline Design",
+                  "page": 277
+                },
+                {
+                  "title": "Crowdsourcing vs. Expert Annotation",
+                  "page": 277
+                }
+              ]
+            },
+            {
+              "title": "Synthetic Data Generation for Evaluation",
+              "page": 277,
+              "subs": [
+                {
+                  "title": "LLM-as-Judge for Calibration",
+                  "page": 277
+                },
+                {
+                  "title": "Self-Instruct",
+                  "page": 278
+                },
+                {
+                  "title": "Evol-Instruct",
+                  "page": 278
+                },
+                {
+                  "title": "Constitutional AI Data Generation",
+                  "page": 278
+                },
+                {
+                  "title": "Distillation for Evaluation Data",
+                  "page": 279
+                },
+                {
+                  "title": "Arena-Style Pairwise Generation",
+                  "page": 279
+                }
+              ]
+            },
+            {
+              "title": "Metrics for Ranking Tasks",
+              "page": 279,
+              "subs": [
+                {
+                  "title": "ELO Rating System",
+                  "page": 279
+                },
+                {
+                  "title": "Bradley–Terry Model",
+                  "page": 280
+                },
+                {
+                  "title": "TrueSkill",
+                  "page": 280
+                },
+                {
+                  "title": "Win Rate with Confidence Intervals",
+                  "page": 281
+                },
+                {
+                  "title": "Chatbot Arena Methodology",
+                  "page": 281
+                }
+              ]
+            },
+            {
+              "title": "Metrics for Generation Tasks",
+              "page": 281,
+              "subs": [
+                {
+                  "title": "BLEU",
+                  "page": 281
+                },
+                {
+                  "title": "ROUGE",
+                  "page": 282
+                },
+                {
+                  "title": "BERTScore",
+                  "page": 282
+                },
+                {
+                  "title": "METEOR",
+                  "page": 282
+                },
+                {
+                  "title": "Perplexity",
+                  "page": 283
+                },
+                {
+                  "title": "Pass@k for Code",
+                  "page": 283
+                },
+                {
+                  "title": "Exact Match and F1",
+                  "page": 283
+                }
+              ]
+            },
+            {
+              "title": "Metrics for Agentic Tasks",
+              "page": 284,
+              "subs": [
+                {
+                  "title": "Task Success Rate",
+                  "page": 284
+                },
+                {
+                  "title": "Trajectory Efficiency",
+                  "page": 284
+                },
+                {
+                  "title": "Tool-Use Accuracy",
+                  "page": 284
+                },
+                {
+                  "title": "Multi-Step Reasoning Accuracy",
+                  "page": 285
+                },
+                {
+                  "title": "SWE-bench Methodology",
+                  "page": 285
+                },
+                {
+                  "title": "WebArena Methodology",
+                  "page": 285
+                }
+              ]
+            },
+            {
+              "title": "LLM-as-Judge",
+              "page": 285,
+              "subs": [
+                {
+                  "title": "Setup and Prompt Templates",
+                  "page": 286
+                },
+                {
+                  "title": "Position Bias Mitigation",
+                  "page": 287
+                },
+                {
+                  "title": "Multi-Judge Panels",
+                  "page": 287
+                },
+                {
+                  "title": "Agreement Metrics for LLM Judges",
+                  "page": 287
+                },
+                {
+                  "title": "G-Eval Framework",
+                  "page": 288
+                }
+              ]
+            },
+            {
+              "title": "Evaluation Pitfalls",
+              "page": 288,
+              "subs": [
+                {
+                  "title": "Benchmark Contamination",
+                  "page": 288
+                },
+                {
+                  "title": "Overfitting to Benchmarks",
+                  "page": 289
+                },
+                {
+                  "title": "Goodhart’s Law in Evaluation",
+                  "page": 289
+                },
+                {
+                  "title": "Additional Pitfalls",
+                  "page": 289
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "roman": "V",
+      "name": "Agentic AI",
+      "slug": "part-v-agentic-ai",
+      "page": 291,
+      "chapters": [
+        {
+          "index": 1,
+          "slug": "introduction-to-agentic-ai",
+          "title": "Introduction to Agentic AI",
+          "part": "part-v-agentic-ai",
+          "part_roman": "V",
+          "page_start": 292,
+          "page_end": 294,
+          "file": "chapters/part-v-agentic-ai/introduction-to-agentic-ai.md",
+          "sections": []
+        },
+        {
+          "index": 2,
+          "slug": "retrieval-augmented-generation-rag",
+          "title": "Retrieval-Augmented Generation (RAG)",
+          "part": "part-v-agentic-ai",
+          "part_roman": "V",
+          "page_start": 295,
+          "page_end": 319,
+          "file": "chapters/part-v-agentic-ai/retrieval-augmented-generation-rag.md",
+          "sections": [
+            {
+              "title": "Motivation and Problem Statement",
+              "page": 295,
+              "subs": [
+                {
+                  "title": "Parametric vs. Non-Parametric Knowledge",
+                  "page": 295
+                },
+                {
+                  "title": "When to Use RAG vs. Fine-Tuning vs. Long Context",
+                  "page": 296
+                }
+              ]
+            },
+            {
+              "title": "Core RAG Architecture",
+              "page": 296,
+              "subs": [
+                {
+                  "title": "Full Pipeline Diagram",
+                  "page": 296
+                },
+                {
+                  "title": "Indexing Pipeline",
+                  "page": 296
+                },
+                {
+                  "title": "Retrieval",
+                  "page": 297
+                },
+                {
+                  "title": "Generation",
+                  "page": 297
+                }
+              ]
+            },
+            {
+              "title": "Retrieval Methods",
+              "page": 297,
+              "subs": [
+                {
+                  "title": "Sparse Retrieval: BM25 and TF-IDF",
+                  "page": 297
+                },
+                {
+                  "title": "Dense Retrieval: DPR",
+                  "page": 298
+                },
+                {
+                  "title": "Hybrid Retrieval with Reciprocal Rank Fusion",
+                  "page": 298
+                },
+                {
+                  "title": "Learned Sparse Retrieval: SPLADE and SPLADEv2",
+                  "page": 299
+                },
+                {
+                  "title": "ColBERT: Late Interaction",
+                  "page": 300
+                },
+                {
+                  "title": "Retrieval Method Comparison",
+                  "page": 301
+                }
+              ]
+            },
+            {
+              "title": "Chunking Strategies",
+              "page": 301,
+              "subs": [
+                {
+                  "title": "Fixed-Size Chunking with Overlap",
+                  "page": 302
+                },
+                {
+                  "title": "Semantic Chunking",
+                  "page": 302
+                },
+                {
+                  "title": "Document-Structure-Aware Chunking",
+                  "page": 302
+                },
+                {
+                  "title": "Parent-Child Chunking",
+                  "page": 302
+                },
+                {
+                  "title": "Empirical Guidelines for Chunk Size",
+                  "page": 303
+                }
+              ]
+            },
+            {
+              "title": "Advanced RAG Patterns",
+              "page": 303,
+              "subs": [
+                {
+                  "title": "Query Transformation",
+                  "page": 303
+                },
+                {
+                  "title": "Re-Ranking",
+                  "page": 304
+                },
+                {
+                  "title": "Contextual Compression",
+                  "page": 304
+                },
+                {
+                  "title": "Self-RAG",
+                  "page": 304
+                },
+                {
+                  "title": "CRAG: Corrective RAG",
+                  "page": 304
+                },
+                {
+                  "title": "Adaptive RAG",
+                  "page": 305
+                },
+                {
+                  "title": "Graph RAG",
+                  "page": 305
+                },
+                {
+                  "title": "RAG-Fusion",
+                  "page": 305
+                }
+              ]
+            },
+            {
+              "title": "Efficient RAG Decoding: REFRAG",
+              "page": 306,
+              "subs": []
+            },
+            {
+              "title": "Agentic RAG",
+              "page": 306,
+              "subs": [
+                {
+                  "title": "Motivation: Limits of Static RAG",
+                  "page": 306
+                },
+                {
+                  "title": "Agentic RAG Architecture",
+                  "page": 307
+                },
+                {
+                  "title": "Multi-Source Routing",
+                  "page": 307
+                },
+                {
+                  "title": "Full Agentic RAG Implementation",
+                  "page": 309
+                },
+                {
+                  "title": "Tool-Augmented RAG",
+                  "page": 310
+                },
+                {
+                  "title": "Search-R1: RL-Trained Agentic RAG",
+                  "page": 311
+                }
+              ]
+            },
+            {
+              "title": "Evaluation",
+              "page": 312,
+              "subs": [
+                {
+                  "title": "Retrieval Metrics",
+                  "page": 312
+                },
+                {
+                  "title": "Generation Metrics",
+                  "page": 313
+                },
+                {
+                  "title": "RAGAs Framework",
+                  "page": 313
+                },
+                {
+                  "title": "Common Failure Modes",
+                  "page": 314
+                }
+              ]
+            },
+            {
+              "title": "Production Considerations",
+              "page": 314,
+              "subs": [
+                {
+                  "title": "Embedding Model Selection",
+                  "page": 314
+                },
+                {
+                  "title": "Vector Database Comparison",
+                  "page": 315
+                },
+                {
+                  "title": "Latency Optimization",
+                  "page": 315
+                },
+                {
+                  "title": "Incremental Indexing and Versioning",
+                  "page": 316
+                }
+              ]
+            },
+            {
+              "title": "RAG + Fine-Tuning Synergy",
+              "page": 317,
+              "subs": [
+                {
+                  "title": "When to Combine RAG with Fine-Tuning",
+                  "page": 317
+                },
+                {
+                  "title": "RAFT: Retrieval-Augmented Fine-Tuning",
+                  "page": 317
+                },
+                {
+                  "title": "Joint Retriever-Generator Training",
+                  "page": 318
+                }
+              ]
+            },
+            {
+              "title": "Comprehensive RAG Approach Comparison",
+              "page": 318,
+              "subs": []
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "slug": "agentic-memory-systems",
+          "title": "Agentic Memory Systems",
+          "part": "part-v-agentic-ai",
+          "part_roman": "V",
+          "page_start": 320,
+          "page_end": 342,
+          "file": "chapters/part-v-agentic-ai/agentic-memory-systems.md",
+          "sections": [
+            {
+              "title": "Motivation: Why Agents Need Memory",
+              "page": 320,
+              "subs": []
+            },
+            {
+              "title": "Taxonomy of Memory Types",
+              "page": 321,
+              "subs": [
+                {
+                  "title": "Working Memory (Short-Term)",
+                  "page": 321
+                },
+                {
+                  "title": "Episodic Memory (Experience-Based)",
+                  "page": 321
+                },
+                {
+                  "title": "Semantic Memory (World Knowledge)",
+                  "page": 322
+                },
+                {
+                  "title": "Procedural Memory (Skills)",
+                  "page": 322
+                }
+              ]
+            },
+            {
+              "title": "Memory Architectures",
+              "page": 322,
+              "subs": [
+                {
+                  "title": "RAG-Based Memory",
+                  "page": 322
+                },
+                {
+                  "title": "Summarization-Based Memory",
+                  "page": 323
+                },
+                {
+                  "title": "Graph-Based Memory",
+                  "page": 323
+                },
+                {
+                  "title": "Key-Value Memory Networks",
+                  "page": 324
+                },
+                {
+                  "title": "MemGPT and Virtual Context Management",
+                  "page": 324
+                }
+              ]
+            },
+            {
+              "title": "Memory Operations",
+              "page": 324,
+              "subs": [
+                {
+                  "title": "Write: Committing to Memory",
+                  "page": 324
+                },
+                {
+                  "title": "Read / Retrieve",
+                  "page": 325
+                },
+                {
+                  "title": "Update: Conflict Resolution and Consolidation",
+                  "page": 326
+                },
+                {
+                  "title": "Reflect: Meta-Cognitive Operations",
+                  "page": 326
+                }
+              ]
+            },
+            {
+              "title": "Memory for Multi-Turn Conversations",
+              "page": 327,
+              "subs": [
+                {
+                  "title": "User Modeling and Preference Tracking",
+                  "page": 327
+                },
+                {
+                  "title": "Session Continuity",
+                  "page": 327
+                },
+                {
+                  "title": "Personalization Through Memory",
+                  "page": 327
+                }
+              ]
+            },
+            {
+              "title": "Memory for Multi-Agent Systems",
+              "page": 327,
+              "subs": [
+                {
+                  "title": "Shared Memory Pools",
+                  "page": 328
+                },
+                {
+                  "title": "Blackboard Architecture",
+                  "page": 328
+                },
+                {
+                  "title": "Consensus and Conflict in Shared Knowledge",
+                  "page": 328
+                }
+              ]
+            },
+            {
+              "title": "Training Memory Systems with Reinforcement Learning",
+              "page": 328,
+              "subs": [
+                {
+                  "title": "Reward Signals for Memory Operations",
+                  "page": 328
+                },
+                {
+                  "title": "Learning What to Remember",
+                  "page": 329
+                },
+                {
+                  "title": "Memory-Augmented Policy Optimization",
+                  "page": 329
+                }
+              ]
+            },
+            {
+              "title": "Comparison of Memory Approaches",
+              "page": 329,
+              "subs": []
+            },
+            {
+              "title": "Evaluating Memory Systems",
+              "page": 329,
+              "subs": [
+                {
+                  "title": "Evaluation Dimensions",
+                  "page": 330
+                },
+                {
+                  "title": "Benchmarks",
+                  "page": 330
+                },
+                {
+                  "title": "Metrics",
+                  "page": 330
+                }
+              ]
+            },
+            {
+              "title": "Implementation Patterns",
+              "page": 331,
+              "subs": [
+                {
+                  "title": "Vector Store Memory with Embeddings",
+                  "page": 331
+                },
+                {
+                  "title": "Hierarchical Memory Manager",
+                  "page": 334
+                },
+                {
+                  "title": "Memory-Augmented Agent Loop",
+                  "page": 336
+                }
+              ]
+            },
+            {
+              "title": "Recent Advances in Agentic Memory",
+              "page": 340,
+              "subs": [
+                {
+                  "title": "CoALA: Cognitive Architectures for Language Agents",
+                  "page": 340
+                },
+                {
+                  "title": "Mem0: Production-Scale Memory Layer",
+                  "page": 340
+                },
+                {
+                  "title": "Sleep-Time Compute: Offline Memory Processing",
+                  "page": 340
+                },
+                {
+                  "title": "A-MEM: Zettelkasten-Inspired Agentic Memory",
+                  "page": 341
+                }
+              ]
+            },
+            {
+              "title": "Summary",
+              "page": 341,
+              "subs": []
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "slug": "agent-harness-context-management-and-orchestration",
+          "title": "Agent Harness – Context Management and Orchestration",
+          "part": "part-v-agentic-ai",
+          "part_roman": "V",
+          "page_start": 343,
+          "page_end": 368,
+          "file": "chapters/part-v-agentic-ai/agent-harness-context-management-and-orchestration.md",
+          "sections": [
+            {
+              "title": "What Is an Agent Harness?",
+              "page": 343,
+              "subs": []
+            },
+            {
+              "title": "Context Window Management",
+              "page": 344,
+              "subs": [
+                {
+                  "title": "The Context Budget Problem",
+                  "page": 344
+                },
+                {
+                  "title": "Context Allocation Strategies",
+                  "page": 344
+                },
+                {
+                  "title": "Context Compression",
+                  "page": 345
+                },
+                {
+                  "title": "Sliding Window Approaches",
+                  "page": 345
+                },
+                {
+                  "title": "Recursive Context Decomposition",
+                  "page": 345
+                },
+                {
+                  "title": "Token Counting and Budget Monitoring",
+                  "page": 347
+                }
+              ]
+            },
+            {
+              "title": "Prompt Architecture",
+              "page": 347,
+              "subs": [
+                {
+                  "title": "System Prompt Design",
+                  "page": 347
+                },
+                {
+                  "title": "Dynamic Prompt Assembly",
+                  "page": 348
+                },
+                {
+                  "title": "Few-Shot Management",
+                  "page": 348
+                },
+                {
+                  "title": "Tool Descriptions",
+                  "page": 349
+                }
+              ]
+            },
+            {
+              "title": "Tool Integration and Execution",
+              "page": 349,
+              "subs": [
+                {
+                  "title": "Tool Definition Schemas",
+                  "page": 349
+                },
+                {
+                  "title": "Tool Selection and Routing",
+                  "page": 351
+                },
+                {
+                  "title": "Tool Output Processing",
+                  "page": 351
+                },
+                {
+                  "title": "Sandboxing and Safety",
+                  "page": 352
+                },
+                {
+                  "title": "Model Context Protocol (MCP)",
+                  "page": 352
+                }
+              ]
+            },
+            {
+              "title": "Orchestration Patterns",
+              "page": 353,
+              "subs": [
+                {
+                  "title": "ReAct Loop (Reason + Act)",
+                  "page": 353
+                },
+                {
+                  "title": "Plan-and-Execute",
+                  "page": 354
+                },
+                {
+                  "title": "Multi-Agent Orchestration",
+                  "page": 354
+                },
+                {
+                  "title": "Human-in-the-Loop",
+                  "page": 355
+                },
+                {
+                  "title": "Workflow Graphs",
+                  "page": 355
+                }
+              ]
+            },
+            {
+              "title": "State Management",
+              "page": 355,
+              "subs": [
+                {
+                  "title": "Conversation State",
+                  "page": 356
+                },
+                {
+                  "title": "Task State",
+                  "page": 356
+                },
+                {
+                  "title": "Agent State",
+                  "page": 356
+                },
+                {
+                  "title": "Persistent State",
+                  "page": 356
+                }
+              ]
+            },
+            {
+              "title": "Error Handling and Recovery",
+              "page": 357,
+              "subs": [
+                {
+                  "title": "Retry Strategies",
+                  "page": 357
+                },
+                {
+                  "title": "Loop Detection",
+                  "page": 357
+                },
+                {
+                  "title": "Graceful Failure",
+                  "page": 357
+                },
+                {
+                  "title": "Observability",
+                  "page": 357
+                }
+              ]
+            },
+            {
+              "title": "Scaling and Production Concerns",
+              "page": 358,
+              "subs": [
+                {
+                  "title": "Latency Optimization",
+                  "page": 358
+                },
+                {
+                  "title": "Cost Management",
+                  "page": 358
+                },
+                {
+                  "title": "Rate Limiting and Queuing",
+                  "page": 358
+                },
+                {
+                  "title": "Evaluation in Production",
+                  "page": 359
+                }
+              ]
+            },
+            {
+              "title": "Framework Comparison",
+              "page": 359,
+              "subs": []
+            },
+            {
+              "title": "Implementation: Production Agent Harness",
+              "page": 360,
+              "subs": []
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "slug": "agent-design-patterns",
+          "title": "Agent Design Patterns",
+          "part": "part-v-agentic-ai",
+          "part_roman": "V",
+          "page_start": 369,
+          "page_end": 374,
+          "file": "chapters/part-v-agentic-ai/agent-design-patterns.md",
+          "sections": [
+            {
+              "title": "Workflow Patterns",
+              "page": 369,
+              "subs": [
+                {
+                  "title": "Prompt Chaining",
+                  "page": 369
+                },
+                {
+                  "title": "Routing",
+                  "page": 370
+                },
+                {
+                  "title": "Parallelization",
+                  "page": 370
+                },
+                {
+                  "title": "Orchestrator-Workers",
+                  "page": 370
+                },
+                {
+                  "title": "Evaluator-Optimizer",
+                  "page": 370
+                }
+              ]
+            },
+            {
+              "title": "Autonomous Agent Patterns",
+              "page": 371,
+              "subs": [
+                {
+                  "title": "ReAct (Reason + Act)",
+                  "page": 371
+                },
+                {
+                  "title": "Planning Agents",
+                  "page": 371
+                },
+                {
+                  "title": "Reflection and Self-Critique",
+                  "page": 372
+                },
+                {
+                  "title": "Tool-Use Patterns",
+                  "page": 372
+                }
+              ]
+            },
+            {
+              "title": "Design Principles",
+              "page": 373,
+              "subs": []
+            },
+            {
+              "title": "Pattern Selection Guide",
+              "page": 374,
+              "subs": []
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "slug": "agentic-environments-and-benchmarks",
+          "title": "Agentic Environments and Benchmarks",
+          "part": "part-v-agentic-ai",
+          "part_roman": "V",
+          "page_start": 375,
+          "page_end": 391,
+          "file": "chapters/part-v-agentic-ai/agentic-environments-and-benchmarks.md",
+          "sections": [
+            {
+              "title": "Motivation: Why Agents Need Environments",
+              "page": 375,
+              "subs": []
+            },
+            {
+              "title": "Environment Design Principles",
+              "page": 376,
+              "subs": [
+                {
+                  "title": "Observation Space Design",
+                  "page": 376
+                },
+                {
+                  "title": "Action Space Design",
+                  "page": 376
+                },
+                {
+                  "title": "Reward Signal Design",
+                  "page": 376
+                },
+                {
+                  "title": "Episode Structure",
+                  "page": 377
+                },
+                {
+                  "title": "Difficulty Curriculum and Adaptive Environments",
+                  "page": 377
+                }
+              ]
+            },
+            {
+              "title": "Types of Agentic Environments",
+              "page": 378,
+              "subs": [
+                {
+                  "title": "Code Execution Sandboxes",
+                  "page": 378
+                },
+                {
+                  "title": "Web Environments",
+                  "page": 378
+                },
+                {
+                  "title": "Computer Use Environments",
+                  "page": 379
+                },
+                {
+                  "title": "Software Engineering Environments",
+                  "page": 379
+                },
+                {
+                  "title": "Scientific Research Environments",
+                  "page": 380
+                },
+                {
+                  "title": "Game and Simulation Environments",
+                  "page": 380
+                },
+                {
+                  "title": "Multi-Agent Environments",
+                  "page": 380
+                }
+              ]
+            },
+            {
+              "title": "OpenEnv: Standardized Agentic Environment Interfaces",
+              "page": 380,
+              "subs": [
+                {
+                  "title": "Standardized Agent–Environment Interface",
+                  "page": 381
+                },
+                {
+                  "title": "Environment Registries and Discovery",
+                  "page": 382
+                },
+                {
+                  "title": "Compositional Environments",
+                  "page": 383
+                },
+                {
+                  "title": "Environment Versioning and Reproducibility",
+                  "page": 383
+                }
+              ]
+            },
+            {
+              "title": "Building Custom Environments",
+              "page": 384,
+              "subs": [
+                {
+                  "title": "Gymnasium-Style API for LLM Agents",
+                  "page": 384
+                },
+                {
+                  "title": "Reward Function Engineering",
+                  "page": 384
+                },
+                {
+                  "title": "State Management and Checkpointing",
+                  "page": 384
+                },
+                {
+                  "title": "Parallelization for Training Data Collection",
+                  "page": 384
+                }
+              ]
+            },
+            {
+              "title": "Environment–Agent Interface Patterns",
+              "page": 384,
+              "subs": []
+            },
+            {
+              "title": "Evaluation Harness Design",
+              "page": 386,
+              "subs": [
+                {
+                  "title": "Deterministic vs. Stochastic Environments",
+                  "page": 386
+                },
+                {
+                  "title": "Held-Out Test Environments",
+                  "page": 386
+                },
+                {
+                  "title": "Cross-Environment Generalization",
+                  "page": 386
+                },
+                {
+                  "title": "Human Baseline Collection",
+                  "page": 386
+                }
+              ]
+            },
+            {
+              "title": "Code Example: Minimal Custom LLM Agent Environment",
+              "page": 387,
+              "subs": []
+            },
+            {
+              "title": "Comparison of Major Agentic Environments",
+              "page": 390,
+              "subs": []
+            },
+            {
+              "title": "Summary",
+              "page": 391,
+              "subs": []
+            }
+          ]
+        },
+        {
+          "index": 7,
+          "slug": "model-context-protocol-mcp",
+          "title": "Model Context Protocol (MCP)",
+          "part": "part-v-agentic-ai",
+          "part_roman": "V",
+          "page_start": 392,
+          "page_end": 411,
+          "file": "chapters/part-v-agentic-ai/model-context-protocol-mcp.md",
+          "sections": [
+            {
+              "title": "Motivation: The Tool Integration Problem",
+              "page": 392,
+              "subs": []
+            },
+            {
+              "title": "Architecture Overview",
+              "page": 393,
+              "subs": [
+                {
+                  "title": "The Three-Role Model",
+                  "page": 393
+                },
+                {
+                  "title": "Transport Layers",
+                  "page": 394
+                },
+                {
+                  "title": "Protocol Lifecycle",
+                  "page": 394
+                },
+                {
+                  "title": "Stateful Sessions vs. Stateless Requests",
+                  "page": 394
+                },
+                {
+                  "title": "Full Architecture Diagram",
+                  "page": 395
+                }
+              ]
+            },
+            {
+              "title": "Core Primitives",
+              "page": 395,
+              "subs": [
+                {
+                  "title": "Tools",
+                  "page": 395
+                },
+                {
+                  "title": "Resources",
+                  "page": 396
+                },
+                {
+                  "title": "Prompts",
+                  "page": 396
+                },
+                {
+                  "title": "Sampling",
+                  "page": 396
+                }
+              ]
+            },
+            {
+              "title": "Protocol Specification",
+              "page": 396,
+              "subs": [
+                {
+                  "title": "JSON-RPC 2.0 Message Format",
+                  "page": 396
+                },
+                {
+                  "title": "Capability Negotiation Handshake",
+                  "page": 397
+                },
+                {
+                  "title": "Error Handling",
+                  "page": 397
+                },
+                {
+                  "title": "Progress Reporting",
+                  "page": 398
+                }
+              ]
+            },
+            {
+              "title": "Tool Definition and Discovery",
+              "page": 398,
+              "subs": [
+                {
+                  "title": "Tool Schema Format",
+                  "page": 398
+                },
+                {
+                  "title": "Dynamic Tool Registration",
+                  "page": 399
+                },
+                {
+                  "title": "Tool Annotations",
+                  "page": 399
+                }
+              ]
+            },
+            {
+              "title": "Security Model",
+              "page": 400,
+              "subs": [
+                {
+                  "title": "Trust Hierarchy",
+                  "page": 400
+                },
+                {
+                  "title": "User Consent",
+                  "page": 400
+                },
+                {
+                  "title": "Input Validation and Sanitization",
+                  "page": 401
+                },
+                {
+                  "title": "Credential Management",
+                  "page": 401
+                },
+                {
+                  "title": "Sandboxing Strategies",
+                  "page": 401
+                }
+              ]
+            },
+            {
+              "title": "Implementation Patterns",
+              "page": 402,
+              "subs": [
+                {
+                  "title": "Building an MCP Server in Python",
+                  "page": 402
+                },
+                {
+                  "title": "Building an MCP Client",
+                  "page": 403
+                },
+                {
+                  "title": "Connecting to Multiple Servers Simultaneously",
+                  "page": 404
+                },
+                {
+                  "title": "Error Recovery and Reconnection",
+                  "page": 405
+                }
+              ]
+            },
+            {
+              "title": "The MCP Ecosystem",
+              "page": 405,
+              "subs": [
+                {
+                  "title": "Popular MCP Servers",
+                  "page": 405
+                },
+                {
+                  "title": "MCP in Production Applications",
+                  "page": 406
+                },
+                {
+                  "title": "Server Registries and Discovery",
+                  "page": 406
+                }
+              ]
+            },
+            {
+              "title": "MCP vs. Alternatives",
+              "page": 406,
+              "subs": [
+                {
+                  "title": "When to Use MCP vs. Custom Integration",
+                  "page": 407
+                },
+                {
+                  "title": "Migration Paths",
+                  "page": 407
+                }
+              ]
+            },
+            {
+              "title": "MCP for Agent Training",
+              "page": 407,
+              "subs": [
+                {
+                  "title": "MCP Servers as RL Environment Interfaces",
+                  "page": 408
+                },
+                {
+                  "title": "Standardized Action Spaces via MCP",
+                  "page": 408
+                },
+                {
+                  "title": "Recording Tool-Use Trajectories for SFT",
+                  "page": 408
+                }
+              ]
+            },
+            {
+              "title": "Summary",
+              "page": 410,
+              "subs": []
+            }
+          ]
+        },
+        {
+          "index": 8,
+          "slug": "agent-skills",
+          "title": "Agent Skills",
+          "part": "part-v-agentic-ai",
+          "part_roman": "V",
+          "page_start": 412,
+          "page_end": 416,
+          "file": "chapters/part-v-agentic-ai/agent-skills.md",
+          "sections": [
+            {
+              "title": "What Is a Skill?",
+              "page": 412,
+              "subs": []
+            },
+            {
+              "title": "Skill Architecture Patterns",
+              "page": 413,
+              "subs": [
+                {
+                  "title": "Static Skill Loading",
+                  "page": 413
+                },
+                {
+                  "title": "Dynamic Skill Discovery",
+                  "page": 413
+                },
+                {
+                  "title": "Hierarchical Skill Composition",
+                  "page": 413
+                }
+              ]
+            },
+            {
+              "title": "Case Study: Anthropic’s Agent Design",
+              "page": 413,
+              "subs": [
+                {
+                  "title": "Core Principles",
+                  "page": 413
+                },
+                {
+                  "title": "Building Block Patterns",
+                  "page": 414
+                },
+                {
+                  "title": "The Augmented LLM",
+                  "page": 414
+                },
+                {
+                  "title": "Practical Implications",
+                  "page": 414
+                }
+              ]
+            },
+            {
+              "title": "Skill Lifecycle",
+              "page": 415,
+              "subs": []
+            },
+            {
+              "title": "Skill Registries and Marketplaces",
+              "page": 415,
+              "subs": []
+            },
+            {
+              "title": "Skills vs. Fine-Tuning",
+              "page": 416,
+              "subs": []
+            }
+          ]
+        },
+        {
+          "index": 9,
+          "slug": "agent-to-agent-communication-a2a",
+          "title": "Agent-to-Agent Communication (A2A)",
+          "part": "part-v-agentic-ai",
+          "part_roman": "V",
+          "page_start": 417,
+          "page_end": 438,
+          "file": "chapters/part-v-agentic-ai/agent-to-agent-communication-a2a.md",
+          "sections": [
+            {
+              "title": "Motivation: Why Agents Must Communicate",
+              "page": 417,
+              "subs": []
+            },
+            {
+              "title": "The Google A2A Protocol",
+              "page": 418,
+              "subs": [
+                {
+                  "title": "Design Philosophy",
+                  "page": 418
+                },
+                {
+                  "title": "Agent Cards",
+                  "page": 418
+                },
+                {
+                  "title": "Task Lifecycle",
+                  "page": 419
+                },
+                {
+                  "title": "Streaming via Server-Sent Events",
+                  "page": 420
+                },
+                {
+                  "title": "Push Notifications for Long-Running Tasks",
+                  "page": 420
+                },
+                {
+                  "title": "Message Format",
+                  "page": 421
+                },
+                {
+                  "title": "Authentication and Authorization",
+                  "page": 421
+                }
+              ]
+            },
+            {
+              "title": "Communication Patterns",
+              "page": 421,
+              "subs": [
+                {
+                  "title": "Request-Response",
+                  "page": 421
+                },
+                {
+                  "title": "Streaming",
+                  "page": 421
+                },
+                {
+                  "title": "Multi-Turn Interaction",
+                  "page": 422
+                },
+                {
+                  "title": "Broadcast",
+                  "page": 422
+                },
+                {
+                  "title": "Publish-Subscribe (Pub-Sub)",
+                  "page": 422
+                },
+                {
+                  "title": "Negotiation",
+                  "page": 422
+                },
+                {
+                  "title": "Auction-Based Task Allocation",
+                  "page": 423
+                }
+              ]
+            },
+            {
+              "title": "Agent Discovery and Routing",
+              "page": 423,
+              "subs": [
+                {
+                  "title": "Agent Registries",
+                  "page": 423
+                },
+                {
+                  "title": "Capability-Based Routing",
+                  "page": 423
+                },
+                {
+                  "title": "Load Balancing Across Equivalent Agents",
+                  "page": 424
+                },
+                {
+                  "title": "Version Management and Compatibility",
+                  "page": 424
+                }
+              ]
+            },
+            {
+              "title": "Message Formats and Schemas",
+              "page": 424,
+              "subs": [
+                {
+                  "title": "Structured vs. Unstructured Messages",
+                  "page": 424
+                },
+                {
+                  "title": "Multi-Modal Messages",
+                  "page": 424
+                },
+                {
+                  "title": "Context Passing: What to Share vs. What to Keep Private",
+                  "page": 426
+                },
+                {
+                  "title": "Conversation Threading and Correlation IDs",
+                  "page": 426
+                }
+              ]
+            },
+            {
+              "title": "Coordination Protocols",
+              "page": 427,
+              "subs": [
+                {
+                  "title": "Contract Net Protocol",
+                  "page": 427
+                },
+                {
+                  "title": "Blackboard Systems",
+                  "page": 428
+                },
+                {
+                  "title": "Consensus Protocols",
+                  "page": 428
+                },
+                {
+                  "title": "Leader Election",
+                  "page": 429
+                }
+              ]
+            },
+            {
+              "title": "A2A vs. MCP: Complementary Protocols",
+              "page": 429,
+              "subs": [
+                {
+                  "title": "When to Use Which",
+                  "page": 429
+                },
+                {
+                  "title": "Combined Architecture",
+                  "page": 430
+                }
+              ]
+            },
+            {
+              "title": "Security and Trust in Multi-Agent Systems",
+              "page": 430,
+              "subs": [
+                {
+                  "title": "Agent Identity Verification",
+                  "page": 430
+                },
+                {
+                  "title": "Message Integrity and Encryption",
+                  "page": 431
+                },
+                {
+                  "title": "Authorization Scopes",
+                  "page": 431
+                },
+                {
+                  "title": "Audit Trails and Accountability",
+                  "page": 431
+                }
+              ]
+            },
+            {
+              "title": "Implementation Example: Multi-Agent Research Workflow",
+              "page": 432,
+              "subs": []
+            },
+            {
+              "title": "Summary",
+              "page": 437,
+              "subs": []
+            }
+          ]
+        },
+        {
+          "index": 10,
+          "slug": "multi-agent-systems",
+          "title": "Multi-Agent Systems",
+          "part": "part-v-agentic-ai",
+          "part_roman": "V",
+          "page_start": 439,
+          "page_end": 458,
+          "file": "chapters/part-v-agentic-ai/multi-agent-systems.md",
+          "sections": [
+            {
+              "title": "Motivation: Why Multiple Agents?",
+              "page": 439,
+              "subs": []
+            },
+            {
+              "title": "Multi-Agent Architectures",
+              "page": 440,
+              "subs": [
+                {
+                  "title": "Centralized (Supervisor/Manager) Architecture",
+                  "page": 440
+                },
+                {
+                  "title": "Decentralized (Peer-to-Peer) Architecture",
+                  "page": 441
+                },
+                {
+                  "title": "Hierarchical Architecture",
+                  "page": 442
+                },
+                {
+                  "title": "Swarm Architecture",
+                  "page": 443
+                }
+              ]
+            },
+            {
+              "title": "Coordination Mechanisms",
+              "page": 444,
+              "subs": [
+                {
+                  "title": "Shared State (Global Blackboard)",
+                  "page": 444
+                },
+                {
+                  "title": "Message Passing",
+                  "page": 445
+                },
+                {
+                  "title": "Planning and Decomposition",
+                  "page": 445
+                },
+                {
+                  "title": "Voting and Consensus",
+                  "page": 446
+                },
+                {
+                  "title": "Market-Based Coordination",
+                  "page": 446
+                },
+                {
+                  "title": "Stigmergy: Indirect Communication Through Environment",
+                  "page": 447
+                }
+              ]
+            },
+            {
+              "title": "Communication Protocols",
+              "page": 447,
+              "subs": [
+                {
+                  "title": "Structured Message Formats",
+                  "page": 447
+                },
+                {
+                  "title": "Performative Types (FIPA-ACL Inspired)",
+                  "page": 448
+                },
+                {
+                  "title": "Context Sharing Strategies",
+                  "page": 448
+                }
+              ]
+            },
+            {
+              "title": "Role Design and Specialization",
+              "page": 448,
+              "subs": [
+                {
+                  "title": "Defining Agent Roles",
+                  "page": 449
+                },
+                {
+                  "title": "Capability-Based vs. Role-Based Assignment",
+                  "page": 449
+                },
+                {
+                  "title": "Dynamic Role Reassignment",
+                  "page": 449
+                },
+                {
+                  "title": "Persona Design for Diversity of Thought",
+                  "page": 449
+                }
+              ]
+            },
+            {
+              "title": "Multi-Agent Patterns for LLMs",
+              "page": 450,
+              "subs": [
+                {
+                  "title": "Debate Pattern",
+                  "page": 450
+                },
+                {
+                  "title": "Reflection Pattern",
+                  "page": 450
+                },
+                {
+                  "title": "Division of Labor Pattern",
+                  "page": 451
+                },
+                {
+                  "title": "Pipeline Pattern",
+                  "page": 451
+                },
+                {
+                  "title": "Ensemble Pattern",
+                  "page": 451
+                },
+                {
+                  "title": "Teacher-Student Pattern",
+                  "page": 451
+                },
+                {
+                  "title": "Red Team Pattern",
+                  "page": 451
+                }
+              ]
+            },
+            {
+              "title": "Training Multi-Agent Systems with Reinforcement Learning",
+              "page": 451,
+              "subs": [
+                {
+                  "title": "Mathematical Formulation",
+                  "page": 452
+                },
+                {
+                  "title": "Independent Learning",
+                  "page": 452
+                },
+                {
+                  "title": "Centralized Training, Decentralized Execution (CTDE)",
+                  "page": 452
+                },
+                {
+                  "title": "Communication Learning",
+                  "page": 452
+                },
+                {
+                  "title": "Emergent Communication",
+                  "page": 453
+                },
+                {
+                  "title": "Self-Play",
+                  "page": 453
+                },
+                {
+                  "title": "Population-Based Training",
+                  "page": 453
+                },
+                {
+                  "title": "Social Welfare and Nash Equilibrium",
+                  "page": 453
+                }
+              ]
+            },
+            {
+              "title": "Challenges and Solutions",
+              "page": 454,
+              "subs": [
+                {
+                  "title": "Coordination Overhead",
+                  "page": 454
+                },
+                {
+                  "title": "Redundancy vs. Efficiency",
+                  "page": 454
+                },
+                {
+                  "title": "Attribution",
+                  "page": 454
+                },
+                {
+                  "title": "Scalability",
+                  "page": 454
+                },
+                {
+                  "title": "Emergent Behavior and Safety",
+                  "page": 455
+                },
+                {
+                  "title": "Evaluation",
+                  "page": 455
+                }
+              ]
+            },
+            {
+              "title": "Real-World Multi-Agent Applications",
+              "page": 455,
+              "subs": [
+                {
+                  "title": "Software Development Team",
+                  "page": 455
+                },
+                {
+                  "title": "Research Team",
+                  "page": 457
+                },
+                {
+                  "title": "Customer Service System",
+                  "page": 457
+                },
+                {
+                  "title": "Creative Team",
+                  "page": 457
+                }
+              ]
+            },
+            {
+              "title": "Architecture Comparison",
+              "page": 457,
+              "subs": []
+            },
+            {
+              "title": "Summary",
+              "page": 458,
+              "subs": []
+            }
+          ]
+        },
+        {
+          "index": 11,
+          "slug": "agent-development-frameworks",
+          "title": "Agent Development Frameworks",
+          "part": "part-v-agentic-ai",
+          "part_roman": "V",
+          "page_start": 459,
+          "page_end": 489,
+          "file": "chapters/part-v-agentic-ai/agent-development-frameworks.md",
+          "sections": [
+            {
+              "title": "Motivation: The Engineering Gap",
+              "page": 459,
+              "subs": []
+            },
+            {
+              "title": "The Agent Development Lifecycle",
+              "page": 460,
+              "subs": [
+                {
+                  "title": "Phase 1: Design",
+                  "page": 460
+                },
+                {
+                  "title": "Phase 2: Implementation",
+                  "page": 460
+                },
+                {
+                  "title": "Phase 3: Testing",
+                  "page": 461
+                },
+                {
+                  "title": "Phase 4: Deployment",
+                  "page": 461
+                },
+                {
+                  "title": "Phase 5: Iteration",
+                  "page": 461
+                }
+              ]
+            },
+            {
+              "title": "Major Frameworks: A Deep Dive",
+              "page": 461,
+              "subs": [
+                {
+                  "title": "LangGraph",
+                  "page": 461
+                },
+                {
+                  "title": "AutoGen (Microsoft)",
+                  "page": 464
+                },
+                {
+                  "title": "CrewAI",
+                  "page": 466
+                },
+                {
+                  "title": "OpenAI Assistants API and Agents SDK",
+                  "page": 467
+                },
+                {
+                  "title": "DSPy",
+                  "page": 469
+                },
+                {
+                  "title": "Semantic Kernel (Microsoft)",
+                  "page": 471
+                }
+              ]
+            },
+            {
+              "title": "Open-Source Agent Tooling",
+              "page": 472,
+              "subs": [
+                {
+                  "title": "Modular Agent Architectures",
+                  "page": 472
+                },
+                {
+                  "title": "Key Open-Source Building Blocks",
+                  "page": 472
+                },
+                {
+                  "title": "Interoperability Standards",
+                  "page": 473
+                }
+              ]
+            },
+            {
+              "title": "Agent Testing and Evaluation",
+              "page": 475,
+              "subs": [
+                {
+                  "title": "Unit Testing Individual Tools",
+                  "page": 475
+                },
+                {
+                  "title": "Integration Testing Full Agent Loops",
+                  "page": 475
+                },
+                {
+                  "title": "Regression Testing with Golden Trajectories",
+                  "page": 476
+                },
+                {
+                  "title": "Behavioral Testing",
+                  "page": 477
+                },
+                {
+                  "title": "Cost and Latency Testing",
+                  "page": 477
+                }
+              ]
+            },
+            {
+              "title": "Observability and Debugging",
+              "page": 478,
+              "subs": [
+                {
+                  "title": "Tracing Agent Execution",
+                  "page": 478
+                },
+                {
+                  "title": "Failure Categorization",
+                  "page": 479
+                },
+                {
+                  "title": "Replay and Debugging Workflows",
+                  "page": 479
+                }
+              ]
+            },
+            {
+              "title": "Production Deployment Patterns",
+              "page": 480,
+              "subs": [
+                {
+                  "title": "Async Agent Execution",
+                  "page": 480
+                },
+                {
+                  "title": "Multi-Tenant Isolation",
+                  "page": 482
+                },
+                {
+                  "title": "Cost Optimization Strategies",
+                  "page": 482
+                },
+                {
+                  "title": "Auto-Scaling Strategies",
+                  "page": 483
+                }
+              ]
+            },
+            {
+              "title": "Framework Comparison",
+              "page": 483,
+              "subs": []
+            },
+            {
+              "title": "Complete Implementation Example: Production Research Agent",
+              "page": 483,
+              "subs": []
+            },
+            {
+              "title": "Summary",
+              "page": 488,
+              "subs": []
+            }
+          ]
+        },
+        {
+          "index": 12,
+          "slug": "agentic-ui-frameworks",
+          "title": "Agentic UI Frameworks",
+          "part": "part-v-agentic-ai",
+          "part_roman": "V",
+          "page_start": 490,
+          "page_end": 511,
+          "file": "chapters/part-v-agentic-ai/agentic-ui-frameworks.md",
+          "sections": [
+            {
+              "title": "Motivation: Beyond the Chat Box",
+              "page": 490,
+              "subs": []
+            },
+            {
+              "title": "UI Paradigms for Agents",
+              "page": 491,
+              "subs": [
+                {
+                  "title": "Chat-Based Interfaces",
+                  "page": 491
+                },
+                {
+                  "title": "Canvas and Artifact-Based Interfaces",
+                  "page": 491
+                },
+                {
+                  "title": "Workflow Visualization",
+                  "page": 492
+                },
+                {
+                  "title": "Dashboard and Monitoring Interfaces",
+                  "page": 492
+                },
+                {
+                  "title": "Collaborative Interfaces",
+                  "page": 492
+                },
+                {
+                  "title": "Autonomous with Checkpoints",
+                  "page": 493
+                }
+              ]
+            },
+            {
+              "title": "Key UI Components for Agents",
+              "page": 493,
+              "subs": [
+                {
+                  "title": "Thought and Reasoning Display",
+                  "page": 493
+                },
+                {
+                  "title": "Tool Use Visualization",
+                  "page": 493
+                },
+                {
+                  "title": "Progress Indicators",
+                  "page": 494
+                },
+                {
+                  "title": "Approval Gates",
+                  "page": 494
+                },
+                {
+                  "title": "Context Display",
+                  "page": 495
+                },
+                {
+                  "title": "Error and Recovery UI",
+                  "page": 495
+                },
+                {
+                  "title": "Confidence Indicators",
+                  "page": 495
+                }
+              ]
+            },
+            {
+              "title": "Frameworks and Libraries",
+              "page": 495,
+              "subs": [
+                {
+                  "title": "Vercel AI SDK",
+                  "page": 496
+                },
+                {
+                  "title": "Chainlit",
+                  "page": 496
+                },
+                {
+                  "title": "Gradio",
+                  "page": 497
+                },
+                {
+                  "title": "Streamlit",
+                  "page": 497
+                },
+                {
+                  "title": "OpenAI Assistants Playground",
+                  "page": 497
+                },
+                {
+                  "title": "LangGraph Studio",
+                  "page": 498
+                },
+                {
+                  "title": "Framework Comparison",
+                  "page": 498
+                }
+              ]
+            },
+            {
+              "title": "Generative UI",
+              "page": 498,
+              "subs": [
+                {
+                  "title": "React Server Components for Dynamic Interfaces",
+                  "page": 499
+                },
+                {
+                  "title": "Adaptive Interfaces Based on Content Type",
+                  "page": 499
+                }
+              ]
+            },
+            {
+              "title": "Streaming and Real-Time Patterns",
+              "page": 500,
+              "subs": [
+                {
+                  "title": "Token Streaming",
+                  "page": 500
+                },
+                {
+                  "title": "Tool Call Streaming",
+                  "page": 501
+                },
+                {
+                  "title": "Multi-Agent Streaming",
+                  "page": 501
+                },
+                {
+                  "title": "Optimistic UI Updates",
+                  "page": 501
+                },
+                {
+                  "title": "Backpressure Handling",
+                  "page": 502
+                }
+              ]
+            },
+            {
+              "title": "Human-in-the-Loop UI Design",
+              "page": 502,
+              "subs": [
+                {
+                  "title": "When to Interrupt the Agent",
+                  "page": 502
+                },
+                {
+                  "title": "Tiered Approval Workflows",
+                  "page": 502
+                },
+                {
+                  "title": "Feedback Mechanisms",
+                  "page": 503
+                },
+                {
+                  "title": "Teaching the Agent Through UI Interaction",
+                  "page": 503
+                }
+              ]
+            },
+            {
+              "title": "Accessibility and Trust",
+              "page": 503,
+              "subs": [
+                {
+                  "title": "Explaining Agent Decisions",
+                  "page": 503
+                },
+                {
+                  "title": "Showing Confidence Levels",
+                  "page": 504
+                },
+                {
+                  "title": "Undo and Rollback Capabilities",
+                  "page": 504
+                },
+                {
+                  "title": "Audit Trails in the UI",
+                  "page": 504
+                },
+                {
+                  "title": "Managing User Expectations",
+                  "page": 504
+                }
+              ]
+            },
+            {
+              "title": "Implementation Example: A Full-Stack Agentic UI",
+              "page": 505,
+              "subs": [
+                {
+                  "title": "Backend: FastAPI + LangGraph with Streaming and Approval Gates",
+                  "page": 505
+                },
+                {
+                  "title": "Frontend: React with Streaming and Tool Visualization",
+                  "page": 507
+                }
+              ]
+            },
+            {
+              "title": "Summary",
+              "page": 511,
+              "subs": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "roman": "VI",
+      "name": "Assessment & Reference",
+      "slug": "part-vi-assessment-reference",
+      "page": 512,
+      "chapters": [
+        {
+          "index": 1,
+          "slug": "quiz-questions-detailed-answers",
+          "title": "Quiz Questions & Detailed Answers",
+          "part": "part-vi-assessment-reference",
+          "part_roman": "VI",
+          "page_start": 513,
+          "page_end": 564,
+          "file": "chapters/part-vi-assessment-reference/quiz-questions-detailed-answers.md",
+          "sections": [
+            {
+              "title": "Foundations Questions",
+              "page": 513,
+              "subs": []
+            },
+            {
+              "title": "Core Algorithm Questions",
+              "page": 515,
+              "subs": []
+            },
+            {
+              "title": "System Design Questions",
+              "page": 517,
+              "subs": []
+            },
+            {
+              "title": "Practical and Debugging Questions",
+              "page": 520,
+              "subs": []
+            },
+            {
+              "title": "GRPO Variants and Advanced RL Questions",
+              "page": 527,
+              "subs": []
+            },
+            {
+              "title": "DPO Extensions Questions",
+              "page": 529,
+              "subs": []
+            },
+            {
+              "title": "GPU Architecture and Hardware Questions",
+              "page": 530,
+              "subs": []
+            },
+            {
+              "title": "Optimization and Training Questions",
+              "page": 532,
+              "subs": []
+            },
+            {
+              "title": "Reward Model and SFT Questions",
+              "page": 534,
+              "subs": []
+            },
+            {
+              "title": "System Architecture Extension Questions",
+              "page": 536,
+              "subs": []
+            },
+            {
+              "title": "Transformer Architecture Questions",
+              "page": 538,
+              "subs": []
+            },
+            {
+              "title": "Flash Attention Questions",
+              "page": 539,
+              "subs": []
+            },
+            {
+              "title": "LoRA and PEFT Questions",
+              "page": 540,
+              "subs": []
+            },
+            {
+              "title": "Model Compression Questions",
+              "page": 541,
+              "subs": []
+            },
+            {
+              "title": "Mixture of Experts Questions",
+              "page": 542,
+              "subs": []
+            },
+            {
+              "title": "Diversity in Training Questions",
+              "page": 542,
+              "subs": []
+            },
+            {
+              "title": "Speculative Decoding Questions",
+              "page": 543,
+              "subs": []
+            },
+            {
+              "title": "Agentic RL Questions",
+              "page": 544,
+              "subs": []
+            },
+            {
+              "title": "Listwise Rewards and Advanced RM Questions",
+              "page": 546,
+              "subs": []
+            },
+            {
+              "title": "RL for Large Reasoning Models Questions",
+              "page": 547,
+              "subs": []
+            },
+            {
+              "title": "LLM Evaluation Questions",
+              "page": 549,
+              "subs": []
+            },
+            {
+              "title": "Agentic Memory Questions",
+              "page": 551,
+              "subs": []
+            },
+            {
+              "title": "Agent Orchestration Questions",
+              "page": 552,
+              "subs": []
+            },
+            {
+              "title": "MCP Protocol Questions",
+              "page": 555,
+              "subs": []
+            },
+            {
+              "title": "Agent Communication (A2A) Questions",
+              "page": 556,
+              "subs": []
+            },
+            {
+              "title": "Multi-Agent Systems Questions",
+              "page": 557,
+              "subs": []
+            },
+            {
+              "title": "Agent Development Framework Questions",
+              "page": 558,
+              "subs": []
+            },
+            {
+              "title": "Agentic Environments Questions",
+              "page": 559,
+              "subs": []
+            },
+            {
+              "title": "Agentic UI Framework Questions",
+              "page": 560,
+              "subs": []
+            },
+            {
+              "title": "RAG and Agentic RAG Questions",
+              "page": 561,
+              "subs": []
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "slug": "quick-reference",
+          "title": "Quick Reference",
+          "part": "part-vi-assessment-reference",
+          "part_roman": "VI",
+          "page_start": 565,
+          "page_end": 572,
+          "file": "chapters/part-vi-assessment-reference/quick-reference.md",
+          "sections": [
+            {
+              "title": "Core RL & Alignment Equations",
+              "page": 565,
+              "subs": []
+            },
+            {
+              "title": "Transformer & Architecture Formulas",
+              "page": 565,
+              "subs": []
+            },
+            {
+              "title": "Decoding Methods",
+              "page": 566,
+              "subs": []
+            },
+            {
+              "title": "Systems & Parallelism",
+              "page": 566,
+              "subs": []
+            },
+            {
+              "title": "GPU Hardware Specs",
+              "page": 566,
+              "subs": []
+            },
+            {
+              "title": "Hyperparameter Ranges",
+              "page": 567,
+              "subs": []
+            },
+            {
+              "title": "TRL API Quick Reference",
+              "page": 567,
+              "subs": []
+            },
+            {
+              "title": "RAG Pipeline Formulas",
+              "page": 567,
+              "subs": []
+            },
+            {
+              "title": "Agentic Design Patterns",
+              "page": 568,
+              "subs": []
+            },
+            {
+              "title": "Agent Communication Protocols",
+              "page": 568,
+              "subs": []
+            },
+            {
+              "title": "Context Window Budget",
+              "page": 568,
+              "subs": []
+            },
+            {
+              "title": "Common Failure Modes & Fixes",
+              "page": 568,
+              "subs": []
+            },
+            {
+              "title": "Method Selection Decision Tree",
+              "page": 569,
+              "subs": []
+            },
+            {
+              "title": "Evaluation Metrics",
+              "page": 569,
+              "subs": []
+            },
+            {
+              "title": "Reasoning & Test-Time Scaling",
+              "page": 569,
+              "subs": []
+            },
+            {
+              "title": "Memory System Types",
+              "page": 570,
+              "subs": []
+            },
+            {
+              "title": "MCP Quick Reference",
+              "page": 570,
+              "subs": []
+            },
+            {
+              "title": "A2A Protocol Quick Reference",
+              "page": 570,
+              "subs": []
+            },
+            {
+              "title": "Agent Framework Comparison",
+              "page": 571,
+              "subs": []
+            },
+            {
+              "title": "Agentic RL Formulas",
+              "page": 571,
+              "subs": []
+            },
+            {
+              "title": "Agent Security Checklist",
+              "page": 571,
+              "subs": []
+            },
+            {
+              "title": "Agent Evaluation Metrics",
+              "page": 572,
+              "subs": []
+            },
+            {
+              "title": "Key Agentic Benchmarks",
+              "page": 572,
+              "subs": []
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "slug": "conclusion-and-future-directions",
+          "title": "Conclusion and Future Directions",
+          "part": "part-vi-assessment-reference",
+          "part_roman": "VI",
+          "page_start": 573,
+          "page_end": 603,
+          "file": "chapters/part-vi-assessment-reference/conclusion-and-future-directions.md",
+          "sections": [
+            {
+              "title": "Summary",
+              "page": 573,
+              "subs": []
+            },
+            {
+              "title": "The Road Ahead: Open Challenges",
+              "page": 574,
+              "subs": [
+                {
+                  "title": "Learning from Interaction",
+                  "page": 574
+                },
+                {
+                  "title": "Scalable Oversight",
+                  "page": 574
+                },
+                {
+                  "title": "World Models and Planning",
+                  "page": 574
+                },
+                {
+                  "title": "Multi-Agent Ecosystems",
+                  "page": 574
+                },
+                {
+                  "title": "Agent Security and Trust",
+                  "page": 575
+                },
+                {
+                  "title": "Evaluation Beyond Benchmarks",
+                  "page": 575
+                },
+                {
+                  "title": "Efficiency and Accessibility",
+                  "page": 575
+                }
+              ]
+            },
+            {
+              "title": "Further Reading",
+              "page": 576,
+              "subs": [
+                {
+                  "title": "Foundational Papers",
+                  "page": 576
+                },
+                {
+                  "title": "Systems and Scaling",
+                  "page": 576
+                },
+                {
+                  "title": "Agentic AI",
+                  "page": 576
+                },
+                {
+                  "title": "Alignment and Safety",
+                  "page": 576
+                },
+                {
+                  "title": "Online Resources",
+                  "page": 577
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

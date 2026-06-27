@@ -1,0 +1,18 @@
+# 原始 PDF(版权材料,不入库)
+*.pdf
+
+# Python
+__pycache__/
+*.pyc
+
+# 系统/编辑器
+.DS_Store
+.idea/
+.vscode/
+
+# GitBook 构建产物
+_book/
+node_modules/
+
+# Claude
+.claude/

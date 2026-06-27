@@ -1,0 +1,136 @@
+[
+  {
+    "slug": "introduction-to-agentic-ai",
+    "title": "Introduction to Agentic AI",
+    "source": "source/part-v-agentic-ai/introduction-to-agentic-ai.md",
+    "out": "chapters/part-v-agentic-ai/introduction-to-agentic-ai.md",
+    "pages": "p292-p294",
+    "images": [
+      "../../images/part-v-agentic-ai/introduction-to-agentic-ai/introduction-to-agentic-ai-p294-01.png"
+    ]
+  },
+  {
+    "slug": "retrieval-augmented-generation-rag",
+    "title": "Retrieval-Augmented Generation (RAG)",
+    "source": "source/part-v-agentic-ai/retrieval-augmented-generation-rag.md",
+    "out": "chapters/part-v-agentic-ai/retrieval-augmented-generation-rag.md",
+    "pages": "p295-p319",
+    "images": [
+      "../../images/part-v-agentic-ai/retrieval-augmented-generation-rag/retrieval-augmented-generation-rag-p296-01.png",
+      "../../images/part-v-agentic-ai/retrieval-augmented-generation-rag/retrieval-augmented-generation-rag-p307-02.png"
+    ]
+  },
+  {
+    "slug": "agentic-memory-systems",
+    "title": "Agentic Memory Systems",
+    "source": "source/part-v-agentic-ai/agentic-memory-systems.md",
+    "out": "chapters/part-v-agentic-ai/agentic-memory-systems.md",
+    "pages": "p320-p342",
+    "images": [
+      "../../images/part-v-agentic-ai/agentic-memory-systems/agentic-memory-systems-p321-01.png"
+    ]
+  },
+  {
+    "slug": "agent-harness-context-management-and-orchestration",
+    "title": "Agent Harness – Context Management and Orchestration",
+    "source": "source/part-v-agentic-ai/agent-harness-context-management-and-orchestration.md",
+    "out": "chapters/part-v-agentic-ai/agent-harness-context-management-and-orchestration.md",
+    "pages": "p343-p368",
+    "images": [
+      "../../images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p344-01.png",
+      "../../images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p346-02.png",
+      "../../images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p347-03.png",
+      "../../images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p353-04.png",
+      "../../images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p353-05.png",
+      "../../images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p354-06.png",
+      "../../images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p356-07.png"
+    ]
+  },
+  {
+    "slug": "agent-design-patterns",
+    "title": "Agent Design Patterns",
+    "source": "source/part-v-agentic-ai/agent-design-patterns.md",
+    "out": "chapters/part-v-agentic-ai/agent-design-patterns.md",
+    "pages": "p369-p374",
+    "images": [
+      "../../images/part-v-agentic-ai/agent-design-patterns/agent-design-patterns-p369-01.png",
+      "../../images/part-v-agentic-ai/agent-design-patterns/agent-design-patterns-p370-02.png",
+      "../../images/part-v-agentic-ai/agent-design-patterns/agent-design-patterns-p371-03.png",
+      "../../images/part-v-agentic-ai/agent-design-patterns/agent-design-patterns-p371-04.png"
+    ]
+  },
+  {
+    "slug": "agentic-environments-and-benchmarks",
+    "title": "Agentic Environments and Benchmarks",
+    "source": "source/part-v-agentic-ai/agentic-environments-and-benchmarks.md",
+    "out": "chapters/part-v-agentic-ai/agentic-environments-and-benchmarks.md",
+    "pages": "p375-p391",
+    "images": [
+      "../../images/part-v-agentic-ai/agentic-environments-and-benchmarks/agentic-environments-and-benchmarks-p381-01.png",
+      "../../images/part-v-agentic-ai/agentic-environments-and-benchmarks/agentic-environments-and-benchmarks-p385-02.png"
+    ]
+  },
+  {
+    "slug": "model-context-protocol-mcp",
+    "title": "Model Context Protocol (MCP)",
+    "source": "source/part-v-agentic-ai/model-context-protocol-mcp.md",
+    "out": "chapters/part-v-agentic-ai/model-context-protocol-mcp.md",
+    "pages": "p392-p411",
+    "images": [
+      "../../images/part-v-agentic-ai/model-context-protocol-mcp/model-context-protocol-mcp-p393-01.png",
+      "../../images/part-v-agentic-ai/model-context-protocol-mcp/model-context-protocol-mcp-p395-02.png"
+    ]
+  },
+  {
+    "slug": "agent-skills",
+    "title": "Agent Skills",
+    "source": "source/part-v-agentic-ai/agent-skills.md",
+    "out": "chapters/part-v-agentic-ai/agent-skills.md",
+    "pages": "p412-p416",
+    "images": []
+  },
+  {
+    "slug": "agent-to-agent-communication-a2a",
+    "title": "Agent-to-Agent Communication (A2A)",
+    "source": "source/part-v-agentic-ai/agent-to-agent-communication-a2a.md",
+    "out": "chapters/part-v-agentic-ai/agent-to-agent-communication-a2a.md",
+    "pages": "p417-p438",
+    "images": [
+      "../../images/part-v-agentic-ai/agent-to-agent-communication-a2a/agent-to-agent-communication-a2a-p430-01.png"
+    ]
+  },
+  {
+    "slug": "multi-agent-systems",
+    "title": "Multi-Agent Systems",
+    "source": "source/part-v-agentic-ai/multi-agent-systems.md",
+    "out": "chapters/part-v-agentic-ai/multi-agent-systems.md",
+    "pages": "p439-p458",
+    "images": [
+      "../../images/part-v-agentic-ai/multi-agent-systems/multi-agent-systems-p440-01.png",
+      "../../images/part-v-agentic-ai/multi-agent-systems/multi-agent-systems-p442-02.png",
+      "../../images/part-v-agentic-ai/multi-agent-systems/multi-agent-systems-p443-03.png"
+    ]
+  },
+  {
+    "slug": "agent-development-frameworks",
+    "title": "Agent Development Frameworks",
+    "source": "source/part-v-agentic-ai/agent-development-frameworks.md",
+    "out": "chapters/part-v-agentic-ai/agent-development-frameworks.md",
+    "pages": "p459-p489",
+    "images": [
+      "../../images/part-v-agentic-ai/agent-development-frameworks/agent-development-frameworks-p460-01.png",
+      "../../images/part-v-agentic-ai/agent-development-frameworks/agent-development-frameworks-p464-02.png",
+      "../../images/part-v-agentic-ai/agent-development-frameworks/agent-development-frameworks-p472-03.png",
+      "../../images/part-v-agentic-ai/agent-development-frameworks/agent-development-frameworks-p475-04.png",
+      "../../images/part-v-agentic-ai/agent-development-frameworks/agent-development-frameworks-p481-05.png"
+    ]
+  },
+  {
+    "slug": "agentic-ui-frameworks",
+    "title": "Agentic UI Frameworks",
+    "source": "source/part-v-agentic-ai/agentic-ui-frameworks.md",
+    "out": "chapters/part-v-agentic-ai/agentic-ui-frameworks.md",
+    "pages": "p490-p511",
+    "images": []
+  }
+]
