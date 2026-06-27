@@ -8,5 +8,5 @@
     "summary": "SUMMARY.md",
     "glossary": "GLOSSARY.md"
   },
-  "plugins": ["anchors", "search", "lunr"]
+  "plugins": ["katex"]
 }
