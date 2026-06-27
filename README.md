@@ -1,5 +1,7 @@
 # Agentic AI 指南 —— 从基础到系统(中文翻译版)
 
+> 📖 **在线阅读**:[https://luckinbyte.github.io/agentic-ai-zh/](https://luckinbyte.github.io/agentic-ai-zh/)
+
 > 中文翻译自 _The Hitchhiker's Guide to Agentic AI: From Foundations to Systems_
 > 原作者:Haggai Roitman · 2026 · v1.2.2 · [arXiv:2606.24937](https://arxiv.org/abs/2606.24937)
 
@@ -27,19 +29,5 @@ chapters/             译文(按 Part 分目录)
 images/               提取的插图
 source/               预处理切出的原文分章文本(便于追溯)
 ```
-
-## 翻译进度
-
-**全书翻译已完成**:29 章 + 4 篇前言,约 22 万中文字,33 个 Markdown 文件。
-
-| 部分 | 状态 |
-|---|---|
-| Frontmatter(前言/引言) | ✅ 已完成 |
-| Part I Foundations | ✅ 已完成 |
-| Part II RL Methods for LLMs | ✅ 已完成 |
-| Part III Reasoning | ✅ 已完成 |
-| Part IV Evaluation | ✅ 已完成 |
-| Part V Agentic AI | ✅ 已完成 |
-| Part VI Assessment & Reference | ✅ 已完成 |
 
 > 本译作仅供学习研究;版权归原作者所有。
