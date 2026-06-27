@@ -19,7 +19,7 @@
 
 最简单的模式:将一个复杂任务拆分为固定的 LLM 调用序列,把一次调用的结果作为上下文传递给下一次调用。步骤之间的校验门(gate)能在错误向下游传播之前及早捕获错误。
 
-![图 19.1:带质量门的提示链。每一步都是一次独立的 LLM 调用,门可以是基于 LLM 的,也可以是程序化的。](../../images/part-v-agentic-ai/agent-design-patterns/agent-design-patterns-p369-01.png)
+![图 19.1:带质量门的提示链。每一步都是一次独立的 LLM 调用,门可以是基于 LLM 的,也可以是程序化的。](images/part-v-agentic-ai/agent-design-patterns/agent-design-patterns-p369-01.png)
 
 **适用场景**:天然顺序化的任务——内容生成、数据转换、多阶段分析。
 
@@ -29,7 +29,7 @@
 
 一个分类器(LLM 或传统分类器)检视输入并将其分发给专门的处理器。
 
-![图 19.2:路由模式:输入先被分类一次,然后交由专家处理器处理。](../../images/part-v-agentic-ai/agent-design-patterns/agent-design-patterns-p370-02.png)
+![图 19.2:路由模式:输入先被分类一次,然后交由专家处理器处理。](images/part-v-agentic-ai/agent-design-patterns/agent-design-patterns-p370-02.png)
 
 **适用场景**:具有不同最优提示、工具或模型的多种任务类型。如客户支持分诊(triage)、多模态输入处理。
 
@@ -59,9 +59,9 @@
 
 **适用场景**:具有明确质量准则的任务——必须通过测试的代码、必须保留原意的翻译、必须符合风格指南的写作。
 
-![图 19.3:编排者-工人:由 LLM 决定如何分解任务,并综合各工人的结果。](../../images/part-v-agentic-ai/agent-design-patterns/agent-design-patterns-p371-03.png)
+![图 19.3:编排者-工人:由 LLM 决定如何分解任务,并综合各工人的结果。](images/part-v-agentic-ai/agent-design-patterns/agent-design-patterns-p371-03.png)
 
-![图 19.4:评估者-优化器:无需训练的迭代精化。](../../images/part-v-agentic-ai/agent-design-patterns/agent-design-patterns-p371-04.png)
+![图 19.4:评估者-优化器:无需训练的迭代精化。](images/part-v-agentic-ai/agent-design-patterns/agent-design-patterns-p371-04.png)
 
 ## 19.2 自主智能体模式
 

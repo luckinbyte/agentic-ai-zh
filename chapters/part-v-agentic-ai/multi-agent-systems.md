@@ -36,7 +36,7 @@
 
 在集中式架构中,一个编排智能体(orchestrator,分别被称为主管 supervisor、经理 manager 或规划器 planner)持有全局状态,分解任务,把子任务委派给工人智能体(worker agent),并聚合它们的结果。其拓扑是轮毂-辐条式(hub-and-spoke):所有通信都流经中心节点。
 
-![图 24.1:集中式(主管)架构。经理把任务委派给专门化的工人,并聚合它们的输出。所有通信都流经中心枢纽。](../../images/part-v-agentic-ai/multi-agent-systems/multi-agent-systems-p440-01.png)
+![图 24.1:集中式(主管)架构。经理把任务委派给专门化的工人,并聚合它们的输出。所有通信都流经中心枢纽。](images/part-v-agentic-ai/multi-agent-systems/multi-agent-systems-p440-01.png)
 
 经理的职责包括:
 
@@ -106,7 +106,7 @@ graph = builder.compile()
 
 对等系统中的涌现式协调通过如下机制产生:
 
-![图 24.2:去中心化(对等)架构。智能体直接通信;协调从局部交互中涌现。](../../images/part-v-agentic-ai/multi-agent-systems/multi-agent-systems-p442-02.png)
+![图 24.2:去中心化(对等)架构。智能体直接通信;协调从局部交互中涌现。](images/part-v-agentic-ai/multi-agent-systems/multi-agent-systems-p442-02.png)
 
 - **协商(negotiation)**:智能体为任务或资源竞标
 - **间接协同(stigmergy)**:智能体修改他人可观察到的共享状态(参见 24.3.6 节)
@@ -130,7 +130,7 @@ graph = builder.compile()
 - **领域隔离(domain isolation)**:子经理维护领域专属的上下文,减轻顶层编排者的认知负担
 - **作用域限制(scope limitation)**:每个智能体只需了解其直接上级和直接下级
 
-![图 24.3:层次式架构。顶层编排者委派给领域子经理,后者再委派给专门化的工人。虚线箭头表示一条升级路径。](../../images/part-v-agentic-ai/multi-agent-systems/multi-agent-systems-p443-03.png)
+![图 24.3:层次式架构。顶层编排者委派给领域子经理,后者再委派给专门化的工人。虚线箭头表示一条升级路径。](images/part-v-agentic-ai/multi-agent-systems/multi-agent-systems-p443-03.png)
 
 企业类比十分贴切:CEO(顶层编排者)制定战略;副总裁(子经理)把战略转化为领域计划;个人贡献者(工人)负责执行。层次结构在保持责任归属的同时实现了规模化。
 

@@ -22,7 +22,7 @@
 
 语言模型本质上是一个函数 $f_\theta : \text{tokens} \to \text{tokens}$。它没有持久状态,无法调用 API,也没有时间概念。运行框架就是赋予这个模型一副"躯体"的"操作系统"——持久记忆、执行器(tools,即工具)和调度器(orchestrator,即编排器)[316]。正如操作系统将硬件从应用中抽象出来一样,运行框架将基础设施从模型中抽象出来。
 
-![图 18.1:智能体运行框架的高层架构。LLM 只负责推理;所有执行、记忆、路由与可观测性都由运行框架管理。](../../images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p344-01.png)
+![图 18.1:智能体运行框架的高层架构。LLM 只负责推理;所有执行、记忆、路由与可观测性都由运行框架管理。](images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p344-01.png)
 
 ## 18.2 上下文窗口管理
 
@@ -119,7 +119,7 @@ $$
 \quad (18.7)
 $$
 
-![图 18.2:三种滑动窗口策略。红色 = 固定保留,灰色 = 丢弃,蓝色 = 逐字保留,黄色 = 摘要化,绿色 = 新消息。](../../images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p346-02.png)
+![图 18.2:三种滑动窗口策略。红色 = 固定保留,灰色 = 丢弃,蓝色 = 逐字保留,黄色 = 摘要化,绿色 = 新消息。](images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p346-02.png)
 
 其中根模型将上下文 $C$ 划分为多个块 $\{C_i\}$、构造子查询 $\{q_i\}$、派生递归调用来处理每个块,再将结果综合为最终答案。任何单次调用都不会看到完整上下文——模型在每一递归层级上自行管理需要审视的内容。
 
@@ -159,7 +159,7 @@ def recursive_summarize(context: str, query: str,
 
 这种模式可推广到摘要化之外:递归搜索(在数百万词元中寻找一根针)、递归分析(审计一个大型代码库)、递归抽取(解析一个文档语料库)都遵循相同的"分解—递归—聚合"结构。
 
-![图 18.3:递归语言模型(RLM)。根模型将上下文划分为多个块,在深度 1 派生子 LLM 调用,后者可进一步递归(深度 2)。结果沿虚线绿色箭头回流并聚合为最终答案。任何单次调用都不会处理完整上下文。](../../images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p347-03.png)
+![图 18.3:递归语言模型(RLM)。根模型将上下文划分为多个块,在深度 1 派生子 LLM 调用,后者可进一步递归(深度 2)。结果沿虚线绿色箭头回流并聚合为最终答案。任何单次调用都不会处理完整上下文。](images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p347-03.png)
 
 ### 18.2.6 词元计数与预算监控
 
@@ -418,7 +418,7 @@ def process_tool_output(result: str, budget: int,
 3. MCP 服务器执行工具并返回结构化结果。
 4. 运行框架将结果作为工具消息插入上下文。
 
-![图 18.4:MCP 架构。运行框架充当 MCP 客户端,通过标准化传输将工具调用路由到专用的 MCP 服务器。](../../images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p353-04.png)
+![图 18.4:MCP 架构。运行框架充当 MCP 客户端,通过标准化传输将工具调用路由到专用的 MCP 服务器。](images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p353-04.png)
 
 ## 18.5 编排模式
 
@@ -433,7 +433,7 @@ $$
 \quad (18.10)
 $$
 
-![图 18.5:ReAct 循环:智能体在推理与行动之间交替,直到满足终止条件。](../../images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p353-05.png)
+![图 18.5:ReAct 循环:智能体在推理与行动之间交替,直到满足终止条件。](images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p353-05.png)
 
 **实现细节。**
 
@@ -463,7 +463,7 @@ $$
 
 **主管模式(Supervisor Pattern)。** 一个中心的"主管" LLM 接收用户请求,将其分解,并把子任务路由给专家智能体。结果由主管聚合。
 
-![图 18.6:主管模式:一个编排器路由到各专家智能体。](../../images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p354-06.png)
+![图 18.6:主管模式:一个编排器路由到各专家智能体。](images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p354-06.png)
 
 **点对点模式(Peer-to-Peer)。** 智能体在没有中心协调者的情况下直接通信。每个智能体可以把任何其他智能体当作工具来调用。灵活,但更难调试,且容易产生循环依赖。
 
@@ -511,7 +511,7 @@ $$
 
 智能体本质上是有状态的。运行框架必须管理多个层次的状态:
 
-![图 18.7:一个人在回路智能体的工作流图示例。状态与条件转移是显式的,使控制流可审计。](../../images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p356-07.png)
+![图 18.7:一个人在回路智能体的工作流图示例。状态与条件转移是显式的,使控制流可审计。](images/part-v-agentic-ai/agent-harness-context-management-and-orchestration/agent-harness-context-management-and-orchestration-p356-07.png)
 
 ### 18.6.1 会话状态
 

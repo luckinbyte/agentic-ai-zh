@@ -218,7 +218,7 @@ $$
 
 PPO 在内存中管理两种截然不同的参数状态,它们共享相同的神经网络拓扑,但在优化过程中持有不同的权重值:
 
-![图 5.1:PPO 端到端流程 —— 从 prompt 批次出发,经生成、奖励打分、KL 计算、优势估计,到截断的策略更新。反馈回路表明更新后的策略被用于下一次生成步骤。](../../images/part-ii-rl-methods-for-llms/ppo-proximal-policy-optimization/ppo-proximal-policy-optimization-p140-01.png)
+![图 5.1:PPO 端到端流程 —— 从 prompt 批次出发,经生成、奖励打分、KL 计算、优势估计,到截断的策略更新。反馈回路表明更新后的策略被用于下一次生成步骤。](images/part-ii-rl-methods-for-llms/ppo-proximal-policy-optimization/ppo-proximal-policy-optimization-p140-01.png)
 
 ### 核心架构:两个网络
 
@@ -321,7 +321,7 @@ $$
 
 - 预测的均值向量 $\mu$
 
-![图 5.2:连续动作空间下策略网络输出分布参数(均值 $\mu$ 与标准差 $\sigma$),并通过高斯对数概率密度函数计算 log 概率,再代入与离散情形相同的截断目标函数。](../../images/part-ii-rl-methods-for-llms/ppo-proximal-policy-optimization/ppo-proximal-policy-optimization-p141-02.png)
+![图 5.2:连续动作空间下策略网络输出分布参数(均值 $\mu$ 与标准差 $\sigma$),并通过高斯对数概率密度函数计算 log 概率,再代入与离散情形相同的截断目标函数。](images/part-ii-rl-methods-for-llms/ppo-proximal-policy-optimization/ppo-proximal-policy-optimization-p141-02.png)
 
 - 预测的标准差向量 $\sigma$
 

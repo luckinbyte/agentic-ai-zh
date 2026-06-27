@@ -636,7 +636,7 @@ async def quorum_vote(agents: list[AgentCard], question: str,
 
 在生产级多智能体系统中,A2A 与 MCP 在不同层次上协同:A2A 处理智能体之间的委派与协调(对等方之间的横向通信),而 MCP 处理每个智能体与其工具、数据源的连接(与能力的纵向集成)。这种关注点分离(separation of concerns)是构建可扩展智能体架构的关键。
 
-![图 23.1:组合式 A2A + MCP 架构。编排者通过 A2A 委派给专家智能体;每个智能体通过 MCP 服务器访问自己的工具。](../../images/part-v-agentic-ai/agent-to-agent-communication-a2a/agent-to-agent-communication-a2a-p430-01.png)
+![图 23.1:组合式 A2A + MCP 架构。编排者通过 A2A 委派给专家智能体;每个智能体通过 MCP 服务器访问自己的工具。](images/part-v-agentic-ai/agent-to-agent-communication-a2a/agent-to-agent-communication-a2a-p430-01.png)
 
 - **用 A2A 做委派**:当一个智能体需要它所没有的能力时,它通过 A2A 任务消息委派给另一个智能体。每个智能体都是一个自包含的服务,拥有自己的 Agent Card。
 - **用 MCP 做工具访问**:每个智能体通过 MCP 服务器连接到自己的工具。这意味着工具永远不会直接暴露给其他智能体——只能经由所属智能体的接口访问。

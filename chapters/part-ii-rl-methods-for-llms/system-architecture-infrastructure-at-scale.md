@@ -4,7 +4,7 @@
 
 ## 11.1 四模型内存挑战
 
-![图 11.1:70B PPO 内存预算:RLHF 所需的四个模型及其内存占用。总计 1470–1560GB;朴素方案至少需要 19–20 张 A100-80GB;使用 ZeRO-3 时可装入 8 个节点。](../../images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p199-01.png)
+![图 11.1:70B PPO 内存预算:RLHF 所需的四个模型及其内存占用。总计 1470–1560GB;朴素方案至少需要 19–20 张 A100-80GB;使用 ZeRO-3 时可装入 8 个节点。](images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p199-01.png)
 
 **70B BF16 内存预算真实账本**
 
@@ -26,7 +26,7 @@
 
 训练大语言模型需要将计算分布到大量 GPU 上。并行化存在若干本质上不同的维度,每个维度都有各自独特的权衡。本节针对每种策略给出数学公式、图示与实用指导。
 
-![图 11.2:四种并行策略总览。生产系统通常会同时组合其中 2–3 种。](../../images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p200-02.png)
+![图 11.2:四种并行策略总览。生产系统通常会同时组合其中 2–3 种。](images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p200-02.png)
 
 ### 11.2.1 数据并行(DP)与分布式数据并行(DDP)
 
@@ -36,7 +36,7 @@
 
 **分布式数据并行(Distributed Data Parallelism, DDP,DistributedDataParallel)。** 多进程:每张 GPU 运行各自独立的进程。梯度在后台通过 ring-AllReduce [206] 同步,与反向计算重叠进行。
 
-![图 11.3:DDP:每张 GPU 持有完整的模型副本,处理不同 batch。梯度通过 ring AllReduce 取平均,并与反向计算重叠。](../../images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p200-03.png)
+![图 11.3:DDP:每张 GPU 持有完整的模型副本,处理不同 batch。梯度通过 ring AllReduce 取平均,并与反向计算重叠。](images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p200-03.png)
 
 DDP 的关键特性:
 
@@ -84,7 +84,7 @@ $$
 
 **按行并行的线性层(Row-Parallel Linear Layer)。** 权重矩阵按行切分:$W = [W_0; W_1; \dots; W_{T-1}]$,其中 $W_i \in \mathbb{R}^{d/T \times h}$。输入 $X$ 也必须被切分。每张 GPU 计算部分和,再由一个 AllReduce 得到最终输出。
 
-![图 11.4:按列并行的线性层(TP=2)。权重按列切分,每张 GPU 独立计算 $XW_i$。MLP 会将其与一个按行并行的层配对,以避免冗余的 AllReduce。](../../images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p201-04.png)
+![图 11.4:按列并行的线性层(TP=2)。权重按列切分,每张 GPU 独立计算 $XW_i$。MLP 会将其与一个按行并行的层配对,以避免冗余的 AllReduce。](images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p201-04.png)
 
 **带 TP 的 Transformer 块。** 在一个 Transformer 层中,Megatron-LM 按如下方式施加 TP:
 
@@ -92,7 +92,7 @@ $$
 2. **Attention**:Q、K、V 投影按列并行(将注意力头切分到各 GPU)。输出投影按行并行。在输出投影之后做一次 AllReduce。
 3. **合计**:每个 Transformer 层需要 2 次 AllReduce(一次用于注意力,一次用于 MLP)。
 
-![图 11.5:单个 Transformer 块中张量并行的通信模式。每层需要两次 AllReduce 操作(红色标注)——一次在注意力之后,一次在 MLP 之后。](../../images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p202-05.png)
+![图 11.5:单个 Transformer 块中张量并行的通信模式。每层需要两次 AllReduce 操作(红色标注)——一次在注意力之后,一次在 MLP 之后。](images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p202-05.png)
 
 **为什么 TP 被限制在节点内**
 
@@ -118,7 +118,7 @@ $$
 
 **解决方案。** 对于不需要跨 GPU 通信的操作(LayerNorm、Dropout、残差连接),沿序列维度切分。每张 GPU 对这些操作处理序列的 $s/T$ 切片,仅在需要处(注意力、线性层)才收集完整序列。
 
-![图 11.6:序列并行通过沿序列维度切分来减少 LayerNorm/Dropout 的激活内存。通信(AllGather/ReduceScatter)取代了标准 TP 使用的 AllReduce——总传输字节数相同,但节省了内存。](../../images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p203-06.png)
+![图 11.6:序列并行通过沿序列维度切分来减少 LayerNorm/Dropout 的激活内存。通信(AllGather/ReduceScatter)取代了标准 TP 使用的 AllReduce——总传输字节数相同,但节省了内存。](images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p203-06.png)
 
 **SP 的通信是"免费"的**
 
@@ -143,7 +143,7 @@ $$
 
 **气泡问题(The Bubble Problem)。** 朴素的流水线执行会产生"气泡"——阶段等待前一阶段的输入或后一阶段梯度时的空闲时间:
 
-![图 11.7:流水线气泡对比。左:只有一个 micro-batch 的朴素流水线有 75% 空闲。右:GPipe 用 M = 4 个 micro-batch 显著减少了气泡。当 M ≫ P 时,气泡占比趋近于零。](../../images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p204-07.png)
+![图 11.7:流水线气泡对比。左:只有一个 micro-batch 的朴素流水线有 75% 空闲。右:GPipe 用 M = 4 个 micro-batch 显著减少了气泡。当 M ≫ P 时,气泡占比趋近于零。](images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p204-07.png)
 
 **气泡占比公式。** 对于 $P$ 个流水线阶段和每步 $M$ 个 micro-batch:
 
@@ -196,7 +196,7 @@ $$
 
 FSDP [214](PyTorch)与 ZeRO-3 [213](DeepSpeed)解决 DDP 中固有的内存冗余:不再让每张 GPU 都持有参数、梯度、优化器状态的完整副本,而是让每张 GPU 仅拥有 1/N 的切片,在需要时按需重构完整张量。
 
-![图 11.8:FSDP 将所有模型状态分片到各 GPU。每张 GPU 拥有 1/N 的参数、优化器状态和梯度。完整参数在每个层计算前通过 AllGather 按需重构。](../../images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p205-08.png)
+![图 11.8:FSDP 将所有模型状态分片到各 GPU。每张 GPU 拥有 1/N 的参数、优化器状态和梯度。完整参数在每个层计算前通过 AllGather 按需重构。](images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p205-08.png)
 
 每层 FSDP 的执行流程:
 
@@ -266,7 +266,7 @@ FSDP 每步传输的数据是 DDP 的 3 倍:
 > - **结果**:每张 GPU 持有约 70GB;策略权重在前向/反向时逐层 AllGather。
 > - **流水线并行**:仅当模型超过 100B+ 且 TP+ZeRO 装不下时使用。增加复杂度(气泡开销 10–20%)和调度麻烦。
 
-![图 11.9:16 张 GPU 的 3D 并行布局:TP=4(每台机箱内,使用 NVLink),PP=2(橙色箭头,阶段),DP=2(红色箭头,梯度同步)。每个维度分别利用通信层次的不同层级。](../../images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p207-09.png)
+![图 11.9:16 张 GPU 的 3D 并行布局:TP=4(每台机箱内,使用 NVLink),PP=2(橙色箭头,阶段),DP=2(红色箭头,梯度同步)。每个维度分别利用通信层次的不同层级。](images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p207-09.png)
 
 决策流程:
 
@@ -364,7 +364,7 @@ outputs = engine.generate(prompts, sampling_params)
 - 可将 gen(第 N+1 步)与训练(第 N 步)重叠 → 加速 30–40%
 - 不同的量化:生成用 INT8(带宽),训练用 BF16(精度)
 
-![图 11.10:解耦的 RLHF 架构。每个集群针对自身工作负载优化。打分后的 rollout 在经验缓冲区(experience buffer)中累积,再被训练消费。](../../images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p209-10.png)
+![图 11.10:解耦的 RLHF 架构。每个集群针对自身工作负载优化。打分后的 rollout 在经验缓冲区(experience buffer)中累积,再被训练消费。](images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p209-10.png)
 
 ## 11.5 权重同步策略
 
@@ -464,7 +464,7 @@ ds_config = {
 
 ## 11.8 端到端延迟分解
 
-![图 11.11:无重叠(整体式)。解耦后:生成与训练重叠,有效加速 1.4×。](../../images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p211-11.png)
+![图 11.11:无重叠(整体式)。解耦后:生成与训练重叠,有效加速 1.4×。](images/part-ii-rl-methods-for-llms/system-architecture-infrastructure-at-scale/system-architecture-infrastructure-at-scale-p211-11.png)
 
 | 阶段 | 时间(70B) | 受限于 | 优化 |
 |---|---|---|---|
