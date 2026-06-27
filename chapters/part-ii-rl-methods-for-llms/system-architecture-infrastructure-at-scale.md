@@ -77,7 +77,7 @@ model = DDP(
 
 $$
 W = [W_0 \mid W_1 \mid \cdots \mid W_{T-1}], \quad W_i \in \mathbb{R}^{d \times h/T}
-\tag{11.1}
+\quad (11.1)
 $$
 
 每张 GPU $i$ 独立计算 $Y_i = X W_i$(无需通信)。输出沿隐藏维度被切分。
@@ -134,7 +134,7 @@ $$
 $$
 \text{激活节省} = (T - 1) \times b \times s \times d \times n_{\text{layers}} \times 2 \text{ 字节}
 = 7 \times 4 \times 2048 \times 8192 \times 80 \times 2 \approx 59 \text{ GB/GPU}
-\tag{11.2}
+\quad (11.2)
 $$
 
 ### 11.2.4 流水线并行(PP)
@@ -149,7 +149,7 @@ $$
 
 $$
 \text{气泡占比} = \frac{P - 1}{P + M - 1} \approx \frac{P - 1}{M} \quad (\text{当 } M \gg P)
-\tag{11.3}
+\quad (11.3)
 $$
 
 要让气泡开销 <10%,需要 $M \ge 10 \cdot (P - 1)$。对于 PP=4:至少 30 个 micro-batch。
@@ -179,7 +179,7 @@ $$
 
 $$
 \text{每次传输数据量} = b_{\text{micro}} \times s \times d \times 2 \text{ 字节(BF16)}
-\tag{11.4}
+\quad (11.4)
 $$
 
 对于 micro-batch=4、seq=2048、$d=8192$:$4 \times 2048 \times 8192 \times 2 = 128$ MB 每次传输。在 InfiniBand 50 GB/s 下:每次 2.6 ms——相对每阶段的计算量很小。
@@ -574,14 +574,14 @@ ds_config = {
 
 $$
 \text{MFU} = \frac{\text{实测吞吐(tokens/sec)} \times \text{每 token FLOPs}}{\text{峰值硬件 FLOPS}}
-\tag{11.5}
+\quad (11.5)
 $$
 
 对于一个有 $P$ 个参数、序列长度 $s$、batch 大小 $b$ 的 transformer:
 
 $$
 \text{每 token FLOPs} \approx 6P + 12 \cdot n_{\text{layers}} \cdot d_{\text{model}} \cdot s
-\tag{11.6}
+\quad (11.6)
 $$
 
 系数 6 来自:$2$(乘加) $\times$ $3$(前向 + 反向,其中反向约为前向的 $2\times$)。第二项对应注意力的 $O(s^2)$ 代价。
@@ -613,7 +613,7 @@ $$
 
 $$
 \text{有效 batch 大小} = \text{micro\_batch} \times \text{grad\_accum} \times \text{DP 度}
-\tag{11.7}
+\quad (11.7)
 $$
 
 - **太小**:GPU 利用不足(算术强度低),通信占主导。
@@ -624,7 +624,7 @@ $$
 
 $$
 \text{RLHF batch} = N_{\text{prompts}} \times K_{\text{generations}} \times L_{\text{avg response length}}
-\tag{11.8}
+\quad (11.8)
 $$
 
 典型生产值:$N = 128$ 提示,$K = 1\text{–}4$ 生成,$L = 256\text{–}512$ token → 每步 32K–256K token。
@@ -669,7 +669,7 @@ $$
 
 $$
 \text{Cost} = N_{\text{steps}} \times \frac{T_{\text{step}}}{3600} \times N_{\text{GPUs}} \times C_{\text{GPU/hr}}
-\tag{11.9}
+\quad (11.9)
 $$
 
 **成本示例:70B 模型 RLHF(10K 步)**

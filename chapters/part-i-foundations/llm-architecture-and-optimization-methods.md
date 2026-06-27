@@ -174,7 +174,7 @@ Transformer 最初 [6] 是作为面向序列到序列任务（机器翻译、摘
 
 $$
 \text{MaskedAttn}(Q, K, V) = \text{softmax}\!\left(\frac{Q K^\top}{\sqrt{d_k}} + M\right) V
-\tag{1.1}
+\quad (1.1)
 $$
 
 其中掩码 $M$ 为：
@@ -195,7 +195,7 @@ $$
 
 $$
 \text{CrossAttn}(Q_\text{dec}, K_\text{enc}, V_\text{enc}) = \text{softmax}\!\left(\frac{Q_\text{dec} K_\text{enc}^\top}{\sqrt{d_k}}\right) V_\text{enc}
-\tag{1.2}
+\quad (1.2)
 $$
 
 - 查询（Queries）来自解码器的前一个子层（带掩码自注意力的输出）
@@ -245,7 +245,7 @@ $$
 
 $$
 \text{embed}(x_t) = E[x_t] \in \mathbb{R}^d
-\tag{1.3}
+\quad (1.3)
 $$
 
 对于一个词元 ID 序列 $[x_1, x_2, \dots, x_n]$，嵌入就是一次简单的查表（索引操作）：
@@ -280,7 +280,7 @@ $$
 
 $$
 \tilde{h} = D^{-1/2} U^\top (h - \mu)
-\tag{1.4}
+\quad (1.4)
 $$
 
 其中 $\mu$ 是均值嵌入，$U D U^\top$ 是协方差矩阵 $\Sigma = \frac{1}{N} \sum_{i} (h_i - \mu)(h_i - \mu)^\top$ 的特征分解。
@@ -530,7 +530,7 @@ $$
 
 $$
 \text{LayerNorm}(x) = \gamma \odot \frac{x - \mu}{\sqrt{\sigma^2 + \epsilon}} + \beta
-\tag{1.5}
+\quad (1.5)
 $$
 
 其中：
@@ -546,7 +546,7 @@ $$
 
 $$
 \text{RMSNorm}(x) = \gamma \odot \frac{x}{\text{RMS}(x)}, \quad \text{RMS}(x) = \sqrt{\frac{1}{d} \sum_{i=1}^{d} x_i^2}
-\tag{1.6}
+\quad (1.6)
 $$
 
 没有 $\beta$（平移）参数，也没有减去均值——只有缩放。这为每个词元节省了一次归约运算，在 GPU 上约快 5–10%，同时达到同等的模型质量。所有现代 LLM（Llama、Mistral、Qwen）都使用 RMSNorm。
@@ -704,7 +704,7 @@ Transformer 主体为每个位置产生上下文化的隐藏状态 $h_t \in \mat
 标准的 LM 头将最终的隐藏状态投影到词表的 logits,并用下一词元的交叉熵损失(cross-entropy loss)进行训练:
 
 $$
-P(x_{t+1} \mid x_{\le t}) = \mathrm{softmax}(W_\text{head} \cdot h_t + b) \tag{1.7}
+P(x_{t+1} \mid x_{\le t}) = \mathrm{softmax}(W_\text{head} \cdot h_t + b) \quad (1.7)
 $$
 
 其中 $W_\text{head} \in \mathbb{R}^{|V| \times d}$(通常与嵌入矩阵绑定:$W_\text{head} = E^T$)。
@@ -724,7 +724,7 @@ $$
 对于监督微调(Supervised Fine-Tuning, SFT),其架构与 LM 头完全一致——同样是投影到词表 logits 的线性层。区别纯粹在于我们在哪里计算损失:
 
 $$
-\mathcal{L}_\text{SFT} = -\dfrac{1}{|y|} \sum_{t=1}^{|y|} \log P(y_t \mid x_\text{prompt}, y_{<t}) \tag{1.8}
+\mathcal{L}_\text{SFT} = -\dfrac{1}{|y|} \sum_{t=1}^{|y|} \log P(y_t \mid x_\text{prompt}, y_{<t}) \quad (1.8)
 $$
 
 **条件头——与 LM 头的关键差异**
@@ -743,7 +743,7 @@ LM 头和 SFT 头在架构上完全相同(同一个 $W_\text{head}$)。唯一的
 在强化学习(Reinforcement Learning, RL,如 PPO、GRPO)中,我们需要估计某个状态有多好——这需要一个标量输出,而非词表 logits。价值头用一个简单的回归层取代 LM 投影:
 
 $$
-V(s_t) = w_\text{value}^T \cdot h_t + b \in \mathbb{R} \tag{1.9}
+V(s_t) = w_\text{value}^T \cdot h_t + b \in \mathbb{R} \quad (1.9)
 $$
 
 其中 $w_\text{value} \in \mathbb{R}^d$,$b \in \mathbb{R}$。
@@ -842,7 +842,7 @@ reward_score = reward_model(**inputs).logits
 **什么是梯度?** 梯度 $\nabla_\theta \mathcal{L}$ 是一个指向损失上升最快方向的向量。每个分量 $\dfrac{\partial \mathcal{L}}{\partial \theta_i}$ 告诉我们,如果稍稍增大参数 $\theta_i$,损失会变化多少。要降低损失,我们沿相反方向移动:
 
 $$
-\theta_{t+1} = \theta_t - \eta \nabla_\theta \mathcal{L}(\theta_t) \tag{1.10}
+\theta_{t+1} = \theta_t - \eta \nabla_\theta \mathcal{L}(\theta_t) \quad (1.10)
 $$
 
 其中 $\eta > 0$ 是学习率(learning rate)——即步长。这就是梯度下降 [77]。
@@ -1732,7 +1732,7 @@ $$
 v_i & \text{若 } v_i \text{ 属于前 } k \\
 -\infty & \text{否则}
 \end{cases}
-\tag{1.11}
+\quad (1.11)
 $$
 
 $$
@@ -1748,7 +1748,7 @@ $$
 
 $$
 z = \arg\max_i \big[\log \pi_i + G_i\big], \quad G_i \sim \text{Gumbel}(0, 1)
-\tag{1.12}
+\quad (1.12)
 $$
 
 其中 Gumbel 噪声生成为 $G_i = -\log(-\log(U_i))$，$U_i \sim \text{Uniform}(0, 1)$。
@@ -1759,7 +1759,7 @@ $$
 
 $$
 \hat{g}_i = \frac{\exp\big((\log \pi_i + G_i)/\tau\big)}{\sum_j \exp\big((\log \pi_j + G_j)/\tau\big)}
-\tag{1.13}
+\quad (1.13)
 $$
 
 - $\tau \to 0$：趋近硬性 one-hot（精确但不可微）

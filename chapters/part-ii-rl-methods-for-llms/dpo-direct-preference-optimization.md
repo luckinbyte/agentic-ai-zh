@@ -29,7 +29,7 @@ $$
 **第 4 步**:代入 Bradley-Terry 偏好模型 $P(y_w \succ y_l) = \sigma\big(r(y_w) - r(y_l)\big)$。注意 $Z(x)$ 项会**相互抵消**!于是得到
 
 $$
-\mathcal{L}_{\text{DPO}}(\theta) = -\,\mathbb{E}_{(x,\, y_w,\, y_l)} \left[ \log \sigma \left( \beta \log \frac{\pi_{\theta}(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} - \beta \log \frac{\pi_{\theta}(y_l \mid x)}{\pi_{\text{ref}}(y_l \mid x)} \right) \right] \tag{6.1}
+\mathcal{L}_{\text{DPO}}(\theta) = -\,\mathbb{E}_{(x,\, y_w,\, y_l)} \left[ \log \sigma \left( \beta \log \frac{\pi_{\theta}(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} - \beta \log \frac{\pi_{\theta}(y_l \mid x)}{\pi_{\text{ref}}(y_l \mid x)} \right) \right] \quad (6.1)
 $$
 
 ### DPO 实际上在做什么
@@ -52,7 +52,7 @@ DPO 最小化一个交叉熵损失,其「标签」是:被选中的(chosen)回答
 DPO 的梯度可以分解为
 
 $$
-\nabla_{\theta} \mathcal{L} = -\,\beta \cdot \underbrace{\sigma\big(-\hat{r}_w + \hat{r}_l\big)}_{\text{权重:模型判错时该值更大}} \cdot \Big[ \nabla_{\theta} \log \pi_{\theta}(y_w \mid x) - \nabla_{\theta} \log \pi_{\theta}(y_l \mid x) \Big] \tag{6.2}
+\nabla_{\theta} \mathcal{L} = -\,\beta \cdot \underbrace{\sigma\big(-\hat{r}_w + \hat{r}_l\big)}_{\text{权重:模型判错时该值更大}} \cdot \Big[ \nabla_{\theta} \log \pi_{\theta}(y_w \mid x) - \nabla_{\theta} \log \pi_{\theta}(y_l \mid x) \Big] \quad (6.2)
 $$
 
 **解读**:梯度会提高被选中回答的概率、降低被拒绝回答的概率。当模型当前恰恰偏好错误答案时,该权重达到最大值 —— 它把学习资源集中到「容易混淆」的回答对上。
@@ -148,7 +148,7 @@ trainer.train()
 DPO 中的核心量是:给定提示 $x$ 时,整个序列 $y = (y_1, y_2, \dots, y_T)$ 的对数概率。它被计算为逐词元对数概率之和:
 
 $$
-\log \pi_{\theta}(y \mid x) = \sum_{t=1}^{T} \log \pi_{\theta}(y_t \mid x, y_{<t}) \tag{6.3}
+\log \pi_{\theta}(y \mid x) = \sum_{t=1}^{T} \log \pi_{\theta}(y_t \mid x, y_{<t}) \quad (6.3)
 $$
 
 其中每一项 $\log \pi_{\theta}(y_t \mid x, y_{<t})$ 是模型在位置 $t$ 处、对序列中真实词元 $y_t$ 的 log-softmax 输出。这与标准语言建模中使用的交叉熵损失完全相同 —— 区别只在于这里我们是**求和**而非取平均。
@@ -160,19 +160,19 @@ $$
 从损失出发
 
 $$
-\mathcal{L}_{\text{DPO}}(\theta) = -\,\mathbb{E}_{(x,\, y_w,\, y_l) \sim \mathcal{D}} \Big[ \log \sigma\big(\beta \cdot h_{\theta}(x, y_w, y_l)\big) \Big] \tag{6.4}
+\mathcal{L}_{\text{DPO}}(\theta) = -\,\mathbb{E}_{(x,\, y_w,\, y_l) \sim \mathcal{D}} \Big[ \log \sigma\big(\beta \cdot h_{\theta}(x, y_w, y_l)\big) \Big] \quad (6.4)
 $$
 
 其中「隐式奖励间隔」$h_{\theta}$ 定义为
 
 $$
-h_{\theta}(x, y_w, y_l) = \underbrace{\log \frac{\pi_{\theta}(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)}}_{\text{被选中回答的奖励代理}} - \underbrace{\log \frac{\pi_{\theta}(y_l \mid x)}{\pi_{\text{ref}}(y_l \mid x)}}_{\text{被拒绝回答的奖励代理}} \tag{6.5}
+h_{\theta}(x, y_w, y_l) = \underbrace{\log \frac{\pi_{\theta}(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)}}_{\text{被选中回答的奖励代理}} - \underbrace{\log \frac{\pi_{\theta}(y_l \mid x)}{\pi_{\text{ref}}(y_l \mid x)}}_{\text{被拒绝回答的奖励代理}} \quad (6.5)
 $$
 
 展开到词元层面
 
 $$
-h_{\theta} = \sum_{t=1}^{|y_w|} \left[ \log \pi_{\theta}(y_w^t \mid x, y_{<t}^{w}) - \log \pi_{\text{ref}}(y_w^t \mid x, y_{<t}^{w}) \right] - \sum_{t=1}^{|y_l|} \left[ \log \pi_{\theta}(y_l^t \mid x, y_{<t}^{l}) - \log \pi_{\text{ref}}(y_l^t \mid x, y_{<t}^{l}) \right] \tag{6.6}
+h_{\theta} = \sum_{t=1}^{|y_w|} \left[ \log \pi_{\theta}(y_w^t \mid x, y_{<t}^{w}) - \log \pi_{\text{ref}}(y_w^t \mid x, y_{<t}^{w}) \right] - \sum_{t=1}^{|y_l|} \left[ \log \pi_{\theta}(y_l^t \mid x, y_{<t}^{l}) - \log \pi_{\text{ref}}(y_l^t \mid x, y_{<t}^{l}) \right] \quad (6.6)
 $$
 
 ### 6.5.3 前向传播:逐步解析
@@ -185,21 +185,21 @@ $$
 4. **对词元求和**:
 
 $$
-\text{logp\_chosen} = \sum_{t \in \text{response positions}} \log \pi_{\theta}(y_w^t \mid x, y_{<t}^{w}) \tag{6.7}
+\text{logp\_chosen} = \sum_{t \in \text{response positions}} \log \pi_{\theta}(y_w^t \mid x, y_{<t}^{w}) \quad (6.7)
 $$
 
 $$
-\text{logp\_rejected} = \sum_{t \in \text{response positions}} \log \pi_{\theta}(y_l^t \mid x, y_{<t}^{l}) \tag{6.8}
+\text{logp\_rejected} = \sum_{t \in \text{response positions}} \log \pi_{\theta}(y_l^t \mid x, y_{<t}^{l}) \quad (6.8)
 $$
 
 5. **减去参考值(预先计算或通过第二次前向传播得到)**:
 
 $$
-\text{ratio\_w} = \text{logp\_chosen} - \text{ref\_logp\_chosen} \tag{6.9}
+\text{ratio\_w} = \text{logp\_chosen} - \text{ref\_logp\_chosen} \quad (6.9)
 $$
 
 $$
-\text{ratio\_l} = \text{logp\_rejected} - \text{ref\_logp\_rejected} \tag{6.10}
+\text{ratio\_l} = \text{logp\_rejected} - \text{ref\_logp\_rejected} \quad (6.10)
 $$
 
 6. **计算损失**:$\mathcal{L} = -\log \sigma\big(\beta \cdot (\text{ratio\_w} - \text{ratio\_l})\big)$
@@ -210,7 +210,7 @@ $$
 **每个词元都会得到梯度吗?是的。** 在被选中序列位置 $t$ 处、关于 logits 的梯度为
 
 $$
-\frac{\partial \mathcal{L}}{\partial \text{logits}^{(w)}_t} = -\,\underbrace{\sigma\big(-\beta \cdot h_{\theta}\big)}_{\text{缩放因子}} \cdot \beta \cdot \frac{\partial \log \pi_{\theta}(y_w^t \mid \cdot)}{\partial \text{logits}^{(w)}_t} \tag{6.11}
+\frac{\partial \mathcal{L}}{\partial \text{logits}^{(w)}_t} = -\,\underbrace{\sigma\big(-\beta \cdot h_{\theta}\big)}_{\text{缩放因子}} \cdot \beta \cdot \frac{\partial \log \pi_{\theta}(y_w^t \mid \cdot)}{\partial \text{logits}^{(w)}_t} \quad (6.11)
 $$
 
 **关键洞见**:缩放因子 $\sigma(-\beta \cdot h_{\theta})$ 在两条序列的所有词元间是**共享的**。它起到了一个**自适应学习率**的作用:
@@ -319,7 +319,7 @@ def get_sequence_logprob(model, sequences):
 跨 DPO 实现的经验证据确立了最优全局批次大小区间
 
 $$
-B_{\text{global}} \in [32,\, 128] \tag{6.12}
+B_{\text{global}} \in [32,\, 128] \quad (6.12)
 $$
 
 - $B_{\text{global}} < 32$:隐式奖励估计中出现严重的梯度噪声 → 策略在对齐目标(有用性 vs 安全性)之间出现破坏性的来回震荡。
@@ -330,7 +330,7 @@ $$
 由于 DPO 同时加载两份模型副本(活跃策略 $\pi_{\theta}$ + 冻结参考 $\pi_{\text{ref}}$),单序列的显存占用翻倍。全局批次大小分解为
 
 $$
-B_{\text{global}} = B_{\text{micro}} \times N_{\text{GPUs}} \times K_{\text{accum}} \tag{6.13}
+B_{\text{global}} = B_{\text{micro}} \times N_{\text{GPUs}} \times K_{\text{accum}} \quad (6.13)
 $$
 
 - $B_{\text{micro}}$:单设备微批次大小(每次前向传播处理的偏好对数)。
@@ -340,7 +340,7 @@ $$
 **配对倍数**:单个 DPO 数据实例包含一个提示($x$)、一个选中回答($y_w$)和一个拒绝回答($y_l$)。每个微批次的实际张量负载为
 
 $$
-T_{\text{sequences}} = 2 \times B_{\text{micro}} \tag{6.14}
+T_{\text{sequences}} = 2 \times B_{\text{micro}} \quad (6.14)
 $$
 
 对于在 80GB GPU、上下文长度 4096–8192 词元下运行的 >7B 参数模型,物理上限被严格约束在 $B_{\text{micro}} \in [1,\, 2]$。
@@ -362,7 +362,7 @@ $$
 DPO 损失为
 
 $$
-\mathcal{L}_{\text{DPO}}(\theta) = -\,\mathbb{E}_{(x,\, y_w,\, y_l)} \left[ \log \sigma \left( \beta \log \frac{\pi_{\theta}(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} - \beta \log \frac{\pi_{\theta}(y_l \mid x)}{\pi_{\text{ref}}(y_l \mid x)} \right) \right] \tag{6.15}
+\mathcal{L}_{\text{DPO}}(\theta) = -\,\mathbb{E}_{(x,\, y_w,\, y_l)} \left[ \log \sigma \left( \beta \log \frac{\pi_{\theta}(y_w \mid x)}{\pi_{\text{ref}}(y_w \mid x)} - \beta \log \frac{\pi_{\theta}(y_l \mid x)}{\pi_{\text{ref}}(y_l \mid x)} \right) \right] \quad (6.15)
 $$
 
 由于 $\pi_{\text{ref}}$ 在整个训练过程中完全静态,它的输出可以**预先计算**:

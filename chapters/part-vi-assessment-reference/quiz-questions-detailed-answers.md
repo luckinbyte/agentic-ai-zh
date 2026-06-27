@@ -938,7 +938,7 @@ RL（PPO/GRPO）：梯度范数高度多变，因为：
 
 MLE 推导：给定 $N$ 个偏好对，最大化似然 $\prod_i P(y_w^i \succ y_l^i)$。取负对数：
 
-$$L = -\sum_i \log \sigma\left( r(x_i, y_w^i) - r(x_i, y_l^i) \right) \tag{27.1}$$
+$$L = -\sum_i \log \sigma\left( r(x_i, y_w^i) - r(x_i, y_l^i) \right) \quad (27.1)$$
 
 局限：
 

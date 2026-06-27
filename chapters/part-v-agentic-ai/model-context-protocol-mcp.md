@@ -10,11 +10,11 @@
 
 设想某组织希望把 AI 智能体接入其基础设施时所面临的组合爆炸。假设有 $N$ 个不同的智能体框架(LangChain、AutoGen、CrewAI、自研智能体……)和 $M$ 个不同的工具提供商(GitHub、Slack、PostgreSQL、Jira……)。在没有标准协议的情况下,每一种组合都需要一套定制集成:
 
-$$\text{无标准时的集成数} = N \times M \tag{21.1}$$
+$$\text{无标准时的集成数} = N \times M \quad (21.1)$$
 
 而采用通用协议后,每一方只需实现一次协议:
 
-$$\text{有标准时的集成数} = N + M \tag{21.2}$$
+$$\text{有标准时的集成数} = N + M \quad (21.2)$$
 
 以 $N = 20$ 个智能体框架、$M = 50$ 个工具提供商为例,集成负担从 1,000 个定制连接器骤减到仅 70 个协议实现——降幅达 14 倍。这正是 USB(通用设备连接)、HTTP(通用 Web 通信)以及 LSP(面向 IDE 工具的语言服务器协议,Language Server Protocol)等协议背后的洞见。MCP 把同样的理念应用于 AI 的工具使用。
 
@@ -761,7 +761,7 @@ SWE-bench 基准(源自真实 GitHub issue 的软件工程任务)可以被实现
 
 训练工具使用型智能体的一个挑战是,不同环境有不同的动作空间,使得已学策略难以迁移。MCP 提供了一个通用的动作空间抽象:
 
-$$A_{MCP} = \bigcup_{s \in S} \text{Tools}(s) \tag{21.3}$$
+$$A_{MCP} = \bigcup_{s \in S} \text{Tools}(s) \quad (21.3)$$
 
 其中 $S$ 是已连接 MCP 服务器的集合,$\text{Tools}(s)$ 是服务器 $s$ 的工具集。智能体学习一个以可用动作集为条件的策略 $\pi(a \mid o, A_{MCP})$,从而实现对全新工具集的零样本(zero-shot)泛化。
 

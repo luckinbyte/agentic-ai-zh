@@ -7,61 +7,61 @@
 **PPO Clip(PPO 截断):**
 
 $$
-L = \mathbb{E}\left[\min\left(r_t \hat{A}_t,\ \mathrm{clip}(r_t, 1-\epsilon, 1+\epsilon)\hat{A}_t\right)\right], \quad r_t = \frac{\pi_\theta(a_t \mid s_t)}{\pi_\text{old}(a_t \mid s_t)} \tag{28.1}
+L = \mathbb{E}\left[\min\left(r_t \hat{A}_t,\ \mathrm{clip}(r_t, 1-\epsilon, 1+\epsilon)\hat{A}_t\right)\right], \quad r_t = \frac{\pi_\theta(a_t \mid s_t)}{\pi_\text{old}(a_t \mid s_t)} \quad (28.1)
 $$
 
 **DPO(直接偏好优化):**
 
 $$
-L = -\mathbb{E}\left[\log \sigma\left(\beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_\text{ref}(y_w \mid x)} - \beta \log \frac{\pi_\theta(y_l \mid x)}{\pi_\text{ref}(y_l \mid x)}\right)\right] \tag{28.2}
+L = -\mathbb{E}\left[\log \sigma\left(\beta \log \frac{\pi_\theta(y_w \mid x)}{\pi_\text{ref}(y_w \mid x)} - \beta \log \frac{\pi_\theta(y_l \mid x)}{\pi_\text{ref}(y_l \mid x)}\right)\right] \quad (28.2)
 $$
 
 **GRPO:**
 
 $$
-\hat{A}_i = \frac{r_i - \mu_G}{\sigma_G}, \quad \text{随后进行 PPO 截断更新(无 critic)} \tag{28.3}
+\hat{A}_i = \frac{r_i - \mu_G}{\sigma_G}, \quad \text{随后进行 PPO 截断更新(无 critic)} \quad (28.3)
 $$
 
 **KTO:**
 
 $$
-L = \lambda_w(1 - v(y_w)) + \lambda_l \cdot v(y_l), \quad v = \sigma\left(\beta \log\frac{\pi_\theta}{\pi_\text{ref}} - z\right) \tag{28.4}
+L = \lambda_w(1 - v(y_w)) + \lambda_l \cdot v(y_l), \quad v = \sigma\left(\beta \log\frac{\pi_\theta}{\pi_\text{ref}} - z\right) \quad (28.4)
 $$
 
 **IPO:**
 
 $$
-L = \mathbb{E}\left[\left(\log \frac{\pi_\theta(y_w)}{\pi_\text{ref}(y_w)} - \log \frac{\pi_\theta(y_l)}{\pi_\text{ref}(y_l)} - \frac{1}{2\beta}\right)^2\right] \tag{28.5}
+L = \mathbb{E}\left[\left(\log \frac{\pi_\theta(y_w)}{\pi_\text{ref}(y_w)} - \log \frac{\pi_\theta(y_l)}{\pi_\text{ref}(y_l)} - \frac{1}{2\beta}\right)^2\right] \quad (28.5)
 $$
 
 **ORPO:**
 
 $$
-L = L_\text{SFT}(y_w) - \lambda \log \sigma\left(\log \frac{\text{odds}(y_w)}{\text{odds}(y_l)}\right) \tag{28.6}
+L = L_\text{SFT}(y_w) - \lambda \log \sigma\left(\log \frac{\text{odds}(y_w)}{\text{odds}(y_l)}\right) \quad (28.6)
 $$
 
 **GAE(广义优势估计):**
 
 $$
-\hat{A}_t = \sum_{l=0}^{T-t}(\gamma \lambda)^l \delta_{t+l}, \quad \delta_t = r_t + \gamma V(s_{t+1}) - V(s_t) \tag{28.7}
+\hat{A}_t = \sum_{l=0}^{T-t}(\gamma \lambda)^l \delta_{t+l}, \quad \delta_t = r_t + \gamma V(s_{t+1}) - V(s_t) \quad (28.7)
 $$
 
 **KL 惩罚:**
 
 $$
-R_\text{total} = r_\phi(x, y) - \beta D_\mathrm{KL}\left[\pi_\theta(y \mid x) \| \pi_\text{ref}(y \mid x)\right] \tag{28.8}
+R_\text{total} = r_\phi(x, y) - \beta D_\mathrm{KL}\left[\pi_\theta(y \mid x) \| \pi_\text{ref}(y \mid x)\right] \quad (28.8)
 $$
 
 **奖励模型(RM,Bradley-Terry):**
 
 $$
-L = -\mathbb{E}\left[\log \sigma\left(r_\phi(x, y_w) - r_\phi(x, y_l)\right)\right] \tag{28.9}
+L = -\mathbb{E}\left[\log \sigma\left(r_\phi(x, y_w) - r_\phi(x, y_l)\right)\right] \quad (28.9)
 $$
 
 **Best-of-N(N 中选优):**
 
 $$
-y^* = \arg\max_{y_i \sim \pi_\theta(\cdot \mid x),\ i=1..N} r_\phi(x, y_i) \tag{28.10}
+y^* = \arg\max_{y_i \sim \pi_\theta(\cdot \mid x),\ i=1..N} r_\phi(x, y_i) \quad (28.10)
 $$
 
 ## 28.2 Transformer 与架构公式
@@ -69,37 +69,37 @@ $$
 **自注意力(Self-Attention):**
 
 $$
-\mathrm{Attn}(Q, K, V) = \mathrm{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right) \cdot V \tag{28.11}
+\mathrm{Attn}(Q, K, V) = \mathrm{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right) \cdot V \quad (28.11)
 $$
 
 **多头注意力(Multi-Head):**
 
 $$
-\mathrm{MHA}(X) = \mathrm{Concat}(\text{head}_1, \dots, \text{head}_h) W^O, \quad \text{head}_i = \mathrm{Attn}(XW_i^Q, XW_i^K, XW_i^V) \tag{28.12}
+\mathrm{MHA}(X) = \mathrm{Concat}(\text{head}_1, \dots, \text{head}_h) W^O, \quad \text{head}_i = \mathrm{Attn}(XW_i^Q, XW_i^K, XW_i^V) \quad (28.12)
 $$
 
 **RoPE(旋转位置编码):**
 
 $$
-f(x_m, m) = x_m e^{im\theta_j}, \quad \theta_j = 10000^{-2j/d} \tag{28.13}
+f(x_m, m) = x_m e^{im\theta_j}, \quad \theta_j = 10000^{-2j/d} \quad (28.13)
 $$
 
 **LoRA:**
 
 $$
-W' = W_0 + \frac{\alpha}{r} \cdot BA, \quad B \in \mathbb{R}^{d \times r},\ A \in \mathbb{R}^{r \times k} \tag{28.14}
+W' = W_0 + \frac{\alpha}{r} \cdot BA, \quad B \in \mathbb{R}^{d \times r},\ A \in \mathbb{R}^{r \times k} \quad (28.14)
 $$
 
 **知识蒸馏(KD,软目标):**
 
 $$
-L_\mathrm{KD} = (1-\alpha) L_\mathrm{CE}(y, \hat{y}) + \alpha T^2 \cdot \mathrm{KL}\left(p_T^\text{teacher} \| p_T^\text{student}\right) \tag{28.15}
+L_\mathrm{KD} = (1-\alpha) L_\mathrm{CE}(y, \hat{y}) + \alpha T^2 \cdot \mathrm{KL}\left(p_T^\text{teacher} \| p_T^\text{student}\right) \quad (28.15)
 $$
 
 **前馈网络(FFN,SwiGLU):**
 
 $$
-\mathrm{FFN}(x) = (\mathrm{Swish}(xW_1) \odot xW_3)W_2 \tag{28.16}
+\mathrm{FFN}(x) = (\mathrm{Swish}(xW_1) \odot xW_3)W_2 \quad (28.16)
 $$
 
 ## 28.3 解码方法
@@ -173,31 +173,31 @@ $$
 **余弦相似度(Cosine similarity):**
 
 $$
-\mathrm{sim}(q, d) = \frac{q \cdot d}{\|q\| \cdot \|d\|} \tag{28.17}
+\mathrm{sim}(q, d) = \frac{q \cdot d}{\|q\| \cdot \|d\|} \quad (28.17)
 $$
 
 **检索(Retrieval):**
 
 $$
-D_k = \text{top-}k_{d \in C}\ \mathrm{sim}\left(\text{embed}(q), \text{embed}(d)\right) \tag{28.18}
+D_k = \text{top-}k_{d \in C}\ \mathrm{sim}\left(\text{embed}(q), \text{embed}(d)\right) \quad (28.18)
 $$
 
 **RAG 生成(RAG generation):**
 
 $$
-P(y \mid q) = P_\mathrm{LLM}(y \mid q, D_k) \tag{28.19}
+P(y \mid q) = P_\mathrm{LLM}(y \mid q, D_k) \quad (28.19)
 $$
 
 **分块重叠(Chunking overlap):**
 
 $$
-\text{stride} = \text{chunk\_size} - \text{overlap} \tag{28.20}
+\text{stride} = \text{chunk\_size} - \text{overlap} \quad (28.20)
 $$
 
 **重排序器(Reranker,cross-encoder):**
 
 $$
-\mathrm{score}(q, d) = \mathrm{MLP}\left(\mathrm{BERT}([q; d])\right) \tag{28.21}
+\mathrm{score}(q, d) = \mathrm{MLP}\left(\mathrm{BERT}([q; d])\right) \quad (28.21)
 $$
 
 ## 28.9 智能体设计模式
@@ -222,7 +222,7 @@ $$
 ## 28.11 上下文窗口预算
 
 $$
-C \geq \underbrace{S}_\text{system} + \underbrace{M}_\text{memory/RAG} + \underbrace{T}_\text{tool defs} + \underbrace{H}_\text{history} + \underbrace{R}_\text{reserved output} \tag{28.22}
+C \geq \underbrace{S}_\text{system} + \underbrace{M}_\text{memory/RAG} + \underbrace{T}_\text{tool defs} + \underbrace{H}_\text{history} + \underbrace{R}_\text{reserved output} \quad (28.22)
 $$
 
 128K 上下文的经验法则:
@@ -338,25 +338,25 @@ $$
 **轨迹 GRPO(Trajectory GRPO):**
 
 $$
-\hat{A}_i = \frac{R(\tau_i) - \mu_G}{\sigma_G}, \quad R(\tau_i) = \sum_t r(\tau_i)_t \tag{28.23}
+\hat{A}_i = \frac{R(\tau_i) - \mu_G}{\sigma_G}, \quad R(\tau_i) = \sum_t r(\tau_i)_t \quad (28.23)
 $$
 
 **智能体奖励(Agent reward):**
 
 $$
-R = w_1 R_\text{task} + w_2 R_\text{efficiency} + w_3 R_\text{safety}, \quad R_\text{eff} = \max\left(0, 1 - \text{steps}/N_\text{max}\right) \tag{28.24}
+R = w_1 R_\text{task} + w_2 R_\text{efficiency} + w_3 R_\text{safety}, \quad R_\text{eff} = \max\left(0, 1 - \text{steps}/N_\text{max}\right) \quad (28.24)
 $$
 
 **掩码(Masking):**
 
 $$
-L = \sum_{t \in \text{agent tokens}} \min\left(r_t \hat{A}_t,\ \mathrm{clip}(r_t)\hat{A}_t\right) \quad \text{(屏蔽环境输出)} \tag{28.25}
+L = \sum_{t \in \text{agent tokens}} \min\left(r_t \hat{A}_t,\ \mathrm{clip}(r_t)\hat{A}_t\right) \quad \text{(屏蔽环境输出)} \quad (28.25)
 $$
 
 **Pass@k:**
 
 $$
-1 - \frac{\binom{n-c}{k}}{\binom{n}{k}}, \quad n = \text{总样本数},\ c = \text{正确数} \tag{28.26}
+1 - \frac{\binom{n-c}{k}}{\binom{n}{k}}, \quad n = \text{总样本数},\ c = \text{正确数} \quad (28.26)
 $$
 
 ## 28.21 智能体安全检查清单

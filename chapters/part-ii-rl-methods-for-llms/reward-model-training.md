@@ -7,7 +7,7 @@
 Bradley-Terry 模型(Bradley-Terry model)[198] 是成对偏好学习(pairwise preference learning)的标准概率框架。给定提示 $q$ 的两个回复 $y_1$ 和 $y_2$,该模型假设:
 
 $$
-P(y_1 \succ y_2 \mid q) = \sigma\!\left(r(y_1, q) - r(y_2, q)\right) = \frac{e^{r(y_1, q)}}{e^{r(y_1, q)} + e^{r(y_2, q)}}, \tag{9.1}
+P(y_1 \succ y_2 \mid q) = \sigma\!\left(r(y_1, q) - r(y_2, q)\right) = \frac{e^{r(y_1, q)}}{e^{r(y_1, q)} + e^{r(y_2, q)}}, \quad (9.1)
 $$
 
 其中 $r : \mathcal{Y} \times \mathcal{Q} \to \mathbb{R}$ 是标量奖励函数,$\sigma$ 是 sigmoid 函数。
@@ -17,7 +17,7 @@ $$
 给定由偏好对组成的数据集 $D = \{(q^{(k)}, y_w^{(k)}, y_l^{(k)})\}_{k=1}^{N}$,MLE 目标为:
 
 $$
-\mathcal{L}_{BT}(\phi) = -\frac{1}{N} \sum_{k=1}^{N} \log \sigma\!\left( r_\phi(y_w^{(k)}, q^{(k)}) - r_\phi(y_l^{(k)}, q^{(k)}) \right), \tag{9.2}
+\mathcal{L}_{BT}(\phi) = -\frac{1}{N} \sum_{k=1}^{N} \log \sigma\!\left( r_\phi(y_w^{(k)}, q^{(k)}) - r_\phi(y_l^{(k)}, q^{(k)}) \right), \quad (9.2)
 $$
 
 其中 $r_\phi$ 是以 $\phi$ 为参数的神经网络。这是一个二元交叉熵损失(binary cross-entropy loss),其中“正类”即被偏好的回复。
@@ -36,7 +36,7 @@ $$
 一种常见的扩展是在获胜奖励与失败奖励之间加入间隔(margin)$m$,以确保二者之间至少存在一个最小间距:
 
 $$
-\mathcal{L}_{\text{margin}} = -\frac{1}{N} \sum_{k=1}^{N} \log \sigma\!\left( r_\phi(y_w^{(k)}, q^{(k)}) - r_\phi(y_l^{(k)}, q^{(k)}) - m \right). \tag{9.3}
+\mathcal{L}_{\text{margin}} = -\frac{1}{N} \sum_{k=1}^{N} \log \sigma\!\left( r_\phi(y_w^{(k)}, q^{(k)}) - r_\phi(y_l^{(k)}, q^{(k)}) - m \right). \quad (9.3)
 $$
 
 ## 9.2 奖励模型架构
@@ -86,7 +86,7 @@ trainer.train()
 原始奖励模型的输出可能具有任意的尺度与偏移。对奖励做中心化(减去均值)可稳定 RL 训练:
 
 $$
-r_{\text{centered}}(y, q) = r_\phi(y, q) - \mathbb{E}_{y' \sim \pi_\theta}\!\left[ r_\phi(y', q) \right]. \tag{9.4}
+r_{\text{centered}}(y, q) = r_\phi(y, q) - \mathbb{E}_{y' \sim \pi_\theta}\!\left[ r_\phi(y', q) \right]. \quad (9.4)
 $$
 
 在 TRL 中,这通过 `center_rewards_coefficient` 参数实现——它在奖励模型损失中加入一个正则项,惩罚非零均值的奖励。
@@ -104,7 +104,7 @@ $$
 向 Bradley-Terry 损失中加入间隔 $m$ 可确保奖励模型为偏好与不偏好的回复分配有显著差异的分数:
 
 $$
-\mathcal{L}_{\text{margin}} = \max\!\left( 0,\; m - (r_w - r_l) \right). \tag{9.5}
+\mathcal{L}_{\text{margin}} = \max\!\left( 0,\; m - (r_w - r_l) \right). \quad (9.5)
 $$
 
 ## 9.4 过程奖励模型 vs 结果奖励模型
@@ -273,7 +273,7 @@ Bradley-Terry 模型处理的是成对偏好($y_w \succ y_l$),但许多实际场
 Plackett-Luce(PL)模型 [199] 是 Bradley-Terry 向完整排序的标准扩展。给定 $K$ 个回复 $y_1, \dots, y_K$ 及排序 $\pi$(其中 $\pi(1)$ 为最佳):
 
 $$
-P(\pi \mid q) = \prod_{i=1}^{K} \frac{e^{r_\phi(y_{\pi(i)}, q)}}{\sum_{j=i}^{K} e^{r_\phi(y_{\pi(j)}, q)}}. \tag{9.6}
+P(\pi \mid q) = \prod_{i=1}^{K} \frac{e^{r_\phi(y_{\pi(i)}, q)}}{\sum_{j=i}^{K} e^{r_\phi(y_{\pi(j)}, q)}}. \quad (9.6)
 $$
 
 **直觉**:依次选出剩余项中最佳者。在每一步,选中项 $\pi(i)$ 的概率是在剩余项上做 softmax。
@@ -281,7 +281,7 @@ $$
 **损失函数**:
 
 $$
-\mathcal{L}_{PL}(\phi) = -\frac{1}{|D|} \sum_{(q, \pi) \in D} \sum_{i=1}^{K-1} \left[ r_\phi(y_{\pi(i)}, q) - \log \sum_{j=i}^{K} e^{r_\phi(y_{\pi(j)}, q)} \right]. \tag{9.7}
+\mathcal{L}_{PL}(\phi) = -\frac{1}{|D|} \sum_{(q, \pi) \in D} \sum_{i=1}^{K-1} \left[ r_\phi(y_{\pi(i)}, q) - \log \sum_{j=i}^{K} e^{r_\phi(y_{\pi(j)}, q)} \right]. \quad (9.7)
 $$
 
 **Plackett-Luce 退化为 Bradley-Terry**
@@ -296,7 +296,7 @@ $$
 - **ListNet [201]**:最小化模型的 top-1 概率分布与真实分布之间的 KL 散度(KL divergence):
 
 $$
-\mathcal{L}_{\text{ListNet}} = -\sum_{i=1}^{K} P_{\text{true}}(y_i \text{ 为最佳}) \cdot \log P_{\text{model}}(y_i \text{ 为最佳}), \tag{9.8}
+\mathcal{L}_{\text{ListNet}} = -\sum_{i=1}^{K} P_{\text{true}}(y_i \text{ 为最佳}) \cdot \log P_{\text{model}}(y_i \text{ 为最佳}), \quad (9.8)
 $$
 
 其中 $P_{\text{model}}(y_i \text{ 为最佳}) = \dfrac{e^{r_\phi(y_i)}}{\sum_j e^{r_\phi(y_j)}}$。
