@@ -1,0 +1,259 @@
+[
+  {
+    "part": "frontmatter",
+    "chapter": "disclaimer",
+    "title": "Disclaimer",
+    "segment_source": "source/frontmatter/disclaimer.md",
+    "out": "chapters/frontmatter/disclaimer.md",
+    "mode": "overwrite",
+    "merge": false,
+    "is_first": true,
+    "pages": "p24-p24",
+    "images": [],
+    "context": "整章"
+  },
+  {
+    "part": "frontmatter",
+    "chapter": "about-the-author",
+    "title": "About the Author",
+    "segment_source": "source/frontmatter/about-the-author.md",
+    "out": "chapters/frontmatter/about-the-author.md",
+    "mode": "overwrite",
+    "merge": false,
+    "is_first": true,
+    "pages": "p25-p25",
+    "images": [],
+    "context": "整章"
+  },
+  {
+    "part": "frontmatter",
+    "chapter": "preface",
+    "title": "Preface",
+    "segment_source": "source/frontmatter/preface.md",
+    "out": "chapters/frontmatter/preface.md",
+    "mode": "overwrite",
+    "merge": false,
+    "is_first": true,
+    "pages": "p26-p29",
+    "images": [],
+    "context": "整章"
+  },
+  {
+    "part": "frontmatter",
+    "chapter": "introduction",
+    "title": "Introduction",
+    "segment_source": "source/frontmatter/introduction.md",
+    "out": "chapters/frontmatter/introduction.md",
+    "mode": "overwrite",
+    "merge": false,
+    "is_first": true,
+    "pages": "p30-p33",
+    "images": [],
+    "context": "整章"
+  },
+  {
+    "part": "part-i-foundations",
+    "chapter": "llm-architecture-and-optimization-methods",
+    "title": "LLM Architecture and Optimization Methods",
+    "segment_source": "source/part-i-foundations/llm-architecture-and-optimization-methods__seg1.md",
+    "out": "chapters/part-i-foundations/llm-architecture-and-optimization-methods__seg1.md",
+    "mode": "overwrite",
+    "merge": true,
+    "is_first": true,
+    "seg_index": 1,
+    "seg_total": 6,
+    "pages": "p35-p38",
+    "sections": [
+      "How LLMs Work: An Intuitive Overview",
+      "Tokenization"
+    ],
+    "images": [
+      "../../images/part-i-foundations/llm-architecture-and-optimization-methods/llm-architecture-and-optimization-methods-p36-01.png"
+    ],
+    "context": "第 1/6 段"
+  },
+  {
+    "part": "part-i-foundations",
+    "chapter": "llm-architecture-and-optimization-methods",
+    "title": "LLM Architecture and Optimization Methods",
+    "segment_source": "source/part-i-foundations/llm-architecture-and-optimization-methods__seg2.md",
+    "out": "chapters/part-i-foundations/llm-architecture-and-optimization-methods__seg2.md",
+    "mode": "overwrite",
+    "merge": true,
+    "is_first": false,
+    "seg_index": 2,
+    "seg_total": 6,
+    "pages": "p39-p53",
+    "sections": [
+      "The Transformer Architecture"
+    ],
+    "images": [
+      "../../images/part-i-foundations/llm-architecture-and-optimization-methods/llm-architecture-and-optimization-methods-p40-02.png",
+      "../../images/part-i-foundations/llm-architecture-and-optimization-methods/llm-architecture-and-optimization-methods-p41-03.png",
+      "../../images/part-i-foundations/llm-architecture-and-optimization-methods/llm-architecture-and-optimization-methods-p43-04.png",
+      "../../images/part-i-foundations/llm-architecture-and-optimization-methods/llm-architecture-and-optimization-methods-p44-05.png"
+    ],
+    "context": "第 2/6 段"
+  },
+  {
+    "part": "part-i-foundations",
+    "chapter": "llm-architecture-and-optimization-methods",
+    "title": "LLM Architecture and Optimization Methods",
+    "segment_source": "source/part-i-foundations/llm-architecture-and-optimization-methods__seg3.md",
+    "out": "chapters/part-i-foundations/llm-architecture-and-optimization-methods__seg3.md",
+    "mode": "overwrite",
+    "merge": true,
+    "is_first": false,
+    "seg_index": 3,
+    "seg_total": 6,
+    "pages": "p54-p70",
+    "sections": [
+      "Prediction Heads: What Transformers Output",
+      "Optimization Theory for LLM Training",
+      "Flash Attention – Algorithm and Hardware Awareness",
+      "Pretraining: Best Practices"
+    ],
+    "images": [
+      "../../images/part-i-foundations/llm-architecture-and-optimization-methods/llm-architecture-and-optimization-methods-p55-06.png",
+      "../../images/part-i-foundations/llm-architecture-and-optimization-methods/llm-architecture-and-optimization-methods-p58-07.png",
+      "../../images/part-i-foundations/llm-architecture-and-optimization-methods/llm-architecture-and-optimization-methods-p61-08.png"
+    ],
+    "context": "第 3/6 段"
+  },
+  {
+    "part": "part-i-foundations",
+    "chapter": "llm-architecture-and-optimization-methods",
+    "title": "LLM Architecture and Optimization Methods",
+    "segment_source": "source/part-i-foundations/llm-architecture-and-optimization-methods__seg4.md",
+    "out": "chapters/part-i-foundations/llm-architecture-and-optimization-methods__seg4.md",
+    "mode": "overwrite",
+    "merge": true,
+    "is_first": false,
+    "seg_index": 4,
+    "seg_total": 6,
+    "pages": "p71-p86",
+    "sections": [
+      "Supervised Fine-Tuning (SFT)",
+      "LoRA and Parameter-Efficient Fine-Tuning",
+      "Mixture of Experts (MoE)",
+      "Diversity in LLM Training",
+      "Text Generation: Decoding Methods"
+    ],
+    "images": [
+      "../../images/part-i-foundations/llm-architecture-and-optimization-methods/llm-architecture-and-optimization-methods-p74-09.png",
+      "../../images/part-i-foundations/llm-architecture-and-optimization-methods/llm-architecture-and-optimization-methods-p79-10.png",
+      "../../images/part-i-foundations/llm-architecture-and-optimization-methods/llm-architecture-and-optimization-methods-p83-11.png",
+      "../../images/part-i-foundations/llm-architecture-and-optimization-methods/llm-architecture-and-optimization-methods-p84-12.png"
+    ],
+    "context": "第 4/6 段"
+  },
+  {
+    "part": "part-i-foundations",
+    "chapter": "llm-architecture-and-optimization-methods",
+    "title": "LLM Architecture and Optimization Methods",
+    "segment_source": "source/part-i-foundations/llm-architecture-and-optimization-methods__seg5.md",
+    "out": "chapters/part-i-foundations/llm-architecture-and-optimization-methods__seg5.md",
+    "mode": "overwrite",
+    "merge": true,
+    "is_first": false,
+    "seg_index": 5,
+    "seg_total": 6,
+    "pages": "p87-p102",
+    "sections": [
+      "Prompt Engineering",
+      "Model Compression Methods",
+      "Speculative Decoding Methods",
+      "Hallucination Detection"
+    ],
+    "images": [],
+    "context": "第 5/6 段"
+  },
+  {
+    "part": "part-i-foundations",
+    "chapter": "llm-architecture-and-optimization-methods",
+    "title": "LLM Architecture and Optimization Methods",
+    "segment_source": "source/part-i-foundations/llm-architecture-and-optimization-methods__seg6.md",
+    "out": "chapters/part-i-foundations/llm-architecture-and-optimization-methods__seg6.md",
+    "mode": "overwrite",
+    "merge": true,
+    "is_first": false,
+    "seg_index": 6,
+    "seg_total": 6,
+    "pages": "p103-p104",
+    "sections": [
+      "LLM Safety and Responsible AI"
+    ],
+    "images": [
+      "../../images/part-i-foundations/llm-architecture-and-optimization-methods/llm-architecture-and-optimization-methods-p103-13.png"
+    ],
+    "context": "第 6/6 段"
+  },
+  {
+    "part": "part-i-foundations",
+    "chapter": "systems-foundations-for-llms",
+    "title": "Systems Foundations for LLMs",
+    "segment_source": "source/part-i-foundations/systems-foundations-for-llms.md",
+    "out": "chapters/part-i-foundations/systems-foundations-for-llms.md",
+    "mode": "overwrite",
+    "merge": false,
+    "is_first": true,
+    "pages": "p105-p118",
+    "images": [
+      "../../images/part-i-foundations/systems-foundations-for-llms/systems-foundations-for-llms-p106-01.png",
+      "../../images/part-i-foundations/systems-foundations-for-llms/systems-foundations-for-llms-p109-02.png",
+      "../../images/part-i-foundations/systems-foundations-for-llms/systems-foundations-for-llms-p112-03.png",
+      "../../images/part-i-foundations/systems-foundations-for-llms/systems-foundations-for-llms-p116-04.png"
+    ],
+    "context": "整章"
+  },
+  {
+    "part": "part-i-foundations",
+    "chapter": "introduction-to-reinforcement-learning",
+    "title": "Introduction to Reinforcement Learning",
+    "segment_source": "source/part-i-foundations/introduction-to-reinforcement-learning.md",
+    "out": "chapters/part-i-foundations/introduction-to-reinforcement-learning.md",
+    "mode": "overwrite",
+    "merge": false,
+    "is_first": true,
+    "pages": "p119-p131",
+    "images": [
+      "../../images/part-i-foundations/introduction-to-reinforcement-learning/introduction-to-reinforcement-learning-p119-01.png",
+      "../../images/part-i-foundations/introduction-to-reinforcement-learning/introduction-to-reinforcement-learning-p121-02.png",
+      "../../images/part-i-foundations/introduction-to-reinforcement-learning/introduction-to-reinforcement-learning-p127-03.png",
+      "../../images/part-i-foundations/introduction-to-reinforcement-learning/introduction-to-reinforcement-learning-p128-04.png"
+    ],
+    "context": "整章"
+  },
+  {
+    "part": "part-iii-reasoning",
+    "chapter": "rl-for-large-reasoning-models",
+    "title": "RL for Large Reasoning Models",
+    "segment_source": "source/part-iii-reasoning/rl-for-large-reasoning-models.md",
+    "out": "chapters/part-iii-reasoning/rl-for-large-reasoning-models.md",
+    "mode": "overwrite",
+    "merge": false,
+    "is_first": true,
+    "pages": "p251-p272",
+    "images": [
+      "../../images/part-iii-reasoning/rl-for-large-reasoning-models/rl-for-large-reasoning-models-p252-01.png",
+      "../../images/part-iii-reasoning/rl-for-large-reasoning-models/rl-for-large-reasoning-models-p253-02.png",
+      "../../images/part-iii-reasoning/rl-for-large-reasoning-models/rl-for-large-reasoning-models-p255-03.png",
+      "../../images/part-iii-reasoning/rl-for-large-reasoning-models/rl-for-large-reasoning-models-p256-04.png",
+      "../../images/part-iii-reasoning/rl-for-large-reasoning-models/rl-for-large-reasoning-models-p258-05.png"
+    ],
+    "context": "整章"
+  },
+  {
+    "part": "part-iv-evaluation",
+    "chapter": "llm-evaluation",
+    "title": "LLM Evaluation",
+    "segment_source": "source/part-iv-evaluation/llm-evaluation.md",
+    "out": "chapters/part-iv-evaluation/llm-evaluation.md",
+    "mode": "overwrite",
+    "merge": false,
+    "is_first": true,
+    "pages": "p274-p290",
+    "images": [],
+    "context": "整章"
+  }
+]
