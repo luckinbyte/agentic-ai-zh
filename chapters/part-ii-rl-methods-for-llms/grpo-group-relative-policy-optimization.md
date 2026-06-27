@@ -42,7 +42,7 @@ $$
 
 DeepSeek-R1 的突破 [15]:使用二元正确性奖励($r = 1$ 若答案正确,否则 $r = 0$)训练的纯 GRPO,在数学/代码任务上自发地发展出了思维链(chain-of-thought)推理、自我验证(self-verification)和错误纠正能力——而无需任何显式的相关指令。
 
-![图 7.1:GRPO 实战示意:为单个数学提示采样了 G=5 个回复。其中三个正确(r=1),两个错误(r=0)。组均值 µ_G=0.6 充当基线;正确回复获得正优势(被加强),错误回复获得负优势(被抑制)。](images/part-ii-rl-methods-for-llms/grpo-group-relative-policy-optimization/grpo-group-relative-policy-optimization-p159-01.png)
+![图 7.1:GRPO 实战示意:为单个数学提示采样了 G=5 个回复。其中三个正确(r=1),两个错误(r=0)。组均值 µ_G=0.6 充当基线;正确回复获得正优势(被加强),错误回复获得负优势(被抑制)。](../../images/part-ii-rl-methods-for-llms/grpo-group-relative-policy-optimization/grpo-group-relative-policy-optimization-p159-01.png)
 
 ## 7.3 TRL 实现
 

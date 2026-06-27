@@ -36,7 +36,7 @@
 
 结构化的开发生命周期帮助团队系统化地从概念推进到生产。图 25.1 展示了五个主要阶段。
 
-![图 25.1:智能体开发生命周期。每个阶段的反馈回路确保持续改进。](images/part-v-agentic-ai/agent-development-frameworks/agent-development-frameworks-p460-01.png)
+![图 25.1:智能体开发生命周期。每个阶段的反馈回路确保持续改进。](../../images/part-v-agentic-ai/agent-development-frameworks/agent-development-frameworks-p460-01.png)
 
 ### 25.2.1 阶段 1:设计
 
@@ -250,7 +250,7 @@ result = graph.invoke(
 
 > 代码清单 25.4:研究型智能体——图构建与调用
 
-![图 25.2:研究型智能体的 LangGraph 执行图。条件边实现了工具使用循环与错误处理。](images/part-v-agentic-ai/agent-development-frameworks/agent-development-frameworks-p464-02.png)
+![图 25.2:研究型智能体的 LangGraph 执行图。条件边实现了工具使用循环与错误处理。](../../images/part-v-agentic-ai/agent-development-frameworks/agent-development-frameworks-p464-02.png)
 
 ### 25.3.2 AutoGen(微软)
 
@@ -688,7 +688,7 @@ print(str(result))
 
 模块化方法把智能体系统分解为可独立替换的若干组件:
 
-![图 25.3:模块化智能体架构。编排器向核心服务委派;每个服务拥有自己的存储。虚线表示可选的跨服务通信。](images/part-v-agentic-ai/agent-development-frameworks/agent-development-frameworks-p472-03.png)
+![图 25.3:模块化智能体架构。编排器向核心服务委派;每个服务拥有自己的存储。虚线表示可选的跨服务通信。](../../images/part-v-agentic-ai/agent-development-frameworks/agent-development-frameworks-p472-03.png)
 
 ### 25.4.2 关键开源构建单元
 
@@ -802,7 +802,7 @@ agent = Agent(model="gpt-4o", tools=tools)
 
 测试智能体需要一套多层策略,以应对非确定性、有状态、多步系统所独有的挑战。
 
-![图 25.4:智能体测试金字塔。底层更快且数量更多;上层提供更高的可信度。](images/part-v-agentic-ai/agent-development-frameworks/agent-development-frameworks-p475-04.png)
+![图 25.4:智能体测试金字塔。底层更快且数量更多;上层提供更高的可信度。](../../images/part-v-agentic-ai/agent-development-frameworks/agent-development-frameworks-p475-04.png)
 
 ### 25.5.1 单元测试单个工具
 
@@ -1145,7 +1145,7 @@ print(f"Replay output: {response.choices[0].message.content[:300]}")
 
 <sup>20</sup> Celery
 
-![图 25.5:基于队列的异步智能体部署。worker 从队列拉取任务并独立持久化状态。](images/part-v-agentic-ai/agent-development-frameworks/agent-development-frameworks-p481-05.png)
+![图 25.5:基于队列的异步智能体部署。worker 从队列拉取任务并独立持久化状态。](../../images/part-v-agentic-ai/agent-development-frameworks/agent-development-frameworks-p481-05.png)
 
 ```python
 from celery import Celery

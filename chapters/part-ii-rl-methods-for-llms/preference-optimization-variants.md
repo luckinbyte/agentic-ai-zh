@@ -401,7 +401,7 @@ trainer.train()
 | ORPO | 1 | 离线偏好对 | 非常低 | 高 | 内存受限,SFT + 对齐合一 |
 | Best-of-N | 1 + RM | 在线(生成) | 中 | 完美 | 强基线,数据生成 |
 
-![图 8.1:质量与算力的近似前沿。位于 SFT 上限线之上的方法能够超越单纯监督微调所能达到的效果。图中位置仅为示意,因模型而异。](images/part-ii-rl-methods-for-llms/preference-optimization-variants/preference-optimization-variants-p181-01.png)
+![图 8.1:质量与算力的近似前沿。位于 SFT 上限线之上的方法能够超越单纯监督微调所能达到的效果。图中位置仅为示意,因模型而异。](../../images/part-ii-rl-methods-for-llms/preference-optimization-variants/preference-optimization-variants-p181-01.png)
 
 **决策树:该用哪种方法?**
 

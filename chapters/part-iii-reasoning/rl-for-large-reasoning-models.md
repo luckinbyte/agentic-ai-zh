@@ -40,7 +40,7 @@ $$
 
 其中 $f$ 是某个单调函数,$\alpha, \beta > 0$ 是常数。这意味着:一个拥有更多推理计算量的小模型,可以匹敌一个推理计算量更少的大模型——这是计算-性能权衡上的一次根本性转变。
 
-![图 13.1:测试时计算缩放曲线示意图。性能随推理 token 数量在不同模型规模下呈对数线性提升;拥有更多计算量的小模型可以逼近计算量更少的大模型。](images/part-iii-reasoning/rl-for-large-reasoning-models/rl-for-large-reasoning-models-p252-01.png)
+![图 13.1:测试时计算缩放曲线示意图。性能随推理 token 数量在不同模型规模下呈对数线性提升;拥有更多计算量的小模型可以逼近计算量更少的大模型。](../../images/part-iii-reasoning/rl-for-large-reasoning-models/rl-for-large-reasoning-models-p252-01.png)
 
 其现实意义极为深远:推理模型用训练计算去换取推理计算。与其总是部署可能的最大模型,人们可以部署一个更小、具备推理能力的模型,并在困难问题上分配更多 token 去"思考"。
 
@@ -48,7 +48,7 @@ $$
 
 上述缩放定律表明,在推理阶段投入更多计算可以显著提升推理性能。本节系统性地介绍将测试时缩放付诸实践的方法——从简单的思维链到复杂的树搜索和图搜索算法。这些方法构成一个谱系,在推理成本与准确率之间权衡,理解它们的结构对于设计现代推理系统至关重要。
 
-![图 13.2:测试时缩放方法的谱系。每种方法都用额外的推理计算换取更高的推理准确率。这些方法在概念上层层递进:CoT 引入显式推理,Self-Consistency 增加采样,ToT 增加结构化搜索,GoT 增加合并操作,MCTS 增加学习得到的价值引导。](images/part-iii-reasoning/rl-for-large-reasoning-models/rl-for-large-reasoning-models-p253-02.png)
+![图 13.2:测试时缩放方法的谱系。每种方法都用额外的推理计算换取更高的推理准确率。这些方法在概念上层层递进:CoT 引入显式推理,Self-Consistency 增加采样,ToT 增加结构化搜索,GoT 增加合并操作,MCTS 增加学习得到的价值引导。](../../images/part-iii-reasoning/rl-for-large-reasoning-models/rl-for-large-reasoning-models-p253-02.png)
 
 ### 13.2.1 思维链(CoT)
 
@@ -126,7 +126,7 @@ $$
 3. 保留最有希望的 $k$ 个状态(beam search)
 4. 将所有 $k$ 个状态推进到下一层
 
-![图 13.3:"24 点"任务上的思维树:用 4、9、10、13 经过运算得到 24。在每一层,模型生成 $b = 3$ 个候选想法,逐个评估(sure/maybe/impossible),剪掉无希望的分支,并扩展最有希望的分支。绿色路径通向一个解;红色路径被及早剪除。](images/part-iii-reasoning/rl-for-large-reasoning-models/rl-for-large-reasoning-models-p255-03.png)
+![图 13.3:"24 点"任务上的思维树:用 4、9、10、13 经过运算得到 24。在每一层,模型生成 $b = 3$ 个候选想法,逐个评估(sure/maybe/impossible),剪掉无希望的分支,并扩展最有希望的分支。绿色路径通向一个解;红色路径被及早剪除。](../../images/part-iii-reasoning/rl-for-large-reasoning-models/rl-for-large-reasoning-models-p255-03.png)
 
 5. 重复,直到找到解或达到深度上限
 
@@ -165,7 +165,7 @@ $$
 \text{LLM calls (BFS)} = \underbrace{k \cdot b}_{\text{generation}} + \underbrace{k \cdot b}_{\text{evaluation}} = 2kb \text{ per level} \implies \text{Total} = 2kbd \quad (13.6)
 $$
 
-![图 13.4:CoT(线性链)、ToT(树——可分叉但不可合并)与 GoT(DAG——分支可以合并)的对比。对于排序任务,GoT 可以把数组拆分为子问题、独立(并行)求解、再合并结果——这在纯树结构中是不可能的。这使得分治式推理成为可能。](images/part-iii-reasoning/rl-for-large-reasoning-models/rl-for-large-reasoning-models-p256-04.png)
+![图 13.4:CoT(线性链)、ToT(树——可分叉但不可合并)与 GoT(DAG——分支可以合并)的对比。对于排序任务,GoT 可以把数组拆分为子问题、独立(并行)求解、再合并结果——这在纯树结构中是不可能的。这使得分治式推理成为可能。](../../images/part-iii-reasoning/rl-for-large-reasoning-models/rl-for-large-reasoning-models-p256-04.png)
 
 对 24 点游戏:$b = 3$、$k = 2$、$d = 3 \implies 36$ 次 LLM 调用,而标准 CoT 只需 1 次。
 
@@ -257,7 +257,7 @@ $$
 
 迭代 1(选择 $\to$ 根节点,扩展):
 
-![图 13.5:用于推理的 MCTS 四个阶段:(1) 选择:用 UCB 遍历树,找到一个有希望的叶子;(2) 扩展:从叶子生成新的推理步骤;(3) 模拟:把推理补全到终止状态并评估;(4) 回溯:沿路径更新价值估计。](images/part-iii-reasoning/rl-for-large-reasoning-models/rl-for-large-reasoning-models-p258-05.png)
+![图 13.5:用于推理的 MCTS 四个阶段:(1) 选择:用 UCB 遍历树,找到一个有希望的叶子;(2) 扩展:从叶子生成新的推理步骤;(3) 模拟:把推理补全到终止状态并评估;(4) 回溯:沿路径更新价值估计。](../../images/part-iii-reasoning/rl-for-large-reasoning-models/rl-for-large-reasoning-models-p258-05.png)
 
 - 生成 3 个候选的首步:
   1. "Assume for contradiction that $\sqrt{2} = p/q$ in lowest terms."(假设 $\sqrt{2} = p/q$,$p/q$ 已约分为最简形式。)($P = 0.7$)

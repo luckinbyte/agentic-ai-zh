@@ -26,7 +26,7 @@ $$
 
 其中 $s_t$ 是当前系统提示（system prompt），$c_t$ 是检索到的记忆，$h_t$ 是近期的上下文内历史。行动之后，智能体可能写入新信息：$M \leftarrow W(M, (o_t, a_t, r_t))$。
 
-![图 17.1：智能体记忆系统的四分类法，对应认知科学的区分。每种记忆类型具有不同的访问模式、更新频率和检索机制。](images/part-v-agentic-ai/agentic-memory-systems/agentic-memory-systems-p321-01.png)
+![图 17.1：智能体记忆系统的四分类法，对应认知科学的区分。每种记忆类型具有不同的访问模式、更新频率和检索机制。](../../images/part-v-agentic-ai/agentic-memory-systems/agentic-memory-systems-p321-01.png)
 
 ## 17.2 记忆类型分类
 
