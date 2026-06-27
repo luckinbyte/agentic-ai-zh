@@ -1,4 +1,4 @@
-# 智能体间通信(Agent-to-Agent Communication, A2A)
+# 第 23 章 智能体间通信(Agent-to-Agent Communication, A2A)
 
 随着大语言模型(Large Language Model, LLM)从孤立的单体助手演进为由专业化智能体(agent)构成的协作网络,"智能体之间如何相互对话"变得与"智能体如何在内部进行推理"同样重要。本章涵盖使多智能体系统(Multi-Agent System)得以协调、委派任务并集体求解单个智能体无法独立解决的问题所需的协议、模式与工程实践。
 

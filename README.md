@@ -30,14 +30,16 @@ source/               预处理切出的原文分章文本(便于追溯)
 
 ## 翻译进度
 
+**全书翻译已完成**:29 章 + 4 篇前言,约 22 万中文字,33 个 Markdown 文件。
+
 | 部分 | 状态 |
 |---|---|
-| Frontmatter(前言/引言) | ⏳ 待译 |
-| Part I Foundations | ⏳ 待译 |
-| Part II RL Methods for LLMs | ⏳ 待译 |
-| Part III Reasoning | ⏳ 待译 |
-| Part IV Evaluation | ⏳ 待译 |
-| **Part V Agentic AI** | 🔄 首批进行中 |
-| Part VI Assessment & Reference | ⏳ 待译 |
+| Frontmatter(前言/引言) | ✅ 已完成 |
+| Part I Foundations | ✅ 已完成 |
+| Part II RL Methods for LLMs | ✅ 已完成 |
+| Part III Reasoning | ✅ 已完成 |
+| Part IV Evaluation | ✅ 已完成 |
+| Part V Agentic AI | ✅ 已完成 |
+| Part VI Assessment & Reference | ✅ 已完成 |
 
 > 本译作仅供学习研究;版权归原作者所有。
