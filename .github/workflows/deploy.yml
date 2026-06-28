@@ -22,12 +22,31 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      - name: Install mdBook
+        uses: peaceiris/actions-mdbook@v2
+        with:
+          # 0.5.x 与 mdbook-katex 0.9.4 不兼容(预处理器报 null 解析错误),故固定 0.4.48
+          mdbook-version: '0.4.48'
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+      - name: Cache cargo (mdbook-katex)
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: mdbook-katex-0.9.4-v1
+      - name: Install mdbook-katex
+        run: cargo install mdbook-katex --version 0.9.4 --locked
+      - name: Build the book
+        run: mdbook build
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Upload static site
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: ./book
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

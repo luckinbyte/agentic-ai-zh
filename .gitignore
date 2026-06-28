@@ -10,9 +10,10 @@ __pycache__/
 .idea/
 .vscode/
 
-# GitBook 构建产物
+# 构建产物
 _book/
 node_modules/
+book/
 
 # Claude
 .claude/

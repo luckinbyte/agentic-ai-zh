@@ -1,0 +1,23 @@
+[book]
+title = "Agentic AI 指南 —— 从基础到系统"
+authors = ["Haggai Roitman · 中文翻译版"]
+language = "zh"
+description = "《The Hitchhiker's Guide to Agentic AI: From Foundations to Systems》简体中文翻译版"
+src = "src"
+
+[preprocessor.katex]
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"
+git-repository-url = "https://github.com/luckinbyte/agentic-ai-zh"
+edit-url-template = "https://github.com/luckinbyte/agentic-ai-zh/edit/main/{path}"
+
+[output.html.fold]
+enable = true
+level = 0
+
+[output.html.search]
+enable = true
+limit-results = 30
+use-boolean-and = true
